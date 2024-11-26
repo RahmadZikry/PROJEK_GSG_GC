@@ -14,4 +14,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('admin', App\Http\Controllers\AdminController::class);
     Route::resource('pengguna', App\Http\Controllers\PenggunaController::class);
+    Route::resource('fasilitas', App\Http\Controllers\FasilitasController::class);
 });
