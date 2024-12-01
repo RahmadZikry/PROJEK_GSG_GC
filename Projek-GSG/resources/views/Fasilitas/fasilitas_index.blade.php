@@ -1,5 +1,5 @@
 @extends ('Admin.layouts' ,['title'=>'Index Fasilitas'])
-@section('content')
+@section('contect')
     <div class="card">
         <h5 class="card-header">Data Fasilitas</h5>
         <div class="card-body">
@@ -29,6 +29,14 @@
                         <td>{{ $fasilitas->status_ketersediaan }}</td>
                         <td>
                             <a href="/fasilitas/ {{ $fasilitas->id  }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="/fasilitas/{{ $fasilitas->id }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm ml-2"
+                                onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
+                                
+                            </form>
+
                             
                         </td>
                     </tr>

@@ -43,15 +43,15 @@
                         </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
-                            <span class="hide-menu">UI Componenst</span>
+                            <span class="hide-menu">Peminjaman GSG</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="./ui-buttons.html"
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="/fasilitas"
                                 aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
                                     <i class="ti ti-article fs-7 text-warning"></i>
                                 </span>
-                                <span class="hide-menu ms-2 ps-1">Buttons</span>
+                                <span class="hide-menu ms-2 ps-1">Fasilitas</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
