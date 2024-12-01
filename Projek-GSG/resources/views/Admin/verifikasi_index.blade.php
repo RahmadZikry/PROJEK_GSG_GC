@@ -1,4 +1,4 @@
-@extends ('Admin.layouts',['title'=>'Index Admin'])
+@extends ('Admin.layouts',['title'=>'Index Verifikasi'])
 @section('contect')
 @if(session('pesan'))
     <div class="alert alert-success">
@@ -47,6 +47,13 @@
                     <td>Proyektor</td>
                     <td>2024-11-26</td>
                     <td>Pending</td>
+                    {{-- <td>{{ $verifikasi->fasilitas_id }}</td>
+                    <td>{{ $fasilitas->nama_fasilitas }}</td>
+                    <td>{{ $fasilitas->deskripsi }}</td>
+                    <td>{{ $fasilitas->harga_sewa }}</td>
+                    <td>{{ $fasilitas->status_ketersediaan }}</td>
+                    <td>
+                        <a href="/fasilitas/ {{ $fasilitas->id  }}/edit" class="btn btn-warning btn-sm">Edit</a> --}}
                     <td>
                         <a href="#" class="btn btn-warning btn-sm">Verifikasi</a>
                         <button class="btn btn-success btn-sm">Disetujui</button>
@@ -58,9 +65,3 @@
     </div>
 </div>
 @endsection
-
-
-
-<p>
-    asdasdasd
-</p>
