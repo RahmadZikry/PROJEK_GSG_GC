@@ -16,3 +16,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('pengguna', App\Http\Controllers\PenggunaController::class);
     Route::resource('fasilitas', App\Http\Controllers\FasilitasController::class);
 });
+
+
+Route::get('/verifikasi', [App\Http\Controllers\VerifikasiController::class,'index']);
