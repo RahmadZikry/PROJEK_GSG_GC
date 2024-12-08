@@ -14,3 +14,5 @@
 </div>
 
 @endsection
+
+{{-- belum lanjut, ini tampilan untuk detail dari peminjaman --}}

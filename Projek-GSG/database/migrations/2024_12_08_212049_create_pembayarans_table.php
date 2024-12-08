@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('peminjamen', function (Blueprint $table) {
+        Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fasilitas_id');
+            $table->foreignId('peminjaman_id');
             $table->foreignId('user_id');
-            $table->date('tanggal_peminjaman');
-            $table->date('tanggal_pengembalian');
-            $table->enum('status_verifikasi', ['Tertunda','Disetujui','Ditolak']);
-            $table->string('bukti_pembayaran')->nullable();
+            $table->date('tanggal_pembayaran');
+            $table->integer('jumlah_pembayaran');
+            $table->enum('status_pembayaran', ['Dikonfirmasi','Menunggu']);
+            $table->string('metode_pembayaran');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('peminjamen');
+        Schema::dropIfExists('pembayarans');
     }
 };

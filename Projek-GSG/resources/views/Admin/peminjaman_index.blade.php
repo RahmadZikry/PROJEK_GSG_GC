@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>ID Peminjaman</th>
+                        <th>ID Fasilitas</th>
                         <th>Detail Peminjaman</th>
                         <th>Tanggal Peminjaman</th>
                         <th>Jadwal Ketersediaan</th>
@@ -28,12 +28,12 @@
                 <tbody>
                     @foreach ($peminjaman as $item)
                         <tr>
-                            <td>{{ $peminjaman->peminjaman_id }}</td>
-                            <td>{{ $peminjaman->user_id}}</td>
-                            <td>{{ $peminjaman->tanggal_peminjaman }}</td>
-                            <td>{{ $peminjaman->tanggal_pengembalian }}</td>
-                            <td>{{ $peminjaman->bukti_pembayaran }}</td>
-                            <td>{{ $peminjaman->status_verifikasi }}</td>
+                            <td>{{ $item->fasilitas_id }}</td>
+                            <td>{{ $item->user_id}}</td>
+                            <td>{{ $item->tanggal_peminjaman }}</td>
+                            <td>{{ $item->tanggal_pengembalian }}</td>
+                            <td>{{ $item->bukti_pembayaran }}</td>
+                            <td>{{ $item->status_verifikasi }}</td>
                             <td>
                                 <a href="/peminjaman/ {{ $item->id  }}" class="btn btn-warning btn-sm">Verifikasi</a>
 
