@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('fasilitas', App\Http\Controllers\FasilitasController::class);
     Route::resource('peminjaman', App\Http\Controllers\PeminjamanController::class);
     Route::resource('pembayaran', App\Http\Controllers\PembayaranController::class);
+    Route::resource('notifikasi', App\Http\Controllers\NotifikasiController::class);
 });
 
 

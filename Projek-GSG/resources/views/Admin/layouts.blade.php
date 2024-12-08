@@ -76,11 +76,11 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="./ui-typography.html" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="/notifikasi" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                                     <i class="ti ti-typography fs-7 text-indigo"></i>
                                 </span>
-                                <span class="hide-menu ms-2 ps-1">Typography</span>
+                                <span class="hide-menu ms-2 ps-1">Notifikasi</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
