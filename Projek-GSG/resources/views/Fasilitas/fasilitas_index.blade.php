@@ -33,18 +33,13 @@
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger btn-sm ml-2"
-                                onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
-                                
-                            </form>
-
-                            
+                                onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>  
+                            </form>     
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-       
     </div>
 </div>
 @endsection
