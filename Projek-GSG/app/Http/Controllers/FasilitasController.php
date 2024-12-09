@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fasilitas;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreFasilitasRequest;
 use App\Http\Requests\UpdateFasilitasRequest;
 
@@ -22,15 +23,27 @@ class FasilitasController extends Controller
      */
     public function create()
     {
-        //
+        return view('Fasilitas.fasilitas_create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFasilitasRequest $request)
+    public function store(Request $request)
     {
-        //
+        $requestData = $request->validate([
+            'nama_fasilitas' => 'required',
+            'deskripsi'=>'required',
+            'harga_sewa'=>'required',
+            'status_ketersediaan'=>'required',
+        ]);
+        $fasilitas = new Fasilitas();
+        $fasilitas -> fill($requestData);
+        $fasilitas->save();
+
+        flash('Data berhasil disimpan')->success();
+
+        return redirect()->route('fasilitas.index');
     }
 
     /**
@@ -60,8 +73,12 @@ class FasilitasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Fasilitas $fasilitas)
+    public function destroy(String $id)
     {
-        //
+        $fasilitas = Fasilitas::findOrfail($id);
+
+        $fasilitas->delete();
+        flash('Data sudah dihapus')->success();
+        return back();
     }
 }
