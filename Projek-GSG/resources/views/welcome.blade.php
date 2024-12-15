@@ -297,7 +297,7 @@ https://templatemo.com/tm-569-edu-meeting
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2>A Few Facts About GSG Politeknik Calyex Riau</h2>
+                            <h2>Beberapa Fakta Tentang GSG Politeknik Caltex Riau</h2>
                         </div>
                         <div class="col-lg-6">
                             <div class="row">
