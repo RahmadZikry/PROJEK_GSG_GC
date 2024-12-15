@@ -39,7 +39,7 @@ https://templatemo.com/tm-569-edu-meeting
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
-                            <img src="templatemo_569_edu_meeting\assets\images\logo.png" width="180" alt="" >
+                            <img src="templatemo_569_edu_meeting/assets/images/logo.png" style="max-height: 200px; width: 200px; display:flexbox;">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
