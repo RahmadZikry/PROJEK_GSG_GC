@@ -22,12 +22,14 @@
                         <th>Tanggal Pembayaran</th>
                         <th>Jumlah Pembayaran</th>
                         <th>Status Pembayaran</th>
+                        <th>Metode Pembayaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pembayaran as $item)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->peminjaman_id }}</td>
                             <td>{{ $item->user_id}}
                                 <a href="/pembayaran/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">Detail</a>

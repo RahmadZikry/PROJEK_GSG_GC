@@ -13,8 +13,12 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $pembayaran['pembayaran'] = Pembayaran::latest()->paginate(10);
-        return view('Admin.pembayaran_index', $pembayaran);
+        $pembayaran = Pembayaran::latest()->paginate(10);
+        if (request()->wantsJson()){
+            return response()->json($pembayaran);
+        }
+        $data['pembayaran'] = $pembayaran;
+        return view('Admin.pembayaran_index', $data);
     }
 
     /**
@@ -30,7 +34,21 @@ class PembayaranController extends Controller
      */
     public function store(StorePembayaranRequest $request)
     {
-        //
+        $requestData = $request->validate([
+            'peminjaman_id' => 'required',
+            'user_id' => 'required',
+            'tanggal_pembayaran' => 'required',
+            'jumlah_pembayaran'=> 'required',
+            'status_pembayaran' => 'required|in:Dikonfirmasi,Menunggu',
+            'metode_pembayaran' => 'required',
+        ]);
+        $pembayaran = new Pembayaran(); //membuat objek kosong di variabel model
+        $pembayaran->fill($requestData); //mengisi var model dengan data yang sudah divalidasi requestData
+        $pembayaran->save(); //menyimpan data ke database
+        return back()->with('pesan', 'Data berhasil disimpan');
+        if (request()->wantsJson()){
+            return response()->json($pembayaran);
+        }
     }
 
     /**

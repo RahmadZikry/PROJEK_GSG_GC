@@ -20,7 +20,6 @@ class PembayaranFactory extends Factory
         $idPeminjaman = \App\Models\peminjaman::pluck('id')->toArray();
         $idUser = \App\Models\User::pluck('id')->toArray();
         return [
-            'pembayaran_id' => $this->faker->randomElement($idPembayaran),
             'peminjaman_id' => $this->faker->randomElement($idPeminjaman),
             'user_id' => $this->faker->randomElement($idUser),
             'tanggal_pembayaran' => $this->faker->date(),
