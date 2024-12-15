@@ -66,13 +66,13 @@ https://templatemo.com/tm-569-edu-meeting
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
-                            <li><a href="meetings.html">Kontak</a></li>
-                            <li class="scroll-to-section"><a href="#apply">Tentang</a></li>
+                            <li><a href="https://pcr.ac.id/kontak">Kontak</a></li>
+                            <li><a href="https://pcr.ac.id/fasilitas/2765/gedung-serba-guna-gsg">Tentang</a></li>
                             <li class="has-sub">
                                 <a href="javascript:void(0)">Login</a>
                                 <ul class="sub-menu">
-                                    <li><a href="meetings.html">Pengguna</a></li>
-                                    <li><a href="meeting-details.html">Admin</a></li>
+                                    <li><a href="/login">Pengguna</a></li>
+                                    <li><a href="/login">Admin</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -100,7 +100,7 @@ https://templatemo.com/tm-569-edu-meeting
                             <h2>GEDUNG SERBA GUNA</h2>
                             <h6>POLITEKNIK CALTEX RIAU</h6>
                             <div class="main-button-red">
-                                <div class="scroll-to-section"><a href="#contact">Watch</a></div>
+                                <div class="scroll-to-section"><a href="#fact">Watch</a></div>
                             </div>
                         </div>
                     </div>
@@ -291,7 +291,7 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
     </section>
 
-    <section class="our-facts">
+    <section class="our-facts" id="fact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
