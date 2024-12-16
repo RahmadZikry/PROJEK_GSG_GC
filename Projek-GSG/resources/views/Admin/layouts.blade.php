@@ -200,7 +200,7 @@
                             <a href="https://adminmart.com/product/Spike-free-bootstrap-admin-dashboard/" target="_blank" class="btn btn-primary">Download Free</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assets/images/profile/user1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                                    <img src="https://i.pinimg.com/736x/ea/56/af/ea56af3c45db2a9bea14bf9cec3a01ff.jpg" alt="" width="35" height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
