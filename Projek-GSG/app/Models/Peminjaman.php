@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class peminjaman extends Model
+class Peminjaman extends Model
 {
     /** @use HasFactory<\Database\Factories\PeminjamanFactory> */
     use HasFactory;
@@ -23,6 +23,17 @@ class peminjaman extends Model
     {
         return $this->hasMany(peminjaman::class, 'foreign_key', 'local_key');
     }
+
+    /**
+     * Get all of the comments for the Fasilitas
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function fasilitas(): HasMany
+    {
+        return $this->hasMany(Fasilitas::class, 'foreign_key', 'local_key');
+    }
+
 
     /**
      * Get the user that owns the Fasilitas

@@ -22,22 +22,31 @@
                         <th>Tanggal Peminjaman</th>
                         <th>Jadwal Ketersediaan</th>
                         <th>Status Verifikasi</th>
+                        <th>Bukti Pembayaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($peminjaman as $item)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->fasilitas_id }}</td>
-                            <td>{{ $item->user_id}}</td>
+                            <td>{{ $item->user_id}}
+                                <a href="/peminjaman/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">Detail</a>
+                            </td>
                             <td>{{ $item->tanggal_peminjaman }}</td>
                             <td>{{ $item->tanggal_pengembalian }}</td>
-                            <td>{{ $item->bukti_pembayaran }}</td>
                             <td>{{ $item->status_verifikasi }}</td>
+                            <td>
+                                {{ $item->bukti_pembayaran }}
+                                <a href="{{ \Storage::url($item->bukti_pembayaran) }}" target="blank">
+                                    <img src="{{ \Storage::url($item->bukti_pembayaran) }}" alt="" width="50">
+                                </a>
+                            </td>
                             <td>
                                 <a href="/peminjaman/ {{ $item->id  }}" class="btn btn-warning btn-sm">Verifikasi</a>
 
-    
+
                                 
                             </td>
                         </tr>
