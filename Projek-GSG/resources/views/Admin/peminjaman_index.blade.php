@@ -29,8 +29,11 @@
                 <tbody>
                     @foreach ($peminjaman as $item)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->fasilitas_id }}</td>
-                            <td>{{ $item->user_id}}</td>
+                            <td>{{ $item->user_id}}
+                                <a href="/peminjaman/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">Detail</a>
+                            </td>
                             <td>{{ $item->tanggal_peminjaman }}</td>
                             <td>{{ $item->tanggal_pengembalian }}</td>
                             <td>{{ $item->status_verifikasi }}</td>
