@@ -13,8 +13,12 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $peminjaman['peminjaman'] = peminjaman::latest()->paginate(10);
-        return view('Admin.peminjaman_index', $peminjaman);
+        $peminjaman = Peminjaman::latest()->paginate(10);
+        if (request()->wantsJson()){
+            return response()->json($peminjaman);
+        }
+        $data['peminjaman'] = $peminjaman;
+        return view('Admin.peminjaman_index', $data);
     }
 
     /**
@@ -30,7 +34,22 @@ class PeminjamanController extends Controller
      */
     public function store(StorepeminjamanRequest $request)
     {
-        //
+        $requestData = $request->validate([
+            'fasilitas_id' => 'required',
+            'user_id' => 'required',
+            'tanggal_peminjaman' => 'required',
+            'tanggal_pengembalian'=> 'required',
+            'status_verifikasi' => 'required|in:Tertunda,Disetujui,Ditolak',
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+        ]);
+        $peminjaman = new Peminjaman(); //membuat objek kosong di variabel model
+        $peminjaman->fill($requestData); //mengisi var model dengan data yang sudah divalidasi requestData
+        $peminjaman->bukti_pembayaran = $request ->file('bukti_pembayaran')->store('public');
+        $peminjaman->save(); //menyimpan data ke database
+        return back()->with('pesan', 'Data berhasil disimpan');
+        if (request()->wantsJson()){
+            return response()->json($peminjaman);
+        }
     }
 
     /**

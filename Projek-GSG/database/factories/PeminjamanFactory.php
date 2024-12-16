@@ -16,15 +16,15 @@ class PeminjamanFactory extends Factory
      */
     public function definition(): array
     {
-        $idPeminjaman = \App\Models\peminjaman::pluck('id')->toArray();
+        $idFasilitas = \App\Models\Fasilitas::pluck('id')->toArray();
         $idUser = \App\Models\User::pluck('id')->toArray();
         return [
-            'peminjaman_id' => $this->faker->randomElement($idPeminjaman),
+            'fasilitas_id' => $this->faker->randomElement($idFasilitas),
             'user_id' => $this->faker->randomElement($idUser),
             'tanggal_peminjaman' => $this->faker->date(),
             'tanggal_pengembalian' => $this->faker->date(),
             'status_verifikasi' => $this->faker->randomElement(['Tertunda','Disetujui','Ditolak']),
-            'bukti_pembayaran' => $this->faker->sentence(),
+            // 'bukti_pembayaran' => $this->faker->sentence(),
         ];
     }
 }

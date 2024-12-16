@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
             $table->enum('status_verifikasi', ['Tertunda','Disetujui','Ditolak']);
-            $table->string('bukti_pembayaran')->nullable();
+            // $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
         });
     }
