@@ -5,8 +5,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 shadow-sm">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" width="40" height="40" class="d-inline-block align-top">
-            <span class="fw-bold ms-2" style="color: #1C7ED6;">Politeknik <span style="color: #FF0000;">Caltex Riau</span></span>
+            <a href="/register" class="logo">
+                <img src="templatemo_569_edu_meeting/assets/images/logo-2.png"
+                    style="max-height: 200px; width: 200px; display:flexbox;">
+            </a>
         </a>
         <div class="ms-auto d-flex align-items-center">
             <select class="form-select form-select-sm me-2 border-0" style="width: auto; box-shadow: none;">
@@ -24,7 +26,10 @@
             <div style="width: 100%; max-width: 400px;">
                 <!-- Header -->
                 <div class="text-center mb-4">
-                    <h2 class="logo" style="color: #004D99; font-weight: bold;">Politeknik Caltex Riau</h2>
+                    <a href="/login" class="logo">
+                        <img src="templatemo_569_edu_meeting/assets/images/logo-1.png"
+                            style="max-height: 200px; width: 300px; display:flexbox;">
+                    </a>
                     <h4>Registrasi User</h4>
                     <p>Already have an account? <a href="{{ route('login') }}" class="text-primary">Login</a></p>
                 </div>
@@ -52,7 +57,7 @@
                     <!-- Submit Button -->
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-primary rounded-pill" style="background-color: #5567FF; border: none;">
-                            Log in
+                            Register
                         </button>
                     </div>
 

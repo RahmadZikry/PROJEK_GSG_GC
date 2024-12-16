@@ -24,4 +24,5 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
+
 // Route::get('/verifikasi', [App\Http\Controllers\VerifikasiController::class,'index']);
