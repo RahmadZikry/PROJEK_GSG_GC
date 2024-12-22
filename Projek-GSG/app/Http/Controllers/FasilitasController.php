@@ -15,7 +15,7 @@ class FasilitasController extends Controller
     public function index()
     {
         $fasilitas = Fasilitas::latest()->paginate(10);
-        return view('Fasilitas.fasilitas_index', compact('fasilitas'));
+        return view('admin.fasilitas_index', compact('fasilitas'));
     }
 
     /**

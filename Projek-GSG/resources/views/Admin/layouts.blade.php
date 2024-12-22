@@ -16,24 +16,24 @@
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-simplebar>
-                <div class="d-flex mb-4 align-items-center justify-content-between">
+                <div class="mb-4 d-flex align-items-center justify-content-between">
                     <a href="index.html" class="text-nowrap logo-img ms-0 ms-md-1">
                         <img src="layout\src\assets\images\logos\dark-logo.svg" width="180" alt="">
                     </a>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                    <div class="cursor-pointer close-btn d-xl-none d-block sidebartoggler" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
                     </div>
                 </div>
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav" class="mb-4 pb-2">
+                    <ul id="sidebarnav" class="pb-2 mb-4">
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link primary-hover-bg" href="./index.html" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-primary rounded-3">
+                            <a class="sidebar-link primary-hover-bg" href="./index.html" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-primary rounded-3">
                                     <i class="ti ti-layout-dashboard fs-7 text-primary"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Dashboard</span>
@@ -44,40 +44,40 @@
                             <span class="hide-menu">Peminjaman GSG</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="/fasilitas" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                            <a class="sidebar-link warning-hover-bg" href="admin/fasilitas" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-warning rounded-3">
                                     <i class="ti ti-article fs-7 text-warning"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Fasilitas</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/peminjaman" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-danger rounded-3">
+                            <a class="sidebar-link danger-hover-bg" href="admin/peminjaman" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-danger rounded-3">
                                     <i class="ti ti-alert-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Peminjaman</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./ui-card.html" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-success rounded-3">
+                            <a class="sidebar-link success-hover-bg" href="admin/pengguna" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-success rounded-3">
                                     <i class="ti ti-cards fs-7 text-success"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Pengguna</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link primary-hover-bg" href="/pembayaran" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-primary rounded-3">
+                            <a class="sidebar-link primary-hover-bg" href="admin/pembayaran" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-primary rounded-3">
                                     <i class="ti ti-file-description fs-7 text-primary"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Pembayaran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="/notifikasi" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-indigo rounded-3">
+                            <a class="sidebar-link indigo-hover-bg" href="admin/notifikasi" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-indigo rounded-3">
                                     <i class="ti ti-typography fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Notifikasi</span>
@@ -88,16 +88,16 @@
                             <span class="hide-menu">Auth</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="./authentication-login.html" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                            <a class="sidebar-link warning-hover-bg" href="./authentication-login.html" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-warning rounded-3">
                                     <i class="ti ti-login fs-7 text-warning"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Login</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="./authentication-register.html" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-danger rounded-3">
+                            <a class="sidebar-link danger-hover-bg" href="./authentication-register.html" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-danger rounded-3">
                                     <i class="ti ti-user-plus fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Register</span>
@@ -108,16 +108,16 @@
                             <span class="hide-menu">Extra</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./icon-tabler.html" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-success rounded-3">
+                            <a class="sidebar-link success-hover-bg" href="./icon-tabler.html" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-success rounded-3">
                                     <i class="ti ti-mood-happy fs-7 text-success"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Icons</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link primary-hover-bg" href="./sample-page.html" aria-expanded="false">
-                                <span class="aside-icon p-2 bg-light-primary rounded-3">
+                            <a class="sidebar-link primary-hover-bg" href="./sample-page.html" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-primary rounded-3">
                                     <i class="ti ti-aperture fs-7 text-primary"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Sample Page</span>
@@ -163,7 +163,7 @@
                                     <h5>Are you<br /> satisfied ?</h5>
 
                                     <div class="mt-4">
-                                        <a href="" target="_blank" class="btn btn-primary buynow-link w-100 px-2">
+                                        <a href="" target="_blank" class="px-2 btn btn-primary buynow-link w-100">
                                             Buy Now
                                         </a>
                                     </div>
@@ -195,8 +195,8 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
-                        <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                    <div class="px-0 navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="flex-row navbar-nav ms-auto align-items-center justify-content-end">
                             <a href="javascript:void(0)" class="btn btn-primary">
                                 @if (Auth::check())
                                     {{ Auth::user()->name }} <!-- Menampilkan nama pengguna yang login -->
@@ -210,19 +210,19 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)" class="gap-2 d-flex align-items-center dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
                                         </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)" class="gap-2 d-flex align-items-center dropdown-item">
                                             <i class="ti ti-mail fs-6"></i>
                                             <p class="mb-0 fs-3">My Account</p>
                                         </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)" class="gap-2 d-flex align-items-center dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">Logout</a>
+                                        <a href="./authentication-login.html" class="mx-3 mt-2 shadow-none btn btn-outline-primary d-block">Logout</a>
                                     </div>
                                 </div>
                             </li>

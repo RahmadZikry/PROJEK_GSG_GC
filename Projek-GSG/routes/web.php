@@ -16,7 +16,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', UserAccess::class . ':admin'])->group(function () {
     Route::get('admin', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
+    //Route::resource('admin/pengguna', App\Http\Controllers\FasilitasController::class);
+    Route::resource('admin/fasilitas', App\Http\Controllers\FasilitasController::class);
+    Route::resource('admin/peminjaman', App\Http\Controllers\PeminjamanController::class);
+    Route::resource('admin/pembayaran', App\Http\Controllers\PembayaranController::class);
+    Route::resource('admin/notifikasi', App\Http\Controllers\NotifikasiController::class);
 });
+
 
 
 Route::middleware(['auth', UserAccess::class . ':pengguna'])->group(function () {
