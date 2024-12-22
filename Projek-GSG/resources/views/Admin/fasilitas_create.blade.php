@@ -1,5 +1,5 @@
-@extends ('Admin.layouts',['title'=>'Tambah Data Fasilitas'])
-@section('contect')
+@extends ('layouts.layouts_admin',['title'=>'Tambah Data Fasilitas'])
+@section('content')
     <div class="card">
         <h5 class="card-header">Tambah Data Fasilitas</h5>
         <div class="card-body">

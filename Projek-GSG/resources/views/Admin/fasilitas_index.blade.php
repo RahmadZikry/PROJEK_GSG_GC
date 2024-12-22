@@ -1,5 +1,5 @@
-@extends ('Admin.layouts' ,['title'=>'Index Admin'])
-@section('contect')
+@extends ('layouts.layouts_admin' ,['title'=>'Index Admin'])
+@section('content')
     <div class="card">
         <h5 class="card-header">Data Fasilitas</h5>
         <div class="card-body">

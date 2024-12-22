@@ -1,5 +1,5 @@
-@extends('Admin.layouts', ['title' => 'Detail Peminjaman'])
-@section('contect')
+@extends('layouts.layouts_admin', ['title' => 'Detail Peminjaman'])
+@section('content')
 
 <div class="container">
     <div class="row justify-content-center">

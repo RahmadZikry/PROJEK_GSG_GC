@@ -1,6 +1,6 @@
-@extends('Admin.layouts',['title'=>'Index Pembayaran'])
+@extends('layouts.layouts_admin',['title'=>'Index Pembayaran'])
 
-@section('contect')
+@section('content')
 @if(session('pesan'))
     <div class="alert alert-success">
         {{ session('pesan') }}

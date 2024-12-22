@@ -1,6 +1,6 @@
-@extends('Admin.layouts',['title'=>'Index Peminjaman'])
+@extends('layouts.layouts_admin',['title'=>'Index Peminjaman'])
 
-@section('contect')
+@section('content')
 @if(session('pesan'))
     <div class="alert alert-success">
         {{ session('pesan') }}

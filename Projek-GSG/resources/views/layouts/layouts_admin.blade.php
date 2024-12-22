@@ -18,7 +18,7 @@
             <div class="scroll-sidebar" data-simplebar>
                 <div class="mb-4 d-flex align-items-center justify-content-between">
                     <a href="index.html" class="text-nowrap logo-img ms-0 ms-md-1">
-                        <img src="layout\src\assets\images\logos\dark-logo.svg" width="180" alt="">
+                        <img src="layout\src\assets\images\logos\admin.png" width="180" alt="">
                     </a>
                     <div class="cursor-pointer close-btn d-xl-none d-block sidebartoggler" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -164,7 +164,7 @@
                                 {{ session('pesan') }} </div>
                             @endif
                             @include('flash::message')
-                            @yield('contect')
+                            @yield('content')
                         </main>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app_modern', ['title' => 'Pendaftaran Pasien Baru'])
+@extends('layouts.layouts_admin', ['title' => 'Pendaftaran Pasien Baru'])
 @section('content')
 <div class="card">
     <div class="card-header">PENDAFTARAN PASIEN</div>
