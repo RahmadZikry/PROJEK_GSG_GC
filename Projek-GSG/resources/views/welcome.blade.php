@@ -59,8 +59,8 @@ https://templatemo.com/tm-569-edu-meeting
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
-                            <img src="templatemo_569_edu_meeting/assets/images/logo.png"
-                                style="max-height: 200px; width: 200px; display:flexbox;">
+                            <img id="logo" src="templatemo_569_edu_meeting/assets/images/logo.png"
+                                style="max-height: 200px; width: 200px; display:flexbox;" alt="Website Logo">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -82,7 +82,7 @@ https://templatemo.com/tm-569-edu-meeting
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
-    <section class="section main-banner" id="top" data-section="section1">
+    <section class="section main-banner" id="top" data-section="white-background">
         <img src="templatemo_569_edu_meeting/assets/images/pcr.jpg" alt="Banner Image" id="bg-image"
             style="width: 100%; height: auto;" />
 
@@ -104,7 +104,7 @@ https://templatemo.com/tm-569-edu-meeting
     </section>
     <!-- ***** Main Banner Area End ***** -->
 
-    <section class="services">
+    <section class="services" data-section="other-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -420,52 +420,69 @@ https://templatemo.com/tm-569-edu-meeting
     <script src="templatemo_569_edu_meeting\assets/js/slick-slider.js"></script>
     <script src="templatemo_569_edu_meeting\assets/js/custom.js"></script>
     <script>
-        //according to loftblog tut
-        $('.nav li:first').addClass('active');
+        $(document).ready(function() {
+            // Initially set the first navigation item as active
+            $('.nav li:first').addClass('active');
 
-        var showSection = function showSection(section, isAnimate) {
-            var
-                direction = section.replace(/#/, ''),
-                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-                reqSectionPos = reqSection.offset().top - 0;
-
-            if (isAnimate) {
-                $('body, html').animate({
-                        scrollTop: reqSectionPos
-                    },
-                    800);
-            } else {
-                $('body, html').scrollTop(reqSectionPos);
-            }
-
-        };
-
-        var checkSection = function checkSection() {
-            $('.section').each(function() {
+            // Show a specific section
+            var showSection = function showSection(section, isAnimate) {
                 var
-                    $this = $(this),
-                    topEdge = $this.offset().top - 80,
-                    bottomEdge = topEdge + $this.height(),
-                    wScroll = $(window).scrollTop();
-                if (topEdge < wScroll && bottomEdge > wScroll) {
-                    var
-                        currentId = $this.data('section'),
-                        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-                    reqLink.closest('li').addClass('active').
-                    siblings().removeClass('active');
+                    direction = section.replace(/#/, ''),
+                    reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+                    reqSectionPos = reqSection.offset().top - 80; // Adjust offset as needed
+
+                if (isAnimate) {
+                    $('body, html').animate({
+                            scrollTop: reqSectionPos
+                        },
+                        800);
+                } else {
+                    $('body, html').scrollTop(reqSectionPos);
                 }
+            };
+
+            // Check which section is currently in view
+            var checkSection = function checkSection() {
+                $('.section').each(function() {
+                    var
+                        $this = $(this),
+                        topEdge = $this.offset().top - 80, // Offset to handle fixed header
+                        bottomEdge = topEdge + $this.height(),
+                        wScroll = $(window).scrollTop();
+
+                    if (topEdge < wScroll && bottomEdge > wScroll) {
+                        var
+                            currentId = $this.data('section'),
+                            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+
+                        // Highlight the active menu item
+                        reqLink.closest('li').addClass('active')
+                            .siblings().removeClass('active');
+
+                        // Change the logo based on the scroll position
+                        if (wScroll > 100) { // Ganti 100 dengan nilai scroll yang diinginkan
+                            $('#logo').attr('src', 'templatemo_569_edu_meeting/assets/images/logo-2.png'); // Gambar logo baru
+                        } else {
+                            $('#logo').attr('src', 'templatemo_569_edu_meeting/assets/images/logo.png'); // Gambar logo asli
+                        }
+                    }
+                });
+            };
+
+            // Event listener for menu and scroll interactions
+            $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function(e) {
+                e.preventDefault();
+                showSection($(this).attr('href'), true);
             });
-        };
 
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function(e) {
-            e.preventDefault();
-            showSection($(this).attr('href'), true);
-        });
-
-        $(window).scroll(function() {
-            checkSection();
+            // Listen for scroll events to check the active section
+            $(window).scroll(function() {
+                checkSection();
+            });
         });
     </script>
+
+
 </body>
 
 </body>
