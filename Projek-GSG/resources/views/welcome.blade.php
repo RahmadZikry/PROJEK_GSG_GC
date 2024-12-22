@@ -41,10 +41,10 @@ https://templatemo.com/tm-569-edu-meeting
                 <div class="col-lg-4 col-sm-4">
                     <div class="right-icons">
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-github"></i></a></li>
+                            <li><a href="https://www.facebook.com/Politeknik.Caltex.Riau"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/PolicaltexRiau"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/politeknikcaltexriau/"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UC_xsN7_lBMY_m_C8a_34uZg"><i class="fa fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -189,7 +189,7 @@ https://templatemo.com/tm-569-edu-meeting
                             <li><a href="#">Peminjaman Orang Luar</a></li>
                         </ul>
                         <div class="main-button-red">
-                            <a href="meetings.html">Semua Paket Peminjaman</a>
+                            <a href="pengguna/peminjaman">Semua Paket Peminjaman</a>
                         </div>
                     </div>
                 </div>
@@ -223,7 +223,7 @@ https://templatemo.com/tm-569-edu-meeting
                                         <span>$30.00</span>
                                     </div>
                                     <a href="meeting-details.html"><img
-                                            src="templatemo_569_edu_meeting/assets/images/meeting-02.jpg"
+                                            src="templatemo_569_edu_meeting/assets/images/meeting-04.jpg"
                                             alt="Peminjaman Alumni"></a>
                                 </div>
                                 <div class="down-content">
@@ -265,7 +265,7 @@ https://templatemo.com/tm-569-edu-meeting
                                         <span>$50.00</span>
                                     </div>
                                     <a href="meeting-details.html"><img
-                                            src="templatemo_569_edu_meeting/assets/images/meeting-04.jpg"
+                                            src="templatemo_569_edu_meeting/assets/images/meeting-02.jpg"
                                             alt="Peminjaman Orang Luar"></a>
                                 </div>
                                 <div class="down-content">
