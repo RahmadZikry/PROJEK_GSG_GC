@@ -68,12 +68,7 @@ https://templatemo.com/tm-569-edu-meeting
                             <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
                             <li><a href="https://pcr.ac.id/kontak">Kontak</a></li>
                             <li><a href="https://pcr.ac.id/fasilitas/2765/gedung-serba-guna-gsg">Tentang</a></li>
-                            <li class="has-sub">
-                                <a href="javascript:void(0)">Login</a>
-                                <ul class="sub-menu">
-                                    <li><a href="/login">Pengguna </a></li>
-                                </ul>
-                            </li>
+                            <li><a href="/login">Login</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

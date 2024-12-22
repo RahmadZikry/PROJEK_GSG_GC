@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\UserAccess;
+
 
 
 Route::get('/', function () {
@@ -12,13 +14,19 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::resource('admin', App\Http\Controllers\AdminController::class);
-    Route::resource('pengguna', App\Http\Controllers\PenggunaController::class);
-    Route::resource('fasilitas', App\Http\Controllers\FasilitasController::class);
-    Route::resource('peminjaman', App\Http\Controllers\PeminjamanController::class);
-    Route::resource('pembayaran', App\Http\Controllers\PembayaranController::class);
-    Route::resource('notifikasi', App\Http\Controllers\NotifikasiController::class);
+Route::middleware(['auth', UserAccess::class . ':admin'])->group(function () {
+    Route::get('admin', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
+});
+
+
+Route::middleware(['auth', UserAccess::class . ':pengguna'])->group(function () {
+    Route::get('pengguna', [App\Http\Controllers\HomeController::class, 'penggunaHome'])->name('pengguna.home');
+
+});
+
+Route::middleware(['auth', UserAccess::class . ':keuangan'])->group(function () {
+    Route::get('keuangan', [App\Http\Controllers\HomeController::class, 'keuanganHome'])->name('keuangan.home');
+
 });
 
 Route::get('/logout', function () {
