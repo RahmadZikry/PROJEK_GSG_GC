@@ -71,7 +71,7 @@ https://templatemo.com/tm-569-edu-meeting
                             <li class="has-sub">
                                 <a href="javascript:void(0)">Login</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/login">Pengguna</a></li>
+                                    <li><a href="/login">Pengguna </a></li>
                                 </ul>
                             </li>
                         </ul>
