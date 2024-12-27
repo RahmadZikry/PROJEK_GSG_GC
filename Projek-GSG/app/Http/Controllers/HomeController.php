@@ -33,12 +33,12 @@ class HomeController extends Controller
      */
     public function adminHome(): View
     {
-        return view('admin.admin_index');
+        return view('Admin.admin_index');
     }
 
     public function penggunaHome(): View
     {
-        return view('pengguna.pengguna_index');
+        return view('Pengguna.pengguna_index');
     }
 
     /**
@@ -48,6 +48,6 @@ class HomeController extends Controller
      */
     public function keuanganHome(): View
     {
-        return view('keuangan.keuangan_index');
+        return view('Keuangan.keuangan_index');
     }
 }
