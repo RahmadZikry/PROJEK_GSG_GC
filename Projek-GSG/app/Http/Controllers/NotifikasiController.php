@@ -24,7 +24,7 @@ class NotifikasiController extends Controller
     public function create()
     {
         $data['ListUser'] = User::orderBy('nama', 'asc')->get();
-        return view ('notifikasi_create', $data);
+        return view ('Admin.notifikasi_create', $data);
     }
 
     /**
