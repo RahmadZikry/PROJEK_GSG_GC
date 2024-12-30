@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\NotifikasiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\UserAccess;
@@ -14,15 +19,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth', UserAccess::class . ':admin'])->group(function () {
-    Route::get('admin', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
-    //Route::resource('admin/pengguna', App\Http\Controllers\FasilitasController::class);
-    Route::resource('admin/fasilitas', App\Http\Controllers\FasilitasController::class);
-    Route::resource('admin/peminjaman', App\Http\Controllers\PeminjamanController::class);
-    Route::resource('admin/pembayaran', App\Http\Controllers\PembayaranController::class);
-    Route::resource('admin/notifikasi', App\Http\Controllers\NotifikasiController::class);
+Route::middleware(['auth', UserAccess::class . ':admin'])->prefix('admin')->as('admin.')->group(function () {
+    Route::get('/', [HomeController::class, 'adminHome'])->name('home');
+    Route::resources([
+        'fasilitas' => FasilitasController::class,
+        'peminjaman' => PeminjamanController::class,
+        'pembayaran' => PembayaranController::class,
+        'notifikasi' => NotifikasiController::class,
+    ]);
 });
-
 
 
 Route::middleware(['auth', UserAccess::class . ':pengguna'])->group(function () {

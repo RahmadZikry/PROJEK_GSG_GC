@@ -1,9 +1,9 @@
-@extends ('layouts.layouts_admin' ,['title'=>'Index Admin'])
+@extends($layout ,['title'=>'Index Admin'])
 @section('content')
     <div class="card">
         <h5 class="card-header">Data Fasilitas</h5>
         <div class="card-body">
-            <div class="row mb-3 mt-3">
+            <div class="mt-3 mb-3 row">
             <div class="col-md-6">
                 <a href="/fasilitas/create" class="btn btn-primary btn-sm">Tambah fasilitas</a>
             </div>
@@ -32,7 +32,7 @@
                             <form action="/fasilitas/{{ $fasilitas->id }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-danger btn-sm ml-2"
+                                <button class="ml-2 btn btn-danger btn-sm"
                                 onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
                             </form>
                         </td>

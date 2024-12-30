@@ -165,6 +165,9 @@
                             @endif
                             @include('flash::message')
                             @yield('content')
+                            <footer>
+                                <p>&copy; {{ date('Y') }} - Admin Panel</p>
+                            </footer>
                         </main>
                     </div>
                 </div>

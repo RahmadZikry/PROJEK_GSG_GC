@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fasilitas;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreFasilitasRequest;
-use App\Http\Requests\UpdateFasilitasRequest;
+use Illuminate\Support\Facades\Session;
 
 class FasilitasController extends Controller
 {
@@ -14,8 +13,11 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        $fasilitas = Fasilitas::latest()->paginate(10);
-        return view('admin.fasilitas_index', compact('fasilitas'));
+    $fasilitas = Fasilitas::latest()->paginate(10);
+    return view('admin.fasilitas_index', [
+        'layout' => 'layouts.layouts_admin',
+        'fasilitas' => $fasilitas
+    ]);
     }
 
     /**
@@ -23,7 +25,9 @@ class FasilitasController extends Controller
      */
     public function create()
     {
-        return view('Fasilitas.fasilitas_create');
+    return view('admin.fasilitas_create', [
+        'layout' => 'layouts.layouts_admin',
+    ]);
     }
 
     /**
@@ -31,18 +35,21 @@ class FasilitasController extends Controller
      */
     public function store(Request $request)
     {
-        $requestData = $request->validate([
-            'nama_fasilitas' => 'required',
-            'deskripsi'=>'required',
-            'harga_sewa'=>'required',
-            'status_ketersediaan'=>'required',
+        // Validasi data
+        $validatedData = $request->validate([
+            'nama_fasilitas' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:1000',
+            'harga_sewa' => 'required|numeric|min:0',
+            'status_ketersediaan' => 'required|boolean',
         ]);
-        $fasilitas = new Fasilitas();
-        $fasilitas -> fill($requestData);
-        $fasilitas->save();
 
-        flash('Data berhasil disimpan')->success();
+        // Buat data fasilitas baru
+        Fasilitas::create($validatedData);
 
+        // Tambahkan pesan sukses
+        Session::flash('success', 'Data fasilitas berhasil disimpan.');
+
+        // Redirect ke halaman index
         return redirect()->route('fasilitas.index');
     }
 
@@ -51,7 +58,8 @@ class FasilitasController extends Controller
      */
     public function show(Fasilitas $fasilitas)
     {
-        //
+        // Tampilkan detail fasilitas jika diperlukan
+        return view('admin.fasilitas_show', compact('fasilitas'));
     }
 
     /**
@@ -59,26 +67,47 @@ class FasilitasController extends Controller
      */
     public function edit(Fasilitas $fasilitas)
     {
-        //
+    return view('admin.fasilitas_edit', [
+        'layout' => 'layouts.layouts_admin',
+        'fasilitas' => $fasilitas
+    ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFasilitasRequest $request, Fasilitas $fasilitas)
+    public function update(Request $request, Fasilitas $fasilitas)
     {
-        //
+        // Validasi data
+        $validatedData = $request->validate([
+            'nama_fasilitas' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:1000',
+            'harga_sewa' => 'required|numeric|min:0',
+            'status_ketersediaan' => 'required|boolean',
+        ]);
+
+        // Perbarui data fasilitas
+        $fasilitas->update($validatedData);
+
+        // Tambahkan pesan sukses
+        Session::flash('success', 'Data fasilitas berhasil diperbarui.');
+
+        // Redirect ke halaman index
+        return redirect()->route('fasilitas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(String $id)
+    public function destroy(Fasilitas $fasilitas)
     {
-        $fasilitas = Fasilitas::findOrfail($id);
-
+        // Hapus data fasilitas
         $fasilitas->delete();
-        flash('Data sudah dihapus')->success();
-        return back();
+
+        // Tambahkan pesan sukses
+        Session::flash('success', 'Data fasilitas berhasil dihapus.');
+
+        // Redirect kembali ke halaman sebelumnya
+        return redirect()->route('fasilitas.index');
     }
 }

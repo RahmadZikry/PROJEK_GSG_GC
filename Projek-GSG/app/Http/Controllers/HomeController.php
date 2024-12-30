@@ -32,9 +32,12 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function adminHome(): View
-    {
-        return view('Admin.admin_index');
-    }
+{
+    return view('admin.admin_index', [
+        'layout' => 'layouts.layouts_admin'
+    ]);
+}
+
 
     public function penggunaHome(): View
     {

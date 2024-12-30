@@ -46,7 +46,7 @@
                                 @method('delete')
                                     <button class="btn btn-danger btn-sm ml-2"
                                     onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
-                                </form>   
+                                </form>
                             </td>
                         </tr>
                     @endforeach
