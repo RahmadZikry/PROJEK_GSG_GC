@@ -1,4 +1,4 @@
-@extends($layout ,['title'=>'Index Admin'])
+@extends ('layouts.layouts_admin' ,['title'=>'Index Admin'])
 @section('content')
     <div class="card">
         <h5 class="card-header">Data Fasilitas</h5>

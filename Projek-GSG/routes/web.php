@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth', UserAccess::class . ':admin'])->prefix('admin')->as('admin.')->group(function () {
-    Route::get('/', [HomeController::class, 'adminHome'])->name('home');
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::resources([
         'fasilitas' => FasilitasController::class,
         'peminjaman' => PeminjamanController::class,
@@ -37,6 +37,12 @@ Route::middleware(['auth', UserAccess::class . ':pengguna'])->group(function () 
 
 Route::middleware(['auth', UserAccess::class . ':keuangan'])->group(function () {
     Route::get('keuangan', [App\Http\Controllers\HomeController::class, 'keuanganHome'])->name('keuangan.home');
+    Route::resources([
+        'fasilitas' => FasilitasController::class,
+        'peminjaman' => PeminjamanController::class,
+        'pembayaran' => PembayaranController::class,
+        'notifikasi' => NotifikasiController::class,
+    ]);
 
 });
 
@@ -44,5 +50,6 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
+
 
 // Route::get('/verifikasi', [App\Http\Controllers\VerifikasiController::class,'index']);

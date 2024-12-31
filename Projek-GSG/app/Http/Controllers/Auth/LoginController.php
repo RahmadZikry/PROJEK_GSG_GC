@@ -43,30 +43,36 @@ class LoginController extends Controller
     }
 
     public function login(Request $request): RedirectResponse
-    {
-        $input = $request->all();
+{
+    // Validasi input login
+    $this->validate($request, [
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+    ]);
 
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+    // Proses login
+    if (Auth::attempt($request->only('email', 'password'))) {
+        $user = Auth::user();
+        $role = $user->type; // Ambil tipe pengguna
 
-        if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
-            if (Auth::user()->type == 'pengguna') {
-                return redirect()->route('pengguna.home');
-            } else if (Auth::user()->type == 'admin') {
-                return redirect()->route('admin.home');
-            }else if (Auth::user()->type == 'keuangan') {
-                return redirect()->route('keuangan.home');
-            }else{
-                return redirect()->route('home');
-            }
-        }else{
-            return redirect()->route('login')
-                ->with('error','Email Dan Password Dimasukkan Salah.');
+        // Simpan role ke session
+        session(['role' => $role]);
+
+        // Redirect ke halaman sesuai role
+        if ($role == 'admin') {
+            return redirect()->route('admin.home');
+        } elseif ($role == 'pengguna') {
+            return redirect()->route('pengguna.home');
+        } elseif ($role == 'keuangan') {
+            return redirect()->route('keuangan.home');
+        } else {
+            return redirect()->route('home');
         }
+    }
 
-
-   }
+    // Jika login gagal
+    return redirect()->route('login')->withErrors([
+        'email' => 'Email atau password salah.',
+    ]);
+    }
 }
