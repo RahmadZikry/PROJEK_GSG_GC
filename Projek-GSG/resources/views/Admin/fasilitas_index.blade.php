@@ -29,7 +29,7 @@
                         <td>{{ $fasilitas->status_ketersediaan }}</td>
                         <td>
                             <a href="/fasilitas/ {{ $fasilitas->id  }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="/fasilitas/{{ $fasilitas->id }}" method="POST" class="d-inline">
+                            <form action="/fasilitas/{{ $fasilitas->id }}" method="POST" class="d-inline">  
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger btn-sm ml-2"
@@ -40,6 +40,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{-- {!! $fasilitas->links() !!} --}}
     </div>
 </div>
 @endsection

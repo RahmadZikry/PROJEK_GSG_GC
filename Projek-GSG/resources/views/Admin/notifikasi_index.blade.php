@@ -35,9 +35,7 @@
                             <td>{{ $item->notifikasi_id }}</td>
                             <td>{{ $item->user_id}}</td>
                             <td>{{ $item->judul_notifikasi }}</td>
-                            <td>{{ $item->isi_notifikasi }}
-                                <a href="/notifikasi/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">Detail</a>
-                            </td>
+                            <td>{{ $item->isi_notifikasi }}</td>
                             <td>{{ $item->tanggal_kirim }}</td>
                             <td>{{ $item->status_baca }}</td>
                             <td>
@@ -52,6 +50,7 @@
                     @endforeach
                 </tbody>
             </table>
+            
         </div>
     </div>
 @endsection

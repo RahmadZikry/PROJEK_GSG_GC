@@ -15,4 +15,4 @@
 
 @endsection
 
-{{-- belum lanjut, ini tampilan untuk detail dari Notifikasi --}}
+{{-- belum lanjut, ini tampilan untuk detail dari Notifikasi nggak tau, dipake atau nggk--}}

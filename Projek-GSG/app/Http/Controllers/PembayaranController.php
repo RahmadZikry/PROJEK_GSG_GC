@@ -78,8 +78,17 @@ class PembayaranController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pembayaran $pembayaran)
+    public function destroy(string $id)
     {
-        //
+        $pembayaran = Fasilitas::findOrFail($id);
+        // Hapus data fasilitas
+        $pembayaran->delete();
+
+        // Tambahkan pesan sukses
+        Session::flash('success', 'Data pembayaran berhasil dihapus.')->success();
+
+        // Redirect kembali ke halaman sebelumnya
+        // return redirect()->route('pembayaran.index');
+        return back();
     }
 }

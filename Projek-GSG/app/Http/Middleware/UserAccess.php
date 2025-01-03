@@ -22,4 +22,5 @@ class UserAccess
 
         return redirect('/')->with('error', 'You do not have access to this page.');
     }
+
 }

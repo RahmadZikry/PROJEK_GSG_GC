@@ -27,13 +27,30 @@
                 </div>
 
                 <div class="form-group mt-1 mb-3">
-                    <label for="status_ketersediaan" class="form-label">Status</label>
-                    <input type="text" name="status_ketersediaan" id="status_ketersediaan"
-                        class="form-control @error('status_ketersediaan') is-invalid @enderror" value="{{ old('status_ketersediaan') }}" required>
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat"
+                        value="{{ old('alamat') }}">
+                    <span class="text-danger">{{ $errors->first('alamat') }}</span>
+                </div>
+
+                <div class="form-group mt-1 mb-3">
+                    <label for="status_ketersediaan">Status</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status_ketersediaan" id="Tersedia" value="Tersedia"
+                            {{ old('status_ketersediaan') === 'Tersedia' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="Tersedia">Tersedia</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status_ketersediaan" id="Tidak_Tersedia" value="Tidak Tersedia"
+                            {{ old('status_ketersediaan') === 'Tidak Tersedia' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="Tidak_Tersedia">Tidak Tersedia</label>
+                    </div>
                     <span class="text-danger">{{ $errors->first('status_ketersediaan') }}</span>
                 </div>
 
+
                 <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{{ route('fasilitas.index') }}" class="btn btn-secondary">Kembali</a>
             </form>
         </div>
     </div>

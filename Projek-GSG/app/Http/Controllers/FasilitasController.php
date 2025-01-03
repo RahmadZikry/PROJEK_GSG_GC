@@ -131,10 +131,10 @@ class FasilitasController extends Controller
         $fasilitas->delete();
 
         // Tambahkan pesan sukses
-        Session::flash('success', 'Data fasilitas berhasil dihapus.');
+        Session::flash('success', 'Data fasilitas berhasil dihapus.')->success();
 
         // Redirect kembali ke halaman sebelumnya
-        return redirect()->route('fasilitas.index');
-        // return back();
+        // return redirect()->route('fasilitas.index');
+        return back();
     }
 }

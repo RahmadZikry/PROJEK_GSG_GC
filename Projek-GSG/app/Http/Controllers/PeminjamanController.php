@@ -79,8 +79,17 @@ class PeminjamanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(peminjaman $peminjaman)
+    public function destroy(string $id)
     {
-        //
+        $peminjaman = Fasilitas::findOrFail($id);
+        // Hapus data fasilitas
+        $peminjaman->delete();
+
+        // Tambahkan pesan sukses
+        Session::flash('success', 'Data peminjaman berhasil dihapus.')->success();
+
+        // Redirect kembali ke halaman sebelumnya
+        // return redirect()->route('peminjaman.index');
+        return back();
     }
 }
