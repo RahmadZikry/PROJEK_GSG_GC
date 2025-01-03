@@ -43,8 +43,12 @@
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">Peminjaman GSG</span>
                         </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
+                            <span class="hide-menu"> About</span>
+                        </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link warning-hover-bg" href="admin/fasilitas" aria-expanded="false">
+                            <a class="sidebar-link warning-hover-bg" href="pengguna/fasilitas" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-warning rounded-3">
                                     <i class="ti ti-article fs-7 text-warning"></i>
                                 </span>
@@ -52,35 +56,28 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link danger-hover-bg" href="admin/peminjaman" aria-expanded="false">
+                            <a class="sidebar-link danger-hover-bg" href="pengguna/peminjaman" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-danger rounded-3">
                                     <i class="ti ti-alert-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Peminjaman</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item">
-                            <a class="sidebar-link success-hover-bg" href="admin/pengguna" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-success rounded-3">
-                                    <i class="ti ti-cards fs-7 text-success"></i>
-                                </span>
-                                <span class="hide-menu ms-2 ps-1">Pengguna</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link primary-hover-bg" href="admin/pembayaran" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-primary rounded-3">
-                                    <i class="ti ti-file-description fs-7 text-primary"></i>
-                                </span>
-                                <span class="hide-menu ms-2 ps-1">Pembayaran</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link indigo-hover-bg" href="admin/notifikasi" aria-expanded="false">
+                            <a class="sidebar-link indigo-hover-bg" href="pengguna/notifikasi" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-indigo rounded-3">
                                     <i class="ti ti-typography fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Notifikasi</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link primary-hover-bg" href="pengguna/pembayaran" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-primary rounded-3">
+                                    <i class="ti ti-file-description fs-7 text-primary"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">Profile</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -123,9 +120,9 @@
                         <ul class="flex-row navbar-nav ms-auto align-items-center justify-content-end">
                             <a href="javascript:void(0)" class="btn btn-primary">
                                 @if (Auth::check())
-                                    {{ Auth::user()->name }} <!-- Menampilkan nama pengguna yang login -->
+                                {{ Auth::user()->name }} <!-- Menampilkan nama pengguna yang login -->
                                 @else
-                                    Login
+                                Login
                                 @endif
                             </a>
                             <li class="nav-item dropdown">
