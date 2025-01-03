@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\UserAccess;
-
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,8 +20,6 @@ Route::middleware(['auth', UserAccess::class . ':admin'])->group(function () {
     Route::resource('pembayaran', App\Http\Controllers\PembayaranController::class);
     Route::resource('notifikasi', App\Http\Controllers\NotifikasiController::class);
 });
-
-
 
 Route::middleware(['auth', UserAccess::class . ':pengguna'])->group(function () {
     Route::get('pengguna', [App\Http\Controllers\HomeController::class, 'penggunaHome'])->name('pengguna.home');
