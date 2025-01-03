@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -54,4 +56,13 @@ class User extends Authenticatable
         );
     }
 
+    public function fasilitas(): BelongsTo
+    {
+        return $this->belongsTo(fasilitas::class, 'foreign_key', 'other_key');
+    }
+
+    public function user(): HasMany
+    {
+        return $this->hasMany(User::class, 'foreign_key', 'local_key');
+    }
 }
