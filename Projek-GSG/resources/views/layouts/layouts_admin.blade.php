@@ -44,14 +44,6 @@
                             <span class="hide-menu">Peminjaman GSG</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link warning-hover-bg" href="fasilitas" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-warning rounded-3">
-                                    <i class="ti ti-article fs-7 text-warning"></i>
-                                </span>
-                                <span class="hide-menu ms-2 ps-1">Fasilitas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
                             <a class="sidebar-link danger-hover-bg" href="peminjaman" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-danger rounded-3">
                                     <i class="ti ti-alert-circle fs-7 text-danger"></i>
@@ -65,14 +57,6 @@
                                     <i class="ti ti-cards fs-7 text-success"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Pengguna</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link primary-hover-bg" href="pembayaran" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-primary rounded-3">
-                                    <i class="ti ti-file-description fs-7 text-primary"></i>
-                                </span>
-                                <span class="hide-menu ms-2 ps-1">Pembayaran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
