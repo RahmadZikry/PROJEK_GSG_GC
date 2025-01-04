@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\FormPeminjamanController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Middleware\UserAccess;
+use App\Models\FormPeminjaman;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +32,12 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () 
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function () {
     Route::get('pengguna', [HomeController::class, 'index'])->name('pengguna.home');
+    Route::resources([
+        'peminjamanForm' => FormPeminjamanController::class,
+        'peminjaman' => PeminjamanController::class,
+        'pembayaran' => PembayaranController::class,
+        'notifikasi' => NotifikasiController::class,
+    ]);
 });
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'keuangan'], function () {

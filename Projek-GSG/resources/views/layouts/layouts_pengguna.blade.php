@@ -44,11 +44,11 @@
                             <span class="hide-menu">Peminjaman GSG</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link warning-hover-bg" href="admin/fasilitas" aria-expanded="false">
+                            <a class="sidebar-link warning-hover-bg" href="peminjamanForm" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-warning rounded-3">
                                     <i class="ti ti-article fs-7 text-warning"></i>
                                 </span>
-                                <span class="hide-menu ms-2 ps-1">Fasilitas</span>
+                                <span class="hide-menu ms-2 ps-1">Form Peminjaman</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
