@@ -20,7 +20,6 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () 
     Route::resources([
         'fasilitas' => FasilitasController::class,
         'peminjaman' => PeminjamanController::class,
-        'pembayaran' => PembayaranController::class,
         'notifikasi' => NotifikasiController::class,
     ]);
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pembayaran;
 use App\Http\Requests\StorePembayaranRequest;
 use App\Http\Requests\UpdatePembayaranRequest;
+use Illuminate\Support\Facades\Session;
 
 class PembayaranController extends Controller
 {
@@ -18,7 +19,7 @@ class PembayaranController extends Controller
             return response()->json($pembayaran);
         }
         $data['pembayaran'] = $pembayaran;
-        return view('Admin.pembayaran_index', $data);
+        return view('keuangan.pembayaran_index', $data);
     }
 
     /**
@@ -26,7 +27,7 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('keuangan.pembayaran_create');
     }
 
     /**
@@ -64,7 +65,7 @@ class PembayaranController extends Controller
      */
     public function edit(Pembayaran $pembayaran)
     {
-        //
+        return view('keuangan.pembayaran_edit');
     }
 
     /**
@@ -72,14 +73,26 @@ class PembayaranController extends Controller
      */
     public function update(UpdatePembayaranRequest $request, Pembayaran $pembayaran)
     {
-        //
+        $validatedData = $request->validate([
+            'peminjaman_id' => 'required|string|max:255',
+            'user_id' => 'required|string|max:255',
+            'tanggal_pembayaran' => 'requireddb|string|max:255',
+            'jumlah_pembayaran' => 'required|boolean',
+            'status_pembayaran' => 'required|in:Dikonfirmasi,Menunggu',
+            'metode_pembayaran' => 'required|string|max:255',
+        ]);
+
+        // Perbarui data fasilitas
+        $pembayaran->update($validatedData);
+
+        // Tambahkan pesan sukses
+        Session::flash('success', 'Data pembayaran berhasil diperbarui.');
+
+        // Redirect ke halaman index
+        return redirect()->route('pembayaran.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pembayaran $pembayaran)
-    {
-        //
-    }
 }

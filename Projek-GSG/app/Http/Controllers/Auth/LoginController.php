@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -53,7 +53,7 @@ class LoginController extends Controller
     // Proses login
     if (Auth::attempt($request->only('email', 'password'))) {
         $user = Auth::user();
-        $role = $user->type; // Ambil tipe pengguna
+        $role = $user->type;
 
         // Simpan role ke session
         session(['role' => $role]);

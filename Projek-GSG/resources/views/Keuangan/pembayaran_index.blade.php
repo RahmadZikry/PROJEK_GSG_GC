@@ -1,4 +1,4 @@
-@extends('layouts.layouts_admin',['title'=>'Index Pembayaran'])
+@extends('layouts.layouts_keuangan',['title'=>'Index Pembayaran'])
 
 @section('content')
 @if(session('pesan'))
@@ -18,7 +18,7 @@
                     <tr>
                         <th>No</th>
                         <th>ID Peminjaman</th>
-                        <th>Detail Pembayaran</th>
+                        <th>ID User</th></th>
                         <th>Tanggal Pembayaran</th>
                         <th>Jumlah Pembayaran</th>
                         <th>Status Pembayaran</th>
@@ -31,9 +31,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->peminjaman_id }}</td>
-                            <td>{{ $item->user_id}}
-                                <a href="/pembayaran/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">Detail</a>
-                            </td>
+                            <td>{{ $item->user_id}}</td>
                             <td>{{ $item->tanggal_pembayaran }}</td>
                             <td>{{ $item->jumlah_pembayaran }}</td>
                             <td>{{ $item->status_pembayaran }}</td>
@@ -43,9 +41,9 @@
                                 <form action="/pembayaran/{{ $item->id }}" method="POST" class="d-inline">
                                     @csrf
                                 @method('delete')
-                                    <button class="btn btn-danger btn-sm ml-2"
+                                    <button class="ml-2 btn btn-danger btn-sm"
                                     onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
-                                </form>   
+                                </form>
                             </td>
                         </tr>
                     @endforeach

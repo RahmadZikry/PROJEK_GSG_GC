@@ -1,4 +1,4 @@
-@extends('layouts.layouts_admin', ['title' => 'Detail Pembayaran'])
+@extends('layouts.layouts_keuangan', ['title' => 'Detail Pembayaran'])
 @section('content')
 
 <div class="container">

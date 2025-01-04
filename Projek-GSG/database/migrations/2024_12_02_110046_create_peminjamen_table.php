@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fasilitas_id');
             $table->foreignId('user_id');
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
+            $table->enum('metode_pembayaran', ['Tunai','Non_Tunai']);
+            $table->string('image')->nullable();
+            $table->enum('status_pembayaran', ['Sukses','Gagal']);
             $table->enum('status_verifikasi', ['Tertunda','Disetujui','Ditolak']);
-            // $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
         });
     }

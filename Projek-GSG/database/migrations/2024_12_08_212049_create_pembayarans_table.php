@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('peminjaman_id');
             $table->foreignId('user_id');
-            $table->date('tanggal_pembayaran');
-            $table->integer('jumlah_pembayaran');
-            $table->enum('status_pembayaran', ['Dikonfirmasi','Menunggu']);
-            $table->string('metode_pembayaran');
+            $table->date('tanggal_peminjaman');
+            $table->date('tanggal_pengembalian');
+            $table->enum('metode_pembayaran', ['Tunai','Non_Tunai']);
+            $table->string('image')->nullable();
+            $table->enum('status_pembayaran', ['Sukses','Gagal']);
             $table->timestamps();
         });
     }

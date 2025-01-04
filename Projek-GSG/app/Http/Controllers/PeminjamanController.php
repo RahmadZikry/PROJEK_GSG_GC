@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\peminjaman;
 use App\Http\Requests\StorepeminjamanRequest;
 use App\Http\Requests\UpdatepeminjamanRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PeminjamanController extends Controller
 {
@@ -18,7 +19,7 @@ class PeminjamanController extends Controller
             return response()->json($peminjaman);
         }
         $data['peminjaman'] = $peminjaman;
-        return view('Admin.peminjaman_index', $data);
+        return view('admin.peminjaman_index', $data);
     }
 
     /**
@@ -26,7 +27,9 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.peminjaman_create', [
+            'layout' => 'layouts.layouts_admin',
+        ]);
     }
 
     /**
@@ -39,17 +42,22 @@ class PeminjamanController extends Controller
             'user_id' => 'required',
             'tanggal_peminjaman' => 'required',
             'tanggal_pengembalian'=> 'required',
-            'status_verifikasi' => 'required|in:Tertunda,Disetujui,Ditolak',
+            'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
         ]);
-        $peminjaman = new Peminjaman(); //membuat objek kosong di variabel model
-        $peminjaman->fill($requestData); //mengisi var model dengan data yang sudah divalidasi requestData
-        $peminjaman->bukti_pembayaran = $request ->file('bukti_pembayaran')->store('public');
-        $peminjaman->save(); //menyimpan data ke database
-        return back()->with('pesan', 'Data berhasil disimpan');
-        if (request()->wantsJson()){
+
+        // Set status_verifikasi langsung bernilai 'Tertunda'
+        $requestData['status_verifikasi'] = 'Tertunda';
+        $peminjaman = new Peminjaman(); // membuat objek kosong di variabel model
+        $peminjaman->fill($requestData); // mengisi var model dengan data yang sudah divalidasi requestData
+        $peminjaman->bukti_pembayaran = $request->file('bukti_pembayaran')->store('public');
+        $peminjaman->save(); // menyimpan data ke database
+
+        if ($request->wantsJson()) {
             return response()->json($peminjaman);
         }
+
+        return back()->with('pesan', 'Data berhasil disimpan');
     }
 
     /**
@@ -65,7 +73,10 @@ class PeminjamanController extends Controller
      */
     public function edit(peminjaman $peminjaman)
     {
-        //
+        return view('admin.peminjaman_edit', [
+            'layout' => 'layouts.layouts_admin',
+            'peminjaman' => $peminjaman
+        ]);
     }
 
     /**
@@ -73,7 +84,38 @@ class PeminjamanController extends Controller
      */
     public function update(UpdatepeminjamanRequest $request, peminjaman $peminjaman)
     {
-        //
+        $requestData = $request->validate([
+            'fasilitas_id' => 'required',
+            'user_id' => 'required',
+            'tanggal_peminjaman' => 'required',
+            'tanggal_pengembalian'=> 'required',
+            'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
+            'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+        ]);
+
+        // Temukan data peminjaman berdasarkan ID
+        $peminjaman = Peminjaman::findOrFail($peminjaman);
+
+        // Set status_verifikasi tetap bernilai 'Tertunda' jika tidak diubah
+        $requestData['status_verifikasi'] = $peminjaman->status_verifikasi ?? 'Tertunda';
+
+        // Jika ada file bukti_pembayaran baru, ganti file lama
+        if ($request->hasFile('bukti_pembayaran')) {
+            // Hapus file lama jika ada
+            if ($peminjaman->bukti_pembayaran) {
+                Storage::delete($peminjaman->bukti_pembayaran);
+            }
+            $requestData['bukti_pembayaran'] = $request->file('bukti_pembayaran')->store('public');
+        }
+
+        // Update data peminjaman dengan requestData
+        $peminjaman->update($requestData);
+
+        if ($request->wantsJson()) {
+            return response()->json($peminjaman);
+        }
+
+        return back()->with('pesan', 'Data berhasil diperbarui');
     }
 
     /**
