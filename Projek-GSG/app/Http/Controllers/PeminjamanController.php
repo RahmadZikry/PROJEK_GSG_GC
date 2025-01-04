@@ -6,6 +6,8 @@ use App\Models\peminjaman;
 use App\Http\Requests\StorepeminjamanRequest;
 use App\Http\Requests\UpdatepeminjamanRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use App\Models\Pembayaran;
 
 class PeminjamanController extends Controller
 {
@@ -15,7 +17,7 @@ class PeminjamanController extends Controller
     public function index()
     {
         $peminjaman = Peminjaman::latest()->paginate(10);
-        if (request()->wantsJson()){
+        if (request()->wantsJson()) {
             return response()->json($peminjaman);
         }
         $data['peminjaman'] = $peminjaman;
@@ -37,29 +39,52 @@ class PeminjamanController extends Controller
      */
     public function store(StorepeminjamanRequest $request)
     {
-        $requestData = $request->validate([
-            'fasilitas_id' => 'required',
-            'user_id' => 'required',
-            'tanggal_peminjaman' => 'required',
-            'tanggal_pengembalian'=> 'required',
-            'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000',
-        ]);
+        DB::beginTransaction(); // Memulai transaksi database
 
-        // Set status_verifikasi langsung bernilai 'Tertunda'
-        $requestData['status_verifikasi'] = 'Tertunda';
-        $peminjaman = new Peminjaman(); // membuat objek kosong di variabel model
-        $peminjaman->fill($requestData); // mengisi var model dengan data yang sudah divalidasi requestData
-        $peminjaman->image = $request->file('image')->store('public');
-        $peminjaman->save(); // menyimpan data ke database
+        try {
+            // Validasi data peminjaman
+            $peminjamanData = $request->validate([
+                'fasilitas_id' => 'required',
+                'user_id' => 'required',
+                'tanggal_peminjaman' => 'required|date',
+                'tanggal_pengembalian' => 'required|date',
+                'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
+                'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+            ]);
 
-        if ($request->wantsJson()) {
-            return response()->json($peminjaman);
+            // Set status_verifikasi langsung bernilai 'Tertunda'
+            $peminjamanData['status_verifikasi'] = 'Tertunda';
+
+            // Simpan data peminjaman
+            $peminjaman = new Peminjaman();
+            $peminjaman->fill($peminjamanData);
+            $peminjaman->bukti_pembayaran = $request->file('bukti_pembayaran')->store('public/images');
+            $peminjaman->save();
+
+            // Siapkan data pembayaran
+            $pembayaranData = [
+                'peminjaman_id' => $peminjaman->id, // Ambil ID dari data peminjaman yang baru disimpan
+                'user_id' => $peminjaman->user_id,
+                'tanggal_pembayaran' => now(), // Misal pembayaran langsung dilakukan
+                'jumlah_pembayaran' => 100000, // Ganti sesuai logika jumlah pembayaran
+                'status_pembayaran' => 'Menunggu', // Default status pembayaran
+                'metode_pembayaran' => $peminjaman->metode_pembayaran,
+                'image' => $peminjaman->bukti_pembayaran, // Gunakan bukti pembayaran yang sama
+            ];
+
+            // Simpan data pembayaran
+            $pembayaran = new Pembayaran();
+            $pembayaran->fill($pembayaranData);
+            $pembayaran->save();
+
+            DB::commit(); // Commit transaksi jika semua berhasil
+
+            return back()->with('pesan', 'Data peminjaman dan pembayaran berhasil disimpan.');
+        } catch (\Exception $e) {
+            DB::rollBack(); // Rollback transaksi jika terjadi kesalahan
+            return back()->withErrors('Terjadi kesalahan: ' . $e->getMessage());
         }
-
-        return back()->with('pesan', 'Data berhasil disimpan');
     }
-
     /**
      * Display the specified resource.
      */
@@ -88,7 +113,7 @@ class PeminjamanController extends Controller
             'fasilitas_id' => 'required',
             'user_id' => 'required',
             'tanggal_peminjaman' => 'required',
-            'tanggal_pengembalian'=> 'required',
+            'tanggal_pengembalian' => 'required',
             'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
         ]);
@@ -124,5 +149,6 @@ class PeminjamanController extends Controller
     public function destroy(peminjaman $peminjaman)
     {
         //
+
     }
 }

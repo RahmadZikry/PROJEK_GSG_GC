@@ -55,5 +55,8 @@ class DatabaseSeeder extends Seeder
                 'type' => 2,
             ],
         ]);
+
+        //$this->call(PeminjamanSeeder::class);
+        $this->call(PeminjamanPembayaranSeeder::class);
     }
 }
