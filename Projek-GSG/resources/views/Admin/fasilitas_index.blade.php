@@ -5,7 +5,7 @@
         <div class="card-body">
             <div class="mt-3 mb-3 row">
             <div class="col-md-6">
-                <a href="/fasilitas/create" class="btn btn-primary btn-sm">Tambah fasilitas</a>
+                <a href="fasilitas/create" class="btn btn-primary btn-sm">Tambah fasilitas</a>
             </div>
         </div>
         <table class="table table-striped">

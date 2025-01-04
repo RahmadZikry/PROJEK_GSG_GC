@@ -7,7 +7,6 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\NotifikasiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Middleware\UserAccess;
 
 
 
@@ -17,10 +16,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/', [HomeController::class, 'adminHome'])->name('admin.home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
     Route::resources([
         'fasilitas' => FasilitasController::class,
         'peminjaman' => PeminjamanController::class,
@@ -30,13 +27,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 });
 
 
-Route::middleware(['auth', UserAccess::class . ':pengguna'])->group(function () {
-    Route::get('pengguna', [App\Http\Controllers\HomeController::class, 'penggunaHome'])->name('pengguna.home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('pengguna', [HomeController::class, 'index'])->name('pengguna.home');
 
 });
 
-Route::middleware(['auth', UserAccess::class . ':keuangan'])->group(function () {
-    Route::get('keuangan', [App\Http\Controllers\HomeController::class, 'keuanganHome'])->name('keuangan.home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('keuangan', [HomeController::class, 'index'])->name('keuangan.home');
     Route::resources([
         'fasilitas' => FasilitasController::class,
         'peminjaman' => PeminjamanController::class,
