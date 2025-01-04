@@ -7,10 +7,8 @@
     </div>
 @endif
     <div class="card">
-        <h3 class="card-header">Pembayaran Peminjaman Fasilitas</h3>
+        <h3 class="card-header">Pembayaran Peminjaman GSG</h3>
         <div class="card-body">
-            <h5>Halaman pembayaran Admin</h5>
-            <p>Halaman ini digunakan untuk menampilkan Pembayaran peminjaman fasilitas yang telah diajukan.</p>
             <table class="table table-striped">
                 <thead>
                     <tr>
