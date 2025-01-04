@@ -56,19 +56,19 @@ https://templatemo.com/tm-540-lava-landing-page
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about" class="menu-item">About</a></li>
-                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Testimonials</a>
+                            <li class="scroll-to-section"><a href="#about" class="menu-item">Menu</a></li>
+                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Tanggal</a>
                             </li>
-                            <li class="submenu">
+                            {{-- <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
-                                <ul>
+                                <ul>    
                                     <li><a href="" class="menu-item">About Us</a></li>
                                     <li><a href="" class="menu-item">Features</a></li>
                                     <li><a href="" class="menu-item">FAQ's</a></li>
                                     <li><a href="" class="menu-item">Blog</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li> --}}
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -91,9 +91,9 @@ https://templatemo.com/tm-540-lava-landing-page
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Simple App that we <em>CREATE</em></h1>
-                        <p>Lava <a href="#">HTML landing page</a> template is provided by <a href="#">TemplateMo</a>.
-                           You can modify and use it for your commercial websites for free of charge. This template is last updated on 29 Oct 2019.</p> 
+                        <h1>Reservasi Gedung Serba Guna <em>GSG</em></h1>
+                        <p>Gedung serbaguna Politeknik Calteks Riau merupakan fasilitas yang bagus dan dapat terbilang mewah. 
+                            Untuk harga penyewaannya juga termasuk murah dan peminjamannya juga sangatlah gampang.</p> 
                         <a href="#about" class="main-button-slider">KNOW US BETTER</a>
                     </div>
                 </div>
@@ -113,8 +113,8 @@ https://templatemo.com/tm-540-lava-landing-page
                         <div class="features-icon">
                             <h2>01</h2>
                             <img src="templatemo_540_lava_landing_page/assets/images/features-icon-1.png" alt="">
-                            <h4>Trend Analysis</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
+                            <h4>Syarat Dan Ketentuan</h4>
+                            <p>Adapula syarat dan ketentuan dalam peminjaman Gedung Serba Guna.</p>
                             <a href="#testimonials" class="main-button">
                                 Read More
                             </a>
@@ -127,10 +127,10 @@ https://templatemo.com/tm-540-lava-landing-page
                         <div class="features-icon">
                             <h2>02</h2>
                             <img src="templatemo_540_lava_landing_page/assets/images/features-icon-2.png" alt="">
-                            <h4>Site Optimization</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
-                            <a href="#testimonials" class="main-button">
-                                Discover More
+                            <h4>Formulir Peminjaman</h4>
+                            <p>Isi formulir untuk peminjaman GSG sesuai kebutuhan Anda.</p>
+                            <a href="peminjamanForm" class="main-button">
+                                Form
                             </a>
                         </div>
                     </div>
@@ -208,9 +208,12 @@ https://templatemo.com/tm-540-lava-landing-page
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="center-heading">
-                        <h2>What They Think <em>About Us</em></h2>
-                        <p>Suspendisse vitae laoreet mauris. Fusce a nisi dapibus, euismod purus non, convallis odio.
-                            Donec vitae magna ornare, pellentesque ex vitae, aliquet urna.</p>
+                        <h2>Taggal Peminjaman GSG <em>Kalender</em></h2>
+                        <p>
+                            ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan DP (sudah fix)<br>
+                            ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa berubah)<br>
+                            ● <span style="color: blue;">Blok tanggal warna biru</span> = Acara/Event PCR, misal: Wisuda
+                        </p>                        
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
@@ -294,7 +297,7 @@ https://templatemo.com/tm-540-lava-landing-page
 
 
     <!-- ***** Footer Start ***** -->
-    <footer id="contact-us">
+    {{-- <footer id="contact-us">
         <div class="container">
             <div class="footer-content">
                 <div class="row">
@@ -359,7 +362,7 @@ https://templatemo.com/tm-540-lava-landing-page
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <!-- jQuery -->
     <script src="templatemo_540_lava_landing_page/assets/js/jquery-2.1.0.min.js"></script>

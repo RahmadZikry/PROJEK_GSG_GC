@@ -50,6 +50,7 @@
                             <input type="checkbox" class="form-check-input" id="setuju">
                             <label class="form-check-label" for="setuju">Ceklis untuk menyetujui peminjaman GSG</label>
                         </div>
+                        <a href="/pengguna" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-primary w-100">Kirim</button>
                     </form>
                 </div>
