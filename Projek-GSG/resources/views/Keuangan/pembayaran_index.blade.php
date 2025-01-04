@@ -18,6 +18,7 @@
                         <th>Tanggal Pembayaran</th>
                         <th>Status Pembayaran</th>
                         <th>Metode Pembayaran</th>
+                        <th>Bukti Pembayaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
