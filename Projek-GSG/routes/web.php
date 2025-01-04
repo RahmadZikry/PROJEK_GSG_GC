@@ -9,8 +9,6 @@ use App\Http\Middleware\UserAccess;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,10 +33,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
 Route::group(['middleware' => 'auth', UserAccess::class . 'keuangan'], function () {
     Route::get('keuangan', [HomeController::class, 'index'])->name('keuangan.home');
     Route::resources([
-        'fasilitas' => FasilitasController::class,
-        'peminjaman' => PeminjamanController::class,
         'pembayaran' => PembayaranController::class,
-        'notifikasi' => NotifikasiController::class,
     ]);
 });
 
