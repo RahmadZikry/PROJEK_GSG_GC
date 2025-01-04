@@ -6,21 +6,18 @@
         {{ session('pesan') }}
     </div>
 @endif
-
     <div class="card">
         <h3 class="card-header">Pembayaran Peminjaman Fasilitas</h3>
         <div class="card-body">
             <h5>Halaman pembayaran Admin</h5>
             <p>Halaman ini digunakan untuk menampilkan Pembayaran peminjaman fasilitas yang telah diajukan.</p>
-
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>ID Peminjaman</th>
-                        <th>ID User</th></th>
+                        <th>ID User</th>
                         <th>Tanggal Pembayaran</th>
-                        <th>Jumlah Pembayaran</th>
                         <th>Status Pembayaran</th>
                         <th>Metode Pembayaran</th>
                         <th>Aksi</th>
@@ -30,12 +27,12 @@
                     @foreach ($pembayaran as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->peminjaman_id }}</td>
-                            <td>{{ $item->user_id}}</td>
-                            <td>{{ $item->tanggal_pembayaran }}</td>
-                            <td>{{ $item->jumlah_pembayaran }}</td>
-                            <td>{{ $item->status_pembayaran }}</td>
-                            <td>{{ $item->metode_pembayaran }}</td>
+                            <td>{{ $item->peminjamen->id }}</td>
+                            <td>{{ $item->users->id}}</td>
+                            <td>{{ $item->peminjamen->tanggal_pembayaran }}</td>
+                            <td>{{ $item->peminjamen->status_pembayara }}</td>
+                            <td>{{ $item->peminjamen->metode_pembayaran }}</td>
+                            <td>{{ $item->peminjamen->bukti_pembayaran }}</td>
                             <td>
                                 <a href="/pembayaran/ {{ $item->id  }}" class="btn btn-warning btn-sm">Konfirmasi</a>
                                 <form action="/pembayaran/{{ $item->id }}" method="POST" class="d-inline">

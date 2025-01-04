@@ -24,22 +24,6 @@ class Peminjaman extends Model
         return $this->hasMany(peminjaman::class, 'foreign_key', 'local_key');
     }
 
-    /**
-     * Get all of the comments for the Fasilitas
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function fasilitas(): HasMany
-    {
-        return $this->hasMany(Fasilitas::class, 'foreign_key', 'local_key');
-    }
-
-
-    /**
-     * Get the user that owns the Fasilitas
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'foreign_key', 'other_key');

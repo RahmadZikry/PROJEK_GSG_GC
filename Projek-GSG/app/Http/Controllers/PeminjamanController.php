@@ -43,14 +43,14 @@ class PeminjamanController extends Controller
             'tanggal_peminjaman' => 'required',
             'tanggal_pengembalian'=> 'required',
             'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
-            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000',
         ]);
 
         // Set status_verifikasi langsung bernilai 'Tertunda'
         $requestData['status_verifikasi'] = 'Tertunda';
         $peminjaman = new Peminjaman(); // membuat objek kosong di variabel model
         $peminjaman->fill($requestData); // mengisi var model dengan data yang sudah divalidasi requestData
-        $peminjaman->bukti_pembayaran = $request->file('bukti_pembayaran')->store('public');
+        $peminjaman->image = $request->file('image')->store('public');
         $peminjaman->save(); // menyimpan data ke database
 
         if ($request->wantsJson()) {
@@ -90,7 +90,7 @@ class PeminjamanController extends Controller
             'tanggal_peminjaman' => 'required',
             'tanggal_pengembalian'=> 'required',
             'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
-            'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
         ]);
 
         // Temukan data peminjaman berdasarkan ID
@@ -100,12 +100,12 @@ class PeminjamanController extends Controller
         $requestData['status_verifikasi'] = $peminjaman->status_verifikasi ?? 'Tertunda';
 
         // Jika ada file bukti_pembayaran baru, ganti file lama
-        if ($request->hasFile('bukti_pembayaran')) {
+        if ($request->hasFile('image')) {
             // Hapus file lama jika ada
             if ($peminjaman->bukti_pembayaran) {
                 Storage::delete($peminjaman->bukti_pembayaran);
             }
-            $requestData['bukti_pembayaran'] = $request->file('bukti_pembayaran')->store('public');
+            $requestData['image'] = $request->file('image')->store('public');
         }
 
         // Update data peminjaman dengan requestData

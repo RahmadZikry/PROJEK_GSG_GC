@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pembayaran;
 use App\Http\Requests\StorePembayaranRequest;
 use App\Http\Requests\UpdatePembayaranRequest;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage ;
 
 class PembayaranController extends Controller
 {
@@ -38,18 +38,27 @@ class PembayaranController extends Controller
         $requestData = $request->validate([
             'peminjaman_id' => 'required',
             'user_id' => 'required',
-            'tanggal_pembayaran' => 'required',
-            'jumlah_pembayaran'=> 'required',
-            'status_pembayaran' => 'required|in:Dikonfirmasi,Menunggu',
-            'metode_pembayaran' => 'required',
+            'tanggal_pembayaran' => 'required|date',
+            'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+            'status_pembayaran' => 'required|in:Sukses,Gagal',
         ]);
-        $pembayaran = new Pembayaran(); //membuat objek kosong di variabel model
-        $pembayaran->fill($requestData); //mengisi var model dengan data yang sudah divalidasi requestData
-        $pembayaran->save(); //menyimpan data ke database
-        return back()->with('pesan', 'Data berhasil disimpan');
-        if (request()->wantsJson()){
+
+        $pembayaran = new Pembayaran(); // Membuat objek kosong untuk model Pembayaran
+        $pembayaran->fill($requestData); // Mengisi model dengan data yang sudah divalidasi
+
+        // Jika file image diunggah, simpan file dan tambahkan path-nya ke kolom image
+        if ($request->hasFile('image')) {
+            $pembayaran->image = $request->file('image')->store('public/images');
+        }
+
+        $pembayaran->save(); // Menyimpan data ke database
+
+        if ($request->wantsJson()) {
             return response()->json($pembayaran);
         }
+
+        return back()->with('pesan', 'Data berhasil disimpan');
     }
 
     /**
@@ -71,28 +80,39 @@ class PembayaranController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePembayaranRequest $request, Pembayaran $pembayaran)
+    public function update(UpdatePembayaranRequest $request, Pembayaran $id)
     {
-        $validatedData = $request->validate([
-            'peminjaman_id' => 'required|string|max:255',
-            'user_id' => 'required|string|max:255',
-            'tanggal_pembayaran' => 'requireddb|string|max:255',
-            'jumlah_pembayaran' => 'required|boolean',
-            'status_pembayaran' => 'required|in:Dikonfirmasi,Menunggu',
-            'metode_pembayaran' => 'required|string|max:255',
+        $requestData = $request->validate([
+            'peminjaman_id' => 'required',
+            'user_id' => 'required',
+            'tanggal_pembayaran' => 'required|date',
+            'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+            'status_pembayaran' => 'required|in:Sukses,Gagal',
         ]);
 
-        // Perbarui data fasilitas
-        $pembayaran->update($validatedData);
+        // Temukan data pembayaran berdasarkan ID
+        $pembayaran = Pembayaran::findOrFail($id);
 
-        // Tambahkan pesan sukses
-        Session::flash('success', 'Data pembayaran berhasil diperbarui.');
+        // Perbarui data kecuali image
+        $pembayaran->fill($requestData);
 
-        // Redirect ke halaman index
-        return redirect()->route('pembayaran.index');
+        // Jika ada file image baru diunggah
+        if ($request->hasFile('image')) {
+            // Hapus file lama jika ada
+            if ($pembayaran->image) {
+                Storage::delete($pembayaran->image);
+            }
+            // Simpan file baru dan tambahkan path-nya ke kolom image
+            $pembayaran->image = $request->file('image')->store('public/images');
+        }
+
+        $pembayaran->save(); // Menyimpan perubahan ke database
+
+        if ($request->wantsJson()) {
+            return response()->json($pembayaran);
+        }
+
+        return back()->with('pesan', 'Data berhasil diperbarui');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
 }
