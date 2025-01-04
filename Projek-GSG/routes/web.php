@@ -5,6 +5,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Middleware\UserAccess;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () {
     Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
     Route::resources([
         'fasilitas' => FasilitasController::class,
@@ -27,12 +28,11 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function () {
     Route::get('pengguna', [HomeController::class, 'index'])->name('pengguna.home');
-
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', UserAccess::class . 'keuangan'], function () {
     Route::get('keuangan', [HomeController::class, 'index'])->name('keuangan.home');
     Route::resources([
         'fasilitas' => FasilitasController::class,
@@ -40,7 +40,6 @@ Route::group(['middleware' => 'auth'], function () {
         'pembayaran' => PembayaranController::class,
         'notifikasi' => NotifikasiController::class,
     ]);
-
 });
 
 Route::get('/logout', function () {
