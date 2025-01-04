@@ -66,7 +66,7 @@ class LoginController extends Controller
         } elseif ($role == 'keuangan') {
             return redirect()->route('keuangan.home');
         } else {
-            return redirect()->route('home');
+            return redirect()->route('/');
         }
     }
 
