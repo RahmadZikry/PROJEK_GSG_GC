@@ -13,7 +13,7 @@ class PeminjamanPembayaranSeeder extends Seeder
         public function run(): void
         {
             // Seed data untuk tabel peminjaman
-            $peminjamenData = [
+            $peminjamanData = [
                 [
 
                     'user_id' => 1,
@@ -51,12 +51,12 @@ class PeminjamanPembayaranSeeder extends Seeder
             ];
 
             // Insert data ke tabel peminjaman
-            foreach ($peminjamenData as $peminjaman) {
-                $peminjamenId = DB::table('peminjaman')->insertGetId($peminjaman);
+            foreach ($peminjamanData as $peminjaman) {
+                $peminjamanId = DB::table('peminjaman')->insertGetId($peminjaman);
 
                 // Seed data untuk tabel pembayaran
                 $pembayaranData = [
-                    'peminjaman_id' => $peminjamenId,
+                    'peminjaman_id' => $peminjamanId,
                     'user_id' => $peminjaman['user_id'],
                     'tanggal_pembayaran' => now()->toDateString(),
                     'status_pembayaran' => 'Menunggu',
