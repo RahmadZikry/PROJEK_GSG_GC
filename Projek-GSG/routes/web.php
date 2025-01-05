@@ -18,10 +18,11 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () {
     Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
+    Route::get('data_peminjaman', [PeminjamanController::class, 'dataindex'])->name('dataindex.home');
     Route::post('peminjaman/{peminjaman}/updateStatus', [PeminjamanController::class, 'updateStatus'])
     ->name('peminjaman.updateStatus');
     Route::resources([
-        'peminjaman' => PeminjamanController::class,
+        'peminjaman' => PeminjamanController::class,    
         'kalender' => KalenderController::class,
         'notifikasi' => NotifikasiController::class,
     ]);
