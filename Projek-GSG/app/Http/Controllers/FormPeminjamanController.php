@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use app\Models\Peminjaman;
+
+use App\Models\Peminjaman;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorepeminjamanRequest;
+use Illuminate\Support\Facades\Auth;
 // use App\Models\FormPeminjaman;
-use App\Http\Requests\StoreFormPeminjamanRequest;
-use App\Http\Requests\UpdateFormPeminjamanRequest;
 
 class FormPeminjamanController extends Controller
 {
@@ -22,7 +23,7 @@ class FormPeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('Pengguna.FormPeminjaman_create');
     }
 
     /**
@@ -30,38 +31,34 @@ class FormPeminjamanController extends Controller
      */
     public function store(StorepeminjamanRequest $request)
     {
-        $requestData = $request->validate([ 
-            'peminjaman_id' => 'required',    
-            'user_id' => 'required',
+        // Validasi input
+        $validatedData = $request->validate([
             'tanggal_peminjaman' => 'required|date',
-            'tanggal_pengembalian' => 'required|date',
+            'tanggal_pengembalian' => 'required|date|after:tanggal_peminjaman',
             'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
-            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
-            'status_pembayaran' => 'required|in:Sukses,Gagal,Menunggu',
-            'status_verifikasi' => 'required|in:Tertunda,Disetujui,Ditolak',
-            'tujuan_peminjaman' => 'required',
-            'nomor_hp' => 'required',
-            'pesan' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'tujuan_peminjaman' => 'required|string|max:255',
+            'nomor_hp' => 'required|regex:/^[0-9]{10,13}$/',
+            'pesan' => 'nullable|string|max:500',
         ]);
 
-
-        $peminjaman = new Peminjaman(); // Membuat objek kosong untuk model Pembayaran
-        $peminjaman->fill($requestData); // Mengisi model dengan data yang sudah divalidasi
-
-        // Jika file image diunggah, simpan file dan tambahkan path-nya ke kolom image
+        // Upload gambar
         if ($request->hasFile('image')) {
-            $peminjaman->image = $request->file('image')->store('public/images');
+            $path = $request->file('image')->store('public/bukti_pembayaran');
+            $validatedData['image'] = str_replace('public/', '', $path);
         }
 
-        $peminjaman->save(); // Menyimpan data ke database
+        // Tambahkan data tambahan
+        $validatedData['user_id'] = Auth::id();
+        $validatedData['status_verifikasi'] = 'Tertunda';
+        $validatedData['status_pembayaran'] = 'Menunggu';
 
-        if ($request->wantsJson()) {
-            return response()->json($peminjaman);
-        }
+        // Simpan ke database
+        Peminjaman::create($validatedData);
 
-        return back()->with('pesan', 'Data berhasil disimpan');
+        // Kembalikan respons
+        return redirect()->back()->with('success', 'Peminjaman berhasil diajukan!');
     }
-
     /**
      * Display the specified resource.
      */

@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () 
     Route::post('peminjaman/{peminjaman}/updateStatus', [PeminjamanController::class, 'updateStatus'])
     ->name('peminjaman.updateStatus');
     Route::resources([
-        'peminjaman' => PeminjamanController::class,    
+        'peminjaman' => PeminjamanController::class,
         'kalender' => KalenderController::class,
         'notifikasi' => NotifikasiController::class,
     ]);
@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () 
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function () {
     Route::get('pengguna', [HomeController::class, 'index'])->name('pengguna.home');
+    Route::post('/peminjamanForm', [FormPeminjamanController::class, 'store'])->name('peminjamanForm.store');
     Route::resources([
         'peminjamanForm' => FormPeminjamanController::class,
         'syarat' => SyaratController::class,

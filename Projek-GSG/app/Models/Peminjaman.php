@@ -11,20 +11,9 @@ class Peminjaman extends Model
 {
     /** @use HasFactory<\Database\Factories\PeminjamanFactory> */
     use HasFactory;
-
-    // Tetapkan nama tabel secara eksplisit
     protected $table = 'peminjaman';
 
-    // Tambahkan kolom yang dapat diisi (fillable)
-    protected $fillable = [
-        'fasilitas_id',
-        'user_id',
-        'tanggal_peminjaman',
-        'tanggal_pengembalian',
-        'metode_pembayaran',
-        'bukti_pembayaran',
-        'status_verifikasi',
-    ];
+    protected $guarded = [];
 
  /**
      * Get all of the comments for the Fasilitas
@@ -36,10 +25,17 @@ class Peminjaman extends Model
         return $this->hasMany(peminjaman::class, 'foreign_key', 'local_key');
     }
 
+    public function FormPeminjaman(): BelongsTo
+    {
+        return $this->BelongsTo(Pembayaran::class, 'foreign_key', 'local_key');
+    }
+
     public function pembayaran(): BelongsTo
     {
         return $this->BelongsTo(Pembayaran::class, 'foreign_key', 'local_key');
     }
+
+
 
     public function user(): BelongsTo
     {

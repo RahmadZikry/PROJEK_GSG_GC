@@ -33,4 +33,9 @@ class FormPeminjaman extends Model
     {
         return $this->belongsTo(User::class, 'foreign_key', 'other_key');
     }
+
+    public function peminjaman(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    }
 }
