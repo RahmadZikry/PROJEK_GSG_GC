@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pembayaran;
-use App\Http\Requests\StorePembayaranRequest;
-use App\Http\Requests\UpdatePembayaranRequest;
+use App\Models\peminjaman;
+use App\Http\Requests\UpdatepeminjamanRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -15,13 +14,12 @@ class PembayaranController extends Controller
      */
     public function index(Request $request)
     {
-        $pembayaran = Pembayaran::whereIn('status_pembayaran', ['Menunggu'])->latest()->paginate(10);
-
-        if ($request->wantsJson()) {
-            return response()->json($pembayaran);
+        $peminjaman = Peminjaman::whereIn('status_pembayaran', ['Menunggu'])->latest()->paginate(10);
+        if (request()->wantsJson()) {
+            return response()->json($peminjaman);
         }
-
-        return view('keuangan.pembayaran_index', ['pembayaran' => $pembayaran]);
+        $data['peminjaman'] = $peminjaman;
+        return view('keuangan.pembayaran_index', $data);
     }
 
     /**
@@ -29,13 +27,12 @@ class PembayaranController extends Controller
      */
     public function dataIndex(Request $request)
     {
-        $pembayaran = Pembayaran::whereIn('status_pembayaran', ['Sukses', 'Gagal'])->latest()->paginate(10);
-
-        if ($request->wantsJson()) {
-            return response()->json($pembayaran);
+        $peminjaman = peminjaman::whereIn('status_pembayaran', ['Sukses', 'Gagal'])->latest()->paginate(10);
+        if (request()->wantsJson()) {
+            return response()->json($peminjaman);
         }
-
-        return view('keuangan.pembayaran_data', ['pembayaran' => $pembayaran]);
+        $data['peminjaman'] = $peminjaman;
+        return view('keuangan.pembayaran_data', $data);
     }
 
     /**
@@ -49,38 +46,38 @@ class PembayaranController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePembayaranRequest $request)
-    {
-        $requestData = $request->validate([
-            'peminjaman_id' => 'required',
-            'user_id' => 'required',
-            'tanggal_pembayaran' => 'required|date',
-            'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
-            'status_pembayaran' => 'required|in:Sukses,Gagal',
-        ]);
+    // public function store(StorePembayaranRequest $request)
+    // {
+    //     $requestData = $request->validate([
+    //         'peminjaman_id' => 'required',
+    //         'user_id' => 'required',
+    //         'tanggal_pembayaran' => 'required|date',
+    //         'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+    //         'status_pembayaran' => 'required|in:Sukses,Gagal',
+    //     ]);
 
-        $pembayaran = new Pembayaran(); // Membuat objek kosong untuk model Pembayaran
-        $pembayaran->fill($requestData); // Mengisi model dengan data yang sudah divalidasi
+    //     $pembayaran = new Pembayaran(); // Membuat objek kosong untuk model Pembayaran
+    //     $pembayaran->fill($requestData); // Mengisi model dengan data yang sudah divalidasi
 
-        // Jika file image diunggah, simpan file dan tambahkan path-nya ke kolom image
-        if ($request->hasFile('image')) {
-            $pembayaran->image = $request->file('image')->store('public/images');
-        }
+    //     // Jika file image diunggah, simpan file dan tambahkan path-nya ke kolom image
+    //     if ($request->hasFile('image')) {
+    //         $pembayaran->image = $request->file('image')->store('public/images');
+    //     }
 
-        $pembayaran->save(); // Menyimpan data ke database
+    //     $pembayaran->save(); // Menyimpan data ke database
 
-        if ($request->wantsJson()) {
-            return response()->json($pembayaran);
-        }
+    //     if ($request->wantsJson()) {
+    //         return response()->json($pembayaran);
+    //     }
 
-        return back()->with('pesan', 'Data berhasil disimpan');
-    }
+    //     return back()->with('pesan', 'Data berhasil disimpan');
+    // }
 
     /**
      * Display the specified resource.
      */
-    public function show(Pembayaran $pembayaran)
+    public function show(Peminjaman $pembayaran)
     {
         //
     }
@@ -88,7 +85,7 @@ class PembayaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pembayaran $pembayaran)
+    public function edit(Peminjaman $pembayaran)
     {
         return view('keuangan.pembayaran_edit');
     }
@@ -96,7 +93,7 @@ class PembayaranController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePembayaranRequest $request, Pembayaran $id)
+    public function update(UpdatepeminjamanRequest $request, peminjaman $id)
     {
         $requestData = $request->validate([
             'peminjaman_id' => 'required',
@@ -108,25 +105,25 @@ class PembayaranController extends Controller
         ]);
 
         // Temukan data pembayaran berdasarkan ID
-        $pembayaran = Pembayaran::findOrFail($id);
+        $peminjaman = Peminjaman::findOrFail($id);
 
         // Perbarui data kecuali image
-        $pembayaran->fill($requestData);
+        $peminjaman->fill($requestData);
 
         // Jika ada file image baru diunggah
         if ($request->hasFile('image')) {
             // Hapus file lama jika ada
-            if ($pembayaran->image) {
-                Storage::delete($pembayaran->image);
+            if ($peminjaman->image) {
+                Storage::delete($peminjaman->image);
             }
             // Simpan file baru dan tambahkan path-nya ke kolom image
-            $pembayaran->image = $request->file('image')->store('public/images');
+            $peminjaman->image = $request->file('image')->store('public/images');
         }
 
-        $pembayaran->save(); // Menyimpan perubahan ke database
+        $peminjaman->save(); // Menyimpan perubahan ke database
 
         if ($request->wantsJson()) {
-            return response()->json($pembayaran);
+            return response()->json($peminjaman);
         }
 
         return back()->with('pesan', 'Data berhasil diperbarui');
@@ -140,9 +137,9 @@ class PembayaranController extends Controller
         ]);
 
         // Cari pembayaran berdasarkan ID
-        $pembayaran = Pembayaran::findOrFail($id);
-        $pembayaran->status_pembayaran = $validatedData['status'];
-        $pembayaran->save();
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->status_pembayaran = $validatedData['status'];
+        $peminjaman->save();
 
         // Redirect kembali dengan pesan sukses (pesan hanya ditampilkan sekali)
         return redirect()->back()->with('pesan', 'Status pembayaran berhasil diperbarui menjadi ' . $validatedData['status']);

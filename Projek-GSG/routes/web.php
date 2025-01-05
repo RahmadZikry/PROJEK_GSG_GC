@@ -35,9 +35,9 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'keuangan'], function () {
     Route::get('keuangan', [HomeController::class, 'index'])->name('keuangan.home');
-    Route::get('pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
-    Route::get('data_pembayaran', [PembayaranController::class, 'dataIndex'])->name('pembayaran.dataIndex');
-    Route::post('pembayaran/{id}/status', [PembayaranController::class, 'updateStatus'])->name('pembayaran.updateStatus');
+    Route::resources([
+        'peminjaman' => PeminjamanController::class,
+    ]);
 });
 
 Route::get('/logout', function () {
