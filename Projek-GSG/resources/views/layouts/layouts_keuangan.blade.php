@@ -32,11 +32,11 @@
                             <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link primary-hover-bg" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link primary-hover-bg" href="keuangan" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-primary rounded-3">
                                     <i class="ti ti-layout-dashboard fs-7 text-primary"></i>
                                 </span>
-                                <span class="hide-menu ms-2 ps-1">Dashboard</span>
+                                <span class="hide-menu ms-2 ps-1">Home</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link primary-hover-bg" href="pembayaran/data_pembayaran" aria-expanded="false">
+                            <a class="sidebar-link primary-hover-bg" href="data_pembayaran" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-primary rounded-3">
                                     <i class="ti ti-file-description fs-7 text-primary"></i>
                                 </span>

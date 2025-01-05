@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'keuangan'], function () {
     Route::get('keuangan', [HomeController::class, 'index'])->name('keuangan.home');
+    Route::get('data_pembayaran', [PembayaranController::class, 'dataIndex'])->name('data_pembayaran.home');
     Route::post('pembayaran/{peminjaman}/updateStatus', [PembayaranController::class, 'updateStatus'])
     ->name('pembayaran.updateStatus');
     Route::resources([
