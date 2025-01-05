@@ -12,7 +12,6 @@ class Peminjaman extends Model
     /** @use HasFactory<\Database\Factories\PeminjamanFactory> */
     use HasFactory;
     protected $table = 'peminjaman';
-
     protected $guarded = [];
 
  /**

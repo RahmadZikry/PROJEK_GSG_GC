@@ -50,11 +50,17 @@ https://templatemo.com/tm-540-lava-landing-page
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <p class="logo">
-                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png" 
+                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png"
                             class="logo-img" width="70" height="70">
                             GSG
                         </p>
-                        
+
+                        @if(session('success'))
+                            <div class="mt-3 alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -65,7 +71,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             </li>
                             {{-- <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
-                                <ul>    
+                                <ul>
                                     <li><a href="" class="menu-item">About Us</a></li>
                                     <li><a href="" class="menu-item">Features</a></li>
                                     <li><a href="" class="menu-item">FAQ's</a></li>
@@ -96,8 +102,8 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>Reservasi Gedung Serba Guna <em>GSG</em></h1>
-                        <p>Gedung serbaguna Politeknik Calteks Riau merupakan fasilitas yang bagus dan dapat terbilang mewah. 
-                            Untuk harga penyewaannya juga termasuk murah dan peminjamannya juga sangatlah gampang.</p> 
+                        <p>Gedung serbaguna Politeknik Calteks Riau merupakan fasilitas yang bagus dan dapat terbilang mewah.
+                            Untuk harga penyewaannya juga termasuk murah dan peminjamannya juga sangatlah gampang.</p>
                         <a href="#about" class="main-button-slider">KNOW US BETTER</a>
                     </div>
                 </div>
@@ -166,7 +172,7 @@ https://templatemo.com/tm-540-lava-landing-page
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="templatemo_540_lava_landing_page/assets/images/GSG2.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="templatemo_540_lava_landing_page/assets/images/GSG2.png" class="mx-auto rounded img-fluid d-block" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
@@ -174,7 +180,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-01.png" alt="">
                             <div class="text">
                                 <h4>Deskripsi Umum Gedung Serba Guna</h4>
-                                <p>GSG terletak di sebelah barat Kampus Utama Politeknik Caltex Riau dan berkapasitas 1500–2000 orang. 
+                                <p>GSG terletak di sebelah barat Kampus Utama Politeknik Caltex Riau dan berkapasitas 1500–2000 orang.
                                     Gedung ini mulai beroperasi pada 2012 dan digunakan pertama kali untuk acara wisuda.</p>
                             </div>
                         </li>
@@ -182,7 +188,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-02.png" alt="">
                             <div class="text">
                                 <h4>Fasilitas yang Tersedia di GSG</h4>
-                                <p>GSG dilengkapi dengan dua layar proyektor, panggung, sistem AC dan soundsystem, 
+                                <p>GSG dilengkapi dengan dua layar proyektor, panggung, sistem AC dan soundsystem,
                                     serta pilihan meja bundar atau petak untuk fleksibilitas acara.</p>
                             </div>
                         </li>
@@ -190,7 +196,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-03.png" alt="">
                             <div class="text">
                                 <h4>Pemanfaatan dan Pengelolaan GSG</h4>
-                                <p>GSG digunakan untuk acara kampus seperti wisuda dan disewa untuk kegiatan eksternal, 
+                                <p>GSG digunakan untuk acara kampus seperti wisuda dan disewa untuk kegiatan eksternal,
                                     seperti pernikahan, yang dikelola oleh Yayasan Politeknik Caltex Riau.</p>
                             </div>
                         </li>
@@ -214,7 +220,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan DP (sudah fix)<br>
                             ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa berubah)<br>
                             ● <span style="color: blue;">Blok tanggal warna biru</span> = Acara/Event PCR, misal: Wisuda
-                        </p>                        
+                        </p>
                     </div>
                 </div>
             </div> --}}
@@ -265,11 +271,11 @@ https://templatemo.com/tm-540-lava-landing-page
                         ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan DP (sudah fix)<br>
                         ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa berubah)<br>
                         ● <span style="color: blue;">Blok tanggal warna biru</span> = Acara/Event PCR, misal: Wisuda
-                    </p>                        
+                    </p>
                 </div>
                 <div id="calendar" class="calendar"></div>
             </div>
-            
+
             <script>
                 // Fungsi untuk membuat kalender
                 function createCalendar(year, month) {

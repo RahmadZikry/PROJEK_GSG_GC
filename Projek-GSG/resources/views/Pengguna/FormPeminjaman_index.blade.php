@@ -160,7 +160,7 @@
 
                         <div class="mb-3">
                             <label for="buktiPembayaran" class="form-label">Bukti Pembayaran</label>
-                            <input type="file" name="image" class="form-control" id="imaage" accept="image/jpeg,image/png,image/jpg" required>
+                            <input type="file" name="image" class="form-control" id="image" accept="image/jpeg,image/png,image/jpg" required>
                         </div>
 
                         <div class="mb-3">
