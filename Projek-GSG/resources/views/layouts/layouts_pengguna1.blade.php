@@ -61,7 +61,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
                             <li class="scroll-to-section"><a href="#about" class="menu-item">Menu</a></li>
                             <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Tanggal</a>
-                            <li class="scroll-to-section"><a href="/logout" class="hide-menu ms-2 ps-1">Logout</a>
+                            <li class="scroll-to-section"><a href="/logout" class="hide-menu ms-2 ps-1">--Logout--</a>
                             </li>
                             {{-- <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
@@ -166,35 +166,32 @@ https://templatemo.com/tm-540-lava-landing-page
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="templatemo_540_lava_landing_page/assets/images/GSG3.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="templatemo_540_lava_landing_page/assets/images/GSG2.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-01.png" alt="">
                             <div class="text">
-                                <h4>Vestibulum pulvinar rhoncus</h4>
-                                <p>Please do not redistribute this template ZIP file for a download purpose. You may <a
-                                rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact</a> us for
-                            additional licensing of our template or to get a PSD file.</p>
+                                <h4>Deskripsi Umum Gedung Serba Guna</h4>
+                                <p>GSG terletak di sebelah barat Kampus Utama Politeknik Caltex Riau dan berkapasitas 1500–2000 orang. 
+                                    Gedung ini mulai beroperasi pada 2012 dan digunakan pertama kali untuk acara wisuda.</p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-02.png" alt="">
                             <div class="text">
-                                <h4>Sed blandit quam in velit</h4>
-                                <p>You can <a rel="nofollow"
-                                        href="https://templatemo.com/tm-540-lava-landing-page">download Lava
-                                        Template</a> from our website. Duis viverra, ipsum et scelerisque placerat, orci
-                                    magna consequat ligula.</p>
+                                <h4>Fasilitas yang Tersedia di GSG</h4>
+                                <p>GSG dilengkapi dengan dua layar proyektor, panggung, sistem AC dan soundsystem, 
+                                    serta pilihan meja bundar atau petak untuk fleksibilitas acara.</p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-03.png" alt="">
                             <div class="text">
-                                <h4>Aenean faucibus venenatis</h4>
-                                <p>Phasellus in imperdiet felis, eget vestibulum nulla. Aliquam nec dui nec augue
-                                    maximus porta. Curabitur tristique lacus.</p>
+                                <h4>Pemanfaatan dan Pengelolaan GSG</h4>
+                                <p>GSG digunakan untuk acara kampus seperti wisuda dan disewa untuk kegiatan eksternal, 
+                                    seperti pernikahan, yang dikelola oleh Yayasan Politeknik Caltex Riau.</p>
                             </div>
                         </li>
                     </ul>
@@ -263,7 +260,7 @@ https://templatemo.com/tm-540-lava-landing-page
         <body class="bg-light text-dark">
             <div class="col-lg-8 offset-lg-2">
                 <div class="center-heading">
-                    <h2>Taggal Peminjaman GSG <em>Kalender</em></h2>
+                    <h2>Taggal Peminjaman GSG <br><em>Kalender</em></h2>
                     <p>
                         ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan DP (sudah fix)<br>
                         ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa berubah)<br>
