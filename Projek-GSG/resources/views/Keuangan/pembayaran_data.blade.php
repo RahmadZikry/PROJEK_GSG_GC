@@ -13,7 +13,6 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>ID Peminjaman</th>
                         <th>ID User</th>
                         <th>Tanggal Peminjaman</th>
                         <th>Tanggal Pengembalian</th>
@@ -23,10 +22,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pembayaran as $item)
+                    @foreach ($peminjaman as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->peminjaman_id }}</td>
                             <td>{{ $item->user_id }}</td>
                             <td>{{ $item->tanggal_peminjaman }}</td>
                             <td>{{ $item->tanggal_pengembalian }}</td>
@@ -48,7 +46,7 @@
 
             <!-- Pagination -->
             <div class="mt-3">
-                {{ $pembayaran->links() }}
+                {{ $peminjaman->links() }}
             </div>
         </div>
     </div>
