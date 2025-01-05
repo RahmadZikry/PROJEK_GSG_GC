@@ -1,14 +1,16 @@
 <?php
 
+use App\Http\Middleware\UserAccess;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FormPeminjamanController;
-use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PesanController;
+use App\Http\Controllers\SyaratController;
+use App\Http\Controllers\KalenderController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\KalenderController;
-use App\Http\Middleware\UserAccess;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\FormPeminjamanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +34,8 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
     Route::get('pengguna', [HomeController::class, 'index'])->name('pengguna.home');
     Route::resources([
         'peminjamanForm' => FormPeminjamanController::class,
+        'syarat' => SyaratController::class,
+        'pesan' => PesanController::class,
     ]);
 });
 
