@@ -13,7 +13,7 @@ class KalenderController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.kalender_index');
     }
 
     /**
