@@ -59,7 +59,8 @@
             border-radius: 8px;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: #16a085;
         }
 
@@ -109,11 +110,7 @@
 </head>
 
 <body>
-    @if(session('pesan'))
-    <div class="alert alert-success">
-        {{ session('pesan') }}
-    </div>
-@endif
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container d-flex justify-content-between">
@@ -132,13 +129,20 @@
         <p class="text-center text-muted">
             Harap isi formulir berikut dengan data yang valid. Pastikan semua informasi benar untuk menghindari kendala.
         </p>
+
+        <!-- Pesan Session Success -->
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div class="card">
             <div class="row">
                 <div class="col-md-8">
                     <form action="{{ route('peminjamanForm.store') }}" method="POST" enctype="multipart/form-data">
-                        <!-- Tambahkan CSRF Token -->
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                        @csrf
                         <div class="mb-3">
                             <label for="tanggalPeminjaman" class="form-label">Tanggal Peminjaman</label>
                             <input type="date" name="tanggal_peminjaman" class="form-control" id="tanggal_peminjaman" required>
@@ -187,8 +191,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Scripts -->
     <script src="templatemo_540_lava_landing_page/assets/js/jquery-2.1.0.min.js"></script>
