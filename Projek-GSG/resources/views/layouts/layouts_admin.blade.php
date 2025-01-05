@@ -52,11 +52,11 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link success-hover-bg" href="pengguna" aria-expanded="false">
+                            <a class="sidebar-link success-hover-bg" href="kalender" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-success rounded-3">
                                     <i class="ti ti-cards fs-7 text-success"></i>
                                 </span>
-                                <span class="hide-menu ms-2 ps-1">Pengguna</span>
+                                <span class="hide-menu ms-2 ps-1">Tanggal Peminjaman</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
