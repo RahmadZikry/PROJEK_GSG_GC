@@ -23,8 +23,8 @@ class NotifikasiController extends Controller
      */
     public function create()
     {
-        $data['ListUser'] = User::orderBy('nama', 'asc')->get();
-        return view ('notifikasi_create', $data);
+        // $data['ListUser'] = User::orderBy('nama', 'asc')->get();
+        return view ('Admin.notifikasi_create');
     }
 
     /**
@@ -32,7 +32,21 @@ class NotifikasiController extends Controller
      */
     public function store(StoreNotifikasiRequest $request)
     {
-        //
+        $requestData = $request->validate([
+            'notifikasi_id' => 'required',
+            'user_id' => 'required',
+            'judul_notifikasi' => 'required',
+            'isi_notifikasi'=> 'required',
+            'tanggal_kirim' => 'required',
+            'status_baca' => 'required|in:Dibaca,Belum Dibaca',
+        ]);
+        $notifikasi = new Notifikasi(); //membuat objek kosong di variabel model
+        $notifikasi->fill($requestData); //mengisi var model dengan data yang sudah divalidasi requestData
+        $notifikasi->save(); //menyimpan data ke database
+        return back()->with('pesan', 'Data berhasil disimpan');
+        if (request()->wantsJson()){
+            return response()->json($notifikasi);
+        }
     }
 
     /**
