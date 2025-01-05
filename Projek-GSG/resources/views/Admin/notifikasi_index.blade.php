@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach ($notifikasi as $item)
                         <tr>
-                            <td>{{ $item->notifikasi_id }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->user_id}}</td>
                             <td>{{ $item->judul_notifikasi }}</td>
                             <td>{{ $item->isi_notifikasi }}
