@@ -38,7 +38,7 @@ class FormPeminjamanController extends Controller
             'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'tujuan_peminjaman' => 'required|string|max:255',
-            'nomor_hp' => 'required|regex:/^[0-9]{10,13}$/',
+            'nomor_hp' => 'required|string|min:10|max:13',
             'pesan' => 'nullable|string|max:500',
         ]);
 
