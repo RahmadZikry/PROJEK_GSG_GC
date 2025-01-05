@@ -5,21 +5,37 @@ namespace App\Http\Controllers;
 use App\Models\Pembayaran;
 use App\Http\Requests\StorePembayaranRequest;
 use App\Http\Requests\UpdatePembayaranRequest;
-use Illuminate\Support\Facades\Storage ;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pembayaran = Pembayaran::latest()->paginate(10);
-        if (request()->wantsJson()){
+        $pembayaran = Pembayaran::whereIn('status_pembayaran', ['Menunggu'])->latest()->paginate(10);
+
+        if ($request->wantsJson()) {
             return response()->json($pembayaran);
         }
-        $data['pembayaran'] = $pembayaran;
-        return view('keuangan.pembayaran_index', $data);
+
+        return view('keuangan.pembayaran_index', ['pembayaran' => $pembayaran]);
+    }
+
+    /**
+     * Display a listing of data pembayaran (alternative route).
+     */
+    public function dataIndex(Request $request)
+    {
+        $pembayaran = Pembayaran::whereIn('status_pembayaran', ['Sukses', 'Gagal'])->latest()->paginate(10);
+
+        if ($request->wantsJson()) {
+            return response()->json($pembayaran);
+        }
+
+        return view('keuangan.pembayaran_data', ['pembayaran' => $pembayaran]);
     }
 
     /**
@@ -114,5 +130,21 @@ class PembayaranController extends Controller
         }
 
         return back()->with('pesan', 'Data berhasil diperbarui');
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'status' => 'required|in:Sukses,Gagal',
+        ]);
+
+        // Cari pembayaran berdasarkan ID
+        $pembayaran = Pembayaran::findOrFail($id);
+        $pembayaran->status_pembayaran = $validatedData['status'];
+        $pembayaran->save();
+
+        // Redirect kembali dengan pesan sukses (pesan hanya ditampilkan sekali)
+        return redirect()->back()->with('pesan', 'Status pembayaran berhasil diperbarui menjadi ' . $validatedData['status']);
     }
 }

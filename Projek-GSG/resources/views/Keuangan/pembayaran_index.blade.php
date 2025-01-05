@@ -2,9 +2,6 @@
 
 @section('content')
 @if(session('pesan'))
-    <div class="alert alert-success">
-        {{ session('pesan') }}
-    </div>
 @endif
     <div class="card">
         <h3 class="card-header">Pembayaran Peminjaman GSG</h3>
@@ -43,12 +40,15 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="/pembayaran/ {{ $item->id  }}" class="btn btn-warning btn-sm">Sukses</a>
-                                <form action="/pembayaran/{{ $item->id }}" method="POST" class="d-inline">
+                                <form action="{{ route('pembayaran.updateStatus', $item->id) }}" method="POST" class="d-inline">
                                     @csrf
-                                @method('delete')
-                                    <button class="ml-2 btn btn-danger btn-sm"
-                                    onclick="return confirm('Yakin ingin menghapus data?')">Gagal</button>
+                                    <input type="hidden" name="status" value="Sukses">
+                                    <button class="btn btn-warning btn-sm" onclick="return confirm('Yakin ingin mengubah status menjadi Sukses?')">Sukses</button>
+                                </form>
+                                <form action="{{ route('pembayaran.updateStatus', $item->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <input type="hidden" name="status" value="Gagal">
+                                    <button class="ml-2 btn btn-danger btn-sm" onclick="return confirm('Yakin ingin mengubah status menjadi Gagal?')">Gagal</button>
                                 </form>
                             </td>
                         </tr>
