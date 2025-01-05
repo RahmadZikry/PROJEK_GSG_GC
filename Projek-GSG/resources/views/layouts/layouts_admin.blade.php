@@ -52,6 +52,14 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link danger-hover-bg" href="data_peminjaman" aria-expanded="false">
+                                <span class="p-2 aside-icon bg-light-danger rounded-3">
+                                    <i class="ti ti-alert-circle fs-7 text-danger"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">Data Peminjaman</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link success-hover-bg" href="kalender" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-success rounded-3">
                                     <i class="ti ti-cards fs-7 text-success"></i>

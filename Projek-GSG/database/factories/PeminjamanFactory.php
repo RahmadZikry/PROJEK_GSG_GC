@@ -16,18 +16,19 @@ class PeminjamanFactory extends Factory
      */
     public function definition(): array
     {
-        $idUser = \App\Models\User::pluck('id')->toArray();
         return [
-            'user_id' => $this->faker->randomElement($idUser),
-            'tanggal_peminjaman' => $this->faker->dateTimeBetween('-1 week', 'now')->format('Y-m-d'), // Tanggal peminjaman antara 1 minggu lalu hingga sekarang
-            'tanggal_pengembalian' => $this->faker->dateTimeBetween('now', '+1 week')->format('Y-m-d'), // Tanggal pengembalian antara sekarang hingga 1 minggu ke depan
-            'metode_pembayaran' => $this->faker->randomElement(['Tunai', 'Non_Tunai']), // Random metode pembayaran
-            'image' => $this->faker->imageUrl(640, 480, 'payments', true, 'bukti_pembayaran'), // Gambar acak untuk bukti pembayaran
-            'status_pembayaran' => $this->faker->randomElement(['Sukses', 'Gagal', 'Menunggu']), // Random status pembayaran
-            'status_verifikasi' => $this->faker->randomElement(['Tertunda', 'Disetujui', 'Ditolak']), // Random status verifikasi
-            'nomor_hp' => $this->faker->phoneNumber, // Nomor telepon acak
-            'tujuan_peminjaman' => $this->faker->sentence(6), // Kalimat acak sebagai tujuan peminjaman
-            'pesan' => $this->faker->paragraph(2), // Paragraf acak sebagai pesan tambahan
+            'user_id' => $this->faker->numberBetween(1, 10), // ID pengguna
+            'tanggal_peminjaman' => $this->faker->dateTimeBetween('-1 month', 'now'), // Rentang waktu peminjaman
+            'tanggal_pengembalian' => $this->faker->dateTimeBetween('now', '+1 month'), // Rentang waktu pengembalian
+            'metode_pembayaran' => $this->faker->randomElement(['Tunai', 'Non_Tunai']), // Pilihan metode
+            'image' => 'public/images/bukti' . $this->faker->numberBetween(1, 5) . '.jpg', // File bukti pembayaran
+            'status_pembayaran' => $this->faker->randomElement(['Sukses', 'Gagal', 'Menunggu']), // Status pembayaran
+            'status_verifikasi' => $this->faker->randomElement(['Disetujui', 'Ditolak', 'Tertunda']), // Status verifikasi
+            'nomor_hp' => $this->faker->numerify('08##########'), // Nomor telepon
+            'tujuan_peminjaman' => $this->faker->sentence(3), // Tujuan peminjaman
+            'pesan' => $this->faker->sentence(6), // Pesan tambahan
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

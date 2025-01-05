@@ -20,10 +20,11 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () {
     Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
+    Route::get('data_peminjaman', [PeminjamanController::class, 'dataindex'])->name('dataindex.home');
     Route::post('peminjaman/{peminjaman}/updateStatus', [PeminjamanController::class, 'updateStatus'])
     ->name('peminjaman.updateStatus');
     Route::resources([
-        'peminjaman' => PeminjamanController::class,
+        'peminjaman' => PeminjamanController::class,    
         'kalender' => KalenderController::class,
         'notifikasi' => NotifikasiController::class,
     ]);
@@ -41,6 +42,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
 
 Route::group(['middleware' => 'auth', UserAccess::class . 'keuangan'], function () {
     Route::get('keuangan', [HomeController::class, 'index'])->name('keuangan.home');
+    Route::get('data_pembayaran', [PembayaranController::class, 'dataIndex'])->name('data_pembayaran.home');
     Route::post('pembayaran/{peminjaman}/updateStatus', [PembayaranController::class, 'updateStatus'])
     ->name('pembayaran.updateStatus');
     Route::resources([

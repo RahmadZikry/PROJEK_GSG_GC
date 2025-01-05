@@ -17,12 +17,22 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $peminjaman = Peminjaman::latest()->paginate(10);
+        $peminjaman = Peminjaman::whereIn('status_verifikasi', ['tertunda'])->latest()->paginate(10);
         if (request()->wantsJson()) {
             return response()->json($peminjaman);
         }
         $data['peminjaman'] = $peminjaman;
         return view('admin.peminjaman_index', $data);
+    }
+
+    public function dataindex()
+    {
+        $peminjaman = Peminjaman::whereIn('status_verifikasi', ['Disetujui','Ditolak'])->latest()->paginate(10);
+        if (request()->wantsJson()) {
+            return response()->json($peminjaman);
+        }
+        $data['peminjaman'] = $peminjaman;
+        return view('admin.peminjaman_data', $data);
     }
 
     /**
