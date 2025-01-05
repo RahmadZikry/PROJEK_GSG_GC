@@ -28,9 +28,6 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
     Route::get('pengguna', [HomeController::class, 'index'])->name('pengguna.home');
     Route::resources([
         'peminjamanForm' => FormPeminjamanController::class,
-        'peminjaman' => PeminjamanController::class,
-        'pembayaran' => PembayaranController::class,
-        'notifikasi' => NotifikasiController::class,
     ]);
 });
 
