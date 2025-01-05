@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
     <title>Homepage</title>
+    <link rel="icon" type="image/png" href="templatemo_569_edu_meeting/assets/images/logo-1.png">
 
     <!-- Bootstrap core CSS -->
     <link href="templatemo_569_edu_meeting\vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="templatemo_569_edu_meeting\assets/css/fontawesome.css">
@@ -176,20 +176,20 @@ https://templatemo.com/tm-569-edu-meeting
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Paket Peminjaman GSG</h2>
+                        <h2>Apa Saja Kelebihan Peminjaman GSG?</h2>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="categories">
                         <h4>Kategori Peminjaman</h4>
                         <ul>
-                            <li><a href="#">Peminjaman Siswa</a></li>
-                            <li><a href="#">Peminjaman Alumni</a></li>
-                            <li><a href="#">Peminjaman Dosen</a></li>
-                            <li><a href="#">Peminjaman Orang Luar</a></li>
+                            <li><a href="#">Fleksibilitas Waktu</a></li>
+                            <li><a href="#">Harga Terjangkau</a></li>
+                            <li><a href="#">Fasilitas Lengkap</a></li>
+                            <li><a href="#">Keamanan Terjamin</a></li>
                         </ul>
                         <div class="main-button-red">
-                            <a href="pengguna/peminjaman">Semua Paket Peminjaman</a>
+                            <a href="pengguna">Lihat Semua Kelebihan</a>
                         </div>
                     </div>
                 </div>
@@ -199,20 +199,20 @@ https://templatemo.com/tm-569-edu-meeting
                             <div class="meeting-item">
                                 <div class="thumb">
                                     <div class="price">
-                                        <span>$20.00</span>
+                                        <span>Fleksibilitas</span>
                                     </div>
-                                    <a href="meeting-details.html"><img
-                                            src="templatemo_569_edu_meeting/assets/images/meeting-01.jpg"
-                                            alt="Peminjaman Siswa"></a>
+                                    <a href="meeting-details.html">
+                                        <img src="https://cdn.pixabay.com/photo/2017/11/27/07/02/time-2980690_640.jpg" alt="Fleksibilitas Waktu">
+                                    </a>
                                 </div>
                                 <div class="down-content">
                                     <div class="date">
-                                        <h6>Paket <span>01</span></h6>
+                                        <h6>Kelebihan <span>01</span></h6>
                                     </div>
                                     <a href="meeting-details.html">
-                                        <h4>Peminjaman Siswa</h4>
+                                        <h4>Fleksibilitas Waktu</h4>
                                     </a>
-                                    <p>Paket peminjaman untuk siswa dengan syarat dan ketentuan yang mudah.</p>
+                                    <p>Peminjaman dapat disesuaikan dengan jadwal yang fleksibel sesuai kebutuhan Anda.</p>
                                 </div>
                             </div>
                         </div>
@@ -220,20 +220,20 @@ https://templatemo.com/tm-569-edu-meeting
                             <div class="meeting-item">
                                 <div class="thumb">
                                     <div class="price">
-                                        <span>$30.00</span>
+                                        <span>Terjangkau</span>
                                     </div>
-                                    <a href="meeting-details.html"><img
-                                            src="templatemo_569_edu_meeting/assets/images/meeting-04.jpg"
-                                            alt="Peminjaman Alumni"></a>
+                                    <a href="meeting-details.html">
+                                        <img src="https://cdn.pixabay.com/photo/2016/10/20/18/34/application-1756269_640.png" alt="Harga Terjangkau">
+                                    </a>
                                 </div>
                                 <div class="down-content">
                                     <div class="date">
-                                        <h6>Paket <span>02</span></h6>
+                                        <h6>Kelebihan <span>02</span></h6>
                                     </div>
                                     <a href="meeting-details.html">
-                                        <h4>Peminjaman Alumni</h4>
+                                        <h4>Harga Terjangkau</h4>
                                     </a>
-                                    <p>Paket peminjaman khusus untuk alumni dengan berbagai keuntungan.</p>
+                                    <p>Paket peminjaman dengan biaya yang kompetitif dan sesuai untuk semua kalangan.</p>
                                 </div>
                             </div>
                         </div>
@@ -241,20 +241,20 @@ https://templatemo.com/tm-569-edu-meeting
                             <div class="meeting-item">
                                 <div class="thumb">
                                     <div class="price">
-                                        <span>$15.00</span>
+                                        <span>Lengkap</span>
                                     </div>
-                                    <a href="meeting-details.html"><img
-                                            src="templatemo_569_edu_meeting/assets/images/meeting-03.jpg"
-                                            alt="Peminjaman Dosen"></a>
+                                    <a href="meeting-details.html">
+                                        <img src="https://images.pexels.com/photos/159213/hall-congress-architecture-building-159213.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fasilitas Lengkap">
+                                    </a>
                                 </div>
                                 <div class="down-content">
                                     <div class="date">
-                                        <h6>Paket <span>03</span></h6>
+                                        <h6>Kelebihan <span>03</span></h6>
                                     </div>
                                     <a href="meeting-details.html">
-                                        <h4>Peminjaman Dosen</h4>
+                                        <h4>Fasilitas Lengkap</h4>
                                     </a>
-                                    <p>Paket peminjaman yang dirancang untuk dosen dengan syarat yang fleksibel.</p>
+                                    <p>Gedung dilengkapi dengan fasilitas modern untuk menunjang berbagai acara Anda.</p>
                                 </div>
                             </div>
                         </div>
@@ -262,20 +262,20 @@ https://templatemo.com/tm-569-edu-meeting
                             <div class="meeting-item">
                                 <div class="thumb">
                                     <div class="price">
-                                        <span>$50.00</span>
+                                        <span>Keamanan</span>
                                     </div>
-                                    <a href="meeting-details.html"><img
-                                            src="templatemo_569_edu_meeting/assets/images/meeting-02.jpg"
-                                            alt="Peminjaman Orang Luar"></a>
+                                    <a href="meeting-details.html">
+                                        <img src="https://cdn.pixabay.com/photo/2021/11/30/16/34/security-guard-6835766_640.jpg" alt="Keamanan Terjamin">
+                                    </a>
                                 </div>
                                 <div class="down-content">
                                     <div class="date">
-                                        <h6>Paket <span>04</span></h6>
+                                        <h6>Kelebihan <span>04</span></h6>
                                     </div>
                                     <a href="meeting-details.html">
-                                        <h4>Peminjaman untuk Orang Luar</h4>
+                                        <h4>Keamanan Terjamin</h4>
                                     </a>
-                                    <p>Paket peminjaman yang terbuka untuk masyarakat umum.</p>
+                                    <p>Gedung dilengkapi dengan sistem keamanan untuk kenyamanan pengguna.</p>
                                 </div>
                             </div>
                         </div>

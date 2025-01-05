@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Peminjaman GSG') }}</title>
+    <link rel="icon" type="image/png" href="templatemo_569_edu_meeting/assets/images/logo-1.png">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
