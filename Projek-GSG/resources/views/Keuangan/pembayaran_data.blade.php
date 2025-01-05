@@ -43,10 +43,8 @@
                     @endforeach
                 </tbody>
             </table>
-
-            <!-- Pagination -->
-            <div class="mt-3">
-                {{ $peminjaman->links() }}
+            <div class="d-flex justify-content-center">
+                {{ $peminjaman->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

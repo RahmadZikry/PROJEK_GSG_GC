@@ -36,7 +36,7 @@
                             <td>{{ $item->user_id}}</td>
                             <td>{{ $item->judul_notifikasi }}</td>
                             <td>{{ $item->isi_notifikasi }}
-                                <a href="/notifikasi/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">Detail</a>
+                                <a href="/notifikasi/{{ $item->id }}" class="ml-2 btn btn-warning btn-sm">Detail</a>
                             </td>
                             <td>{{ $item->tanggal_kirim }}</td>
                             <td>{{ $item->status_baca }}</td>
@@ -44,7 +44,7 @@
                                 <form action="/notifikasi/{{ $item->id }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('delete')
-                                    <button class="btn btn-danger btn-sm ml-2"
+                                    <button class="ml-2 btn btn-danger btn-sm"
                                     onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
                                 </form>
                             </td>
@@ -52,6 +52,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                {{ $peminjaman->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 @endsection

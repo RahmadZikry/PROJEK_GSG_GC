@@ -53,6 +53,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                {{ $peminjaman->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 @endsection

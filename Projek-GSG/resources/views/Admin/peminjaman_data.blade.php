@@ -31,16 +31,15 @@
                         <td>{{ $item->status_pembayaran }}</td>
                         <td>{{ $item->status_verifikasi }}</td>
                         <td>
-                            <form action="{{ route('peminjaman.updateStatus', $item->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                <input type="hidden" name="status" value="Disetujui">
-                                <button class="btn btn-warning btn-sm" onclick="return confirm('Yakin ingin mengubah status menjadi Disetujui?')">Detail</button>
-                            </form>
+                            <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-warning btn-sm">Detail</a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $peminjaman->links('pagination::bootstrap-4') }}
+        </div>
     </div>
 </div>
 @endsection

@@ -45,7 +45,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link danger-hover-bg" href="peminjaman" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-danger rounded-3">
+                                <span class="p-2 aside-icon bg-light-danger rounded-circle">
                                     <i class="ti ti-alert-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Peminjaman</span>
@@ -53,24 +53,24 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link danger-hover-bg" href="data_peminjaman" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-danger rounded-3">
-                                    <i class="ti ti-alert-circle fs-7 text-danger"></i>
+                                <span class="p-2 aside-icon bg-light-warning rounded-3">
+                                    <i class="ti ti-database fs-7 text-warning"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Data Peminjaman</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link success-hover-bg" href="kalender" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-success rounded-3">
-                                    <i class="ti ti-cards fs-7 text-success"></i>
+                                <span class="p-2 aside-icon bg-light-success rounded-pill">
+                                    <i class="ti ti-calendar fs-7 text-success"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Tanggal Peminjaman</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link indigo-hover-bg" href="notifikasi" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-indigo rounded-3">
-                                    <i class="ti ti-typography fs-7 text-indigo"></i>
+                                <span class="p-2 aside-icon bg-light-indigo rounded-0">
+                                    <i class="ti ti-bell fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Notifikasi</span>
                             </a>

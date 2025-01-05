@@ -5,8 +5,56 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Keuangan</title>
-    <link rel="shortcut icon" type="image/png" href="layout\src\assets\images\logos\favicon.png" />
-    <link rel="stylesheet" href="layout\src\assets\css\styles.min.css" />
+    <link rel="shortcut icon" type="image/png" href="layout/src/assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="layout/src/assets/css/styles.min.css" />
+    <style>
+        /* Custom CSS */
+        .sidebar-item .sidebar-link {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-link:hover {
+            background-color: #f0f4f8;
+        }
+
+        .aside-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-responsive {
+            margin-top: 20px;
+        }
+
+        .pagination {
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .nav-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,69 +62,64 @@
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
         <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-simplebar>
                 <div class="mb-4 d-flex align-items-center justify-content-between">
                     <a href="index.html" class="text-nowrap logo-img ms-0 ms-md-1">
-                        <img src="layout\src\assets\images\logos\keuangan.png" width="180" alt="">
+                        <img src="layout/src/assets/images/logos/keuangan.png" width="180" alt="">
                     </a>
                     <div class="cursor-pointer close-btn d-xl-none d-block sidebartoggler" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
                     </div>
                 </div>
-                <!-- Sidebar navigation-->
+                <!-- Sidebar navigation -->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="pb-2 mb-4">
                         <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link primary-hover-bg" href="keuangan" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-primary rounded-3">
+                                <span class="p-2 aside-icon bg-light-primary rounded-circle">
                                     <i class="ti ti-layout-dashboard fs-7 text-primary"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Home</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">Peminjaman GSG</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link primary-hover-bg" href="pembayaran" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-primary rounded-3">
-                                    <i class="ti ti-file-description fs-7 text-primary"></i>
+                                <span class="p-2 aside-icon bg-light-success rounded-circle">
+                                    <i class="ti ti-file-description fs-7 text-success"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Pembayaran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link primary-hover-bg" href="data_pembayaran" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-primary rounded-3">
-                                    <i class="ti ti-file-description fs-7 text-primary"></i>
+                                <span class="p-2 aside-icon bg-light-warning rounded-circle">
+                                    <i class="ti ti-database fs-7 text-warning"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Data Pembayaran</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">Auth</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link warning-hover-bg" href="/logout" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-warning rounded-3">
-                                    <i class="ti ti-login fs-7 text-warning"></i>
+                                <span class="p-2 aside-icon bg-light-danger rounded-circle">
+                                    <i class="ti ti-login fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Logout</span>
                             </a>
                         </li>
+                    </ul>
                 </nav>
-                <!-- End Sidebar navigation -->
             </div>
-            <!-- End Sidebar scroll-->
         </aside>
-        <!--  Sidebar End -->
+        <!-- Sidebar End -->
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
@@ -91,7 +134,7 @@
                         <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
-                                <div class="notification bg-primary rounded-circle"></div>
+                                <span class="notification bg-primary rounded-circle"></span>
                             </a>
                         </li>
                     </ul>
@@ -99,14 +142,14 @@
                         <ul class="flex-row navbar-nav ms-auto align-items-center justify-content-end">
                             <a href="javascript:void(0)" class="btn btn-primary">
                                 @if (Auth::check())
-                                    {{ Auth::user()->name }} <!-- Menampilkan nama pengguna yang login -->
+                                    {{ Auth::user()->name }}
                                 @else
                                     Login
                                 @endif
                             </a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://i.pinimg.com/736x/ea/56/af/ea56af3c45db2a9bea14bf9cec3a01ff.jpg" alt="" width="50" height="50" class="rounded-circle">
+                                    <img src="https://i.pinimg.com/736x/ea/56/af/ea56af3c45db2a9bea14bf9cec3a01ff.jpg" alt="">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
@@ -147,11 +190,11 @@
             </div>
         </div>
     </div>
-    <script src="boostrap\src\assets\libs\jquery\dist\jquery.min.js"></script>
-    <script src="boostrap\src\assets\libs\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
-    <script src="boostrap\src\assets\js\sidebarmenu.js"></script>
-    <script src="boostrap\src\assets/js/app.min.js"></script>
-    <script src="boostrap\src\assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="boostrap/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="boostrap/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="boostrap/src/assets/js/sidebarmenu.js"></script>
+    <script src="boostrap/src/assets/js/app.min.js"></script>
+    <script src="boostrap/src/assets/libs/simplebar/dist/simplebar.js"></script>
 </body>
 
 </html>

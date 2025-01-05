@@ -27,7 +27,7 @@ class PeminjamanController extends Controller
 
     public function dataindex()
     {
-        $peminjaman = Peminjaman::whereIn('status_verifikasi', ['Disetujui','Ditolak'])->latest()->paginate(10);
+        $peminjaman = Peminjaman::whereIn('status_verifikasi', ['Disetujui', 'Ditolak'])->latest()->paginate(10);
         if (request()->wantsJson()) {
             return response()->json($peminjaman);
         }
@@ -45,6 +45,27 @@ class PeminjamanController extends Controller
         ]);
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'status' => 'required|in:Disetujui,Ditolak',
+        ]);
+
+        // Cari pembayaran berdasarkan ID
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->status_verifikasi = $validatedData['status'];
+        $peminjaman->save();
+
+        // Redirect kembali dengan pesan sukses (pesan hanya ditampilkan sekali)
+        return redirect()->back()->with('pesan', 'Status pembayaran berhasil diperbarui menjadi ' . $validatedData['status']);
+    }
+
+    public function show($id)
+    {
+        $peminjaman = Peminjaman::findOrFail($id); // Cari data berdasarkan ID
+        return view('admin.peminjaman_show', compact('peminjaman')); // Kirim data ke view
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -99,77 +120,59 @@ class PeminjamanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(peminjaman $peminjaman)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(peminjaman $peminjaman)
-    {
-        return view('admin.peminjaman_edit', [
-            'layout' => 'layouts.layouts_admin',
-            'peminjaman' => $peminjaman
-        ]);
-    }
+    // public function edit(peminjaman $peminjaman)
+    // {
+    //     return view('admin.peminjaman_edit', [
+    //         'layout' => 'layouts.layouts_admin',
+    //         'peminjaman' => $peminjaman
+    //     ]);
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatepeminjamanRequest $request, peminjaman $peminjaman)
-    {
-        $requestData = $request->validate([
-            'fasilitas_id' => 'required',
-            'user_id' => 'required',
-            'tanggal_peminjaman' => 'required',
-            'tanggal_pengembalian' => 'required',
-            'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
-        ]);
+    // /**
+    //  * Update the specified resource in storage.
+    //  */
+    // public function update(UpdatepeminjamanRequest $request, peminjaman $peminjaman)
+    // {
+    //     $requestData = $request->validate([
+    //         'fasilitas_id' => 'required',
+    //         'user_id' => 'required',
+    //         'tanggal_peminjaman' => 'required',
+    //         'tanggal_pengembalian' => 'required',
+    //         'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+    //     ]);
 
-        // Temukan data peminjaman berdasarkan ID
-        $peminjaman = Peminjaman::findOrFail($peminjaman);
+    //     // Temukan data peminjaman berdasarkan ID
+    //     $peminjaman = Peminjaman::findOrFail($peminjaman);
 
-        // Set status_verifikasi tetap bernilai 'Tertunda' jika tidak diubah
-        $requestData['status_verifikasi'] = $peminjaman->status_verifikasi ?? 'Tertunda';
+    //     // Set status_verifikasi tetap bernilai 'Tertunda' jika tidak diubah
+    //     $requestData['status_verifikasi'] = $peminjaman->status_verifikasi ?? 'Tertunda';
 
-        // Jika ada file bukti_pembayaran baru, ganti file lama
-        if ($request->hasFile('image')) {
-            // Hapus file lama jika ada
-            if ($peminjaman->bukti_pembayaran) {
-                Storage::delete($peminjaman->bukti_pembayaran);
-            }
-            $requestData['image'] = $request->file('image')->store('public');
-        }
+    //     // Jika ada file bukti_pembayaran baru, ganti file lama
+    //     if ($request->hasFile('image')) {
+    //         // Hapus file lama jika ada
+    //         if ($peminjaman->bukti_pembayaran) {
+    //             Storage::delete($peminjaman->bukti_pembayaran);
+    //         }
+    //         $requestData['image'] = $request->file('image')->store('public');
+    //     }
 
-        // Update data peminjaman dengan requestData
-        $peminjaman->update($requestData);
+    //     // Update data peminjaman dengan requestData
+    //     $peminjaman->update($requestData);
 
-        if ($request->wantsJson()) {
-            return response()->json($peminjaman);
-        }
+    //     if ($request->wantsJson()) {
+    //         return response()->json($peminjaman);
+    //     }
 
-        return back()->with('pesan', 'Data berhasil diperbarui');
-    }
+    //     return back()->with('pesan', 'Data berhasil diperbarui');
+    // }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function updateStatus(Request $request, $id)
-    {
-        // Validasi input
-        $validatedData = $request->validate([
-            'status' => 'required|in:Disetujui,Ditolak',
-        ]);
-
-        // Cari pembayaran berdasarkan ID
-        $peminjaman = Peminjaman::findOrFail($id);
-        $peminjaman->status_verifikasi = $validatedData['status'];
-        $peminjaman->save();
-
-        // Redirect kembali dengan pesan sukses (pesan hanya ditampilkan sekali)
-        return redirect()->back()->with('pesan', 'Status pembayaran berhasil diperbarui menjadi ' . $validatedData['status']);
-    }
 }

@@ -21,6 +21,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () {
     Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
     Route::get('data_peminjaman', [PeminjamanController::class, 'dataindex'])->name('dataindex.home');
+    Route::get('peminjaman/{id}', [PeminjamanController::class, 'show'])->name('peminjaman.show');
     Route::post('peminjaman/{peminjaman}/updateStatus', [PeminjamanController::class, 'updateStatus'])
     ->name('peminjaman.updateStatus');
     Route::resources([
