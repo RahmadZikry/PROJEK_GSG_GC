@@ -12,7 +12,19 @@ class Peminjaman extends Model
     /** @use HasFactory<\Database\Factories\PeminjamanFactory> */
     use HasFactory;
 
-    protected $guarded = [];
+    // Tetapkan nama tabel secara eksplisit
+    protected $table = 'peminjaman';
+
+    // Tambahkan kolom yang dapat diisi (fillable)
+    protected $fillable = [
+        'fasilitas_id',
+        'user_id',
+        'tanggal_peminjaman',
+        'tanggal_pengembalian',
+        'metode_pembayaran',
+        'bukti_pembayaran',
+        'status_verifikasi',
+    ];
 
  /**
      * Get all of the comments for the Fasilitas

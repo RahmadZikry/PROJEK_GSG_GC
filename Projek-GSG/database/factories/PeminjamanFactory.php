@@ -22,7 +22,7 @@ class PeminjamanFactory extends Factory
             'tanggal_peminjaman' => $this->faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d'),
             'tanggal_pengembalian' => $this->faker->dateTimeBetween('now', '+1 month')->format('Y-m-d'),
             'metode_pembayaran' => $this->faker->randomElement(['Tunai', 'Non_Tunai']),
-            'status_pembayaran' => $this->faker->randomElement(['Sukses', 'Gagal']),
+            'status_pembayaran' => $this->faker->randomElement(['Sukses', 'Gagal','Menunggu']),
             'status_verifikasi' => $this->faker->randomElement(['Tertunda', 'Disetujui', 'Ditolak']),
         ];
     }
