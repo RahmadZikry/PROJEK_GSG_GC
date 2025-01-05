@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link primary-hover-bg" href="data_pembayaran" aria-expanded="false">
+                            <a class="sidebar-link primary-hover-bg" href="pembayaran/data_pembayaran" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-primary rounded-3">
                                     <i class="ti ti-file-description fs-7 text-primary"></i>
                                 </span>
