@@ -27,7 +27,7 @@
                 @foreach ($peminjaman as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->user->name ?? 'Tidak Diketahui' }}</td>
+                        <td>{{ $item->user_id }}</td>
                         <td>{{ $item->nomor_hp }}</td>
                         <td>{{ $item->tanggal_peminjaman }}</td>
                         <td>{{ $item->tanggal_pengembalian }}</td>
