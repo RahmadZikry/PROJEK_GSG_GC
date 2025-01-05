@@ -49,15 +49,19 @@ https://templatemo.com/tm-540-lava-landing-page
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            Lava
-                        </a>
+                        <p class="logo">
+                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png" 
+                            class="logo-img" width="70" height="70">
+                            GSG
+                        </p>
+                        
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
                             <li class="scroll-to-section"><a href="#about" class="menu-item">Menu</a></li>
                             <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Tanggal</a>
+                            <li class="scroll-to-section"><a href="/logout" class="hide-menu ms-2 ps-1">Logout</a>
                             </li>
                             {{-- <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
@@ -116,7 +120,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <h4>Syarat Dan Ketentuan</h4>
                             <p>Adapula syarat dan ketentuan dalam peminjaman Gedung Serba Guna.</p>
                             <a href="#testimonials" class="main-button">
-                                Read More
+                                Baca Syarat
                             </a>
                         </div>
                     </div>
@@ -130,7 +134,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <h4>Formulir Peminjaman</h4>
                             <p>Isi formulir untuk peminjaman GSG sesuai kebutuhan Anda.</p>
                             <a href="peminjamanForm" class="main-button">
-                                Form
+                                Pinjam Sekarang
                             </a>
                         </div>
                     </div>
@@ -141,10 +145,10 @@ https://templatemo.com/tm-540-lava-landing-page
                         <div class="features-icon">
                             <h2>03</h2>
                             <img src="templatemo_540_lava_landing_page/assets/images/features-icon-3.png" alt="">
-                            <h4>Email Design</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
+                            <h4>Pesan</h4>
+                            <p>Cek pesan atau notifikasi dari admin terkait status peminjaman GSG Anda.</p>
                             <a href="#testimonials" class="main-button">
-                                More Detail
+                                Cek Pesan
                             </a>
                         </div>
                     </div>
@@ -202,10 +206,10 @@ https://templatemo.com/tm-540-lava-landing-page
 
     <div class="right-image-decor"></div>
 
-    <!-- ***** Testimonials Starts ***** -->
+    <!-- ***** TANGGALL Starts ***** -->
     <section class="section" id="testimonials">
-        <div class="container">
-            <div class="row">
+        {{-- <div class="container"> --}}
+            {{-- <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="center-heading">
                         <h2>Taggal Peminjaman GSG <em>Kalender</em></h2>
@@ -216,7 +220,103 @@ https://templatemo.com/tm-540-lava-landing-page
                         </p>                        
                     </div>
                 </div>
-                <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
+            </div> --}}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+            <style>
+                .calendar {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    gap: 5px;
+                    margin-top: 20px;
+                }
+
+                .day {
+                    border: 1px solid #ddd;
+                    text-align: center;
+                    padding: 10px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                .day.empty {
+                    background-color: #f5f5f5;
+                    cursor: default;
+                }
+
+                .day.green {
+                    background-color: green;
+                    color: white;
+                }
+
+                .day.orange {
+                    background-color: orange;
+                    color: white;
+                }
+
+                .day.blue {
+                    background-color: blue;
+                    color: white;
+                }
+            </style>
+        </head>
+
+        <body class="bg-light text-dark">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="center-heading">
+                    <h2>Taggal Peminjaman GSG <em>Kalender</em></h2>
+                    <p>
+                        ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan DP (sudah fix)<br>
+                        ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa berubah)<br>
+                        ● <span style="color: blue;">Blok tanggal warna biru</span> = Acara/Event PCR, misal: Wisuda
+                    </p>                        
+                </div>
+                <div id="calendar" class="calendar"></div>
+            </div>
+            
+            <script>
+                // Fungsi untuk membuat kalender
+                function createCalendar(year, month) {
+                    const calendar = document.getElementById("calendar");
+                    calendar.innerHTML = ""; // Reset kalender
+                    const date = new Date(year, month);
+                    const firstDay = date.getDay(); // Hari pertama dalam bulan
+                    const daysInMonth = new Date(year, month + 1, 0).getDate(); // Jumlah hari dalam bulan
+
+                    // Tambahkan tanggal kosong sebelum hari pertama
+                    for (let i = 0; i < firstDay; i++) {
+                        const emptyCell = document.createElement("div");
+                        emptyCell.classList.add("day", "empty");
+                        calendar.appendChild(emptyCell);
+                    }
+
+                    // Tambahkan tanggal dengan warna tertentu
+                    const bookings = {
+                        5: "green", // Tanggal 5 di-booking dengan DP
+                        12: "orange", // Tanggal 12 di-booking tanpa DP
+                        18: "blue" // Tanggal 18 adalah acara PCR
+                    };
+
+                    for (let day = 1; day <= daysInMonth; day++) {
+                        const dayCell = document.createElement("div");
+                        dayCell.classList.add("day");
+                        dayCell.innerText = day;
+
+                        // Tambahkan warna jika ada dalam objek bookings
+                        if (bookings[day]) {
+                            dayCell.classList.add(bookings[day]);
+                        }
+
+                        calendar.appendChild(dayCell);
+                    }
+                }
+
+                // Inisialisasi kalender untuk bulan dan tahun saat ini
+                const today = new Date();
+                createCalendar(today.getFullYear(), today.getMonth());
+            </script>
+        </body>
+    </section>
+                {{-- <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="owl-carousel owl-theme">
                         <div class="item service-item">
@@ -292,7 +392,7 @@ https://templatemo.com/tm-540-lava-landing-page
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ***** Testimonials Ends ***** -->
 
 

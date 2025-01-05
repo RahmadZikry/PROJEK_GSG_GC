@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulir Peminjaman</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Formulir Peminjaman GSG</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="templatemo_540_lava_landing_page/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="templatemo_540_lava_landing_page/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="templatemo_540_lava_landing_page/assets/css/templatemo-lava.css">
+    <link rel="stylesheet" href="templatemo_540_lava_landing_page/assets/css/owl-carousel.css">
 </head>
-<body class="bg-dark text-white">
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Formulir Peminjaman</h1>
+
+<body>
+    <!-- Navbar -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- Logo -->
+                        <p class="logo">
+                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png" 
+                            class="logo-img" width="70" height="70">
+                            GSG
+                        </p>
+                        <!-- Menu -->
+                        <ul class="nav">
+                            <li><a href="/pengguna">Kembali</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center text-primary mb-4">Formulir Peminjaman</h1>
+        <div class="mb-4 text-center">
+            <p class="text-muted">
+                Harap isi formulir berikut dengan data yang valid. Data ini akan digunakan untuk proses peminjaman Gedung Serba Guna (GSG).
+                Pastikan semua informasi diisi dengan benar untuk menghindari kendala dalam pemrosesan.
+            </p>
+        </div>
         <div class="card p-4">
             <div class="row">
                 <div class="col-md-8">
@@ -46,20 +89,26 @@
                             <label for="pesan" class="form-label">Pesan</label>
                             <textarea class="form-control" id="pesan" rows="3" placeholder="Pesan yang ingin anda sampaikan kepada kami."></textarea>
                         </div>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="setuju">
-                            <label class="form-check-label" for="setuju">Ceklis untuk menyetujui peminjaman GSG</label>
-                        </div>
-                        <a href="/pengguna" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-primary w-100">Kirim</button>
                     </form>
                 </div>
                 <div class="col-md-4">
-                    <img src="layout\src\assets\images\products\gsg1.jpg" alt="GSG" class="img-fluid rounded">
+                    <img src="layout/src/assets/images/products/gsg1.jpg" alt="GSG" class="img-fluid rounded">
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="templatemo_540_lava_landing_page/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/popper.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/bootstrap.min.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/owl-carousel.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/scrollreveal.min.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/waypoints.min.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/jquery.counterup.min.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/imgfix.min.js"></script>
+    <script src="templatemo_540_lava_landing_page/assets/js/custom.js"></script>
 </body>
+
 </html>
