@@ -49,15 +49,19 @@ https://templatemo.com/tm-540-lava-landing-page
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            Lava
-                        </a>
+                        <p class="logo">
+                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png" 
+                            class="logo-img" width="70" height="70">
+                            GSG
+                        </p>
+                        
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
                             <li class="scroll-to-section"><a href="#about" class="menu-item">Menu</a></li>
                             <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Tanggal</a>
+                            <li class="scroll-to-section"><a href="/logout" class="hide-menu ms-2 ps-1">Logout</a>
                             </li>
                             {{-- <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>

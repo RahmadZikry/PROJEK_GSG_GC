@@ -147,7 +147,7 @@ a.main-button-slider {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #fba70b;
+  background-color: rgb(63, 126, 244);
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -166,7 +166,7 @@ a.main-button {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #f4813f;
+  background-color: rgb(63, 126, 244);
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -188,7 +188,7 @@ button.main-button {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #f4813f;
+  background-color: rgb(63, 126, 244);
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -219,7 +219,7 @@ button.main-button:hover {
 
 .center-heading h2 em {
   font-style: normal;
-  color: #f4813f;
+  color: rgb(63, 126, 244);
 }
 
 .center-heading p {
@@ -251,11 +251,11 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #fba70b!important;
+  color: rgb(63, 126, 244)!important;
 }
 
 .background-header .nav li a.active {
-  color: #fba70b!important;
+  color: rgb(63, 126, 244)!important;
 }
 
 .header-area {
@@ -332,7 +332,7 @@ header
 }
 
 .header-area .main-nav .nav li:hover a {
-  color: #fba70b;
+  color: rgb(63, 126, 244);
 }
 
 .header-area .main-nav .nav li.submenu {
@@ -397,12 +397,12 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  background: #fba70b;
+  background: rgb(63, 126, 244);
 }
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #fba70b!important;
+  color: rgb(63, 126, 244)!important;
   padding-left: 25px;
 }
 
@@ -538,7 +538,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #fba70b;
+  color: rgb(63, 126, 244);
 }
 
 @media (max-width: 1200px) {
@@ -606,7 +606,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #fba70b!important;
+    color: rgb(63, 126, 244)!important;
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -678,9 +678,11 @@ welcome
   color: #191a20;
 }
 
+
+
 .welcome-area .header-text h1 em {
   font-style: normal;
-  color: #fba70b;
+  color: rgb(63, 126, 244);
 }
 
 .welcome-area .header-text p {
@@ -873,8 +875,8 @@ testimonials
 }
 
 #testimonials .item .testimonial-content {
-  background: rgb(244,129,63);
-  background: linear-gradient(145deg, rgba(244,129,63,1) 0%, rgba(241,85,106,1) 100%);
+  background: rgb(63, 126, 244);
+  background: linear-gradient(145deg, rgb(63, 126, 244) 0%, rgb(63, 126, 244) 100%);
   margin-left: 60px;
   padding: 40px 30px;
   text-align: center;
@@ -927,8 +929,8 @@ testimonials
   line-height: 80px;
   text-align: center;
   display: inline-block;
-  background: rgb(244,129,63);
-  background: linear-gradient(145deg, rgba(244,129,63,1) 0%, rgba(241,85,106,1) 100%);
+  background: rgb(63, 126, 244);
+  background: linear-gradient(145deg, rgb(63, 126, 244) 0%, rgb(63, 126, 244) 100%);
   position: absolute;
 }
 
@@ -944,8 +946,8 @@ testimonials
   line-height: 80px;
   text-align: center;
   display: inline-block;
-  background: rgb(244,129,63);
-  background: linear-gradient(145deg, rgba(244,129,63,1) 0%, rgba(241,85,106,1) 100%);
+  background: rgb(63, 126, 244);
+  background: linear-gradient(145deg, rgb(63, 126, 244) 0%, rgb(63, 126, 244) 100%);
   position: absolute;
 }
 
@@ -1060,7 +1062,7 @@ footer .right-content {
 
 .footer-content .right-content h2 em {
   font-style: normal;
-  color: #fba70b;
+  color: rgb(63, 96, 244);
 }
 
 .footer-content .right-content p {
@@ -1107,8 +1109,8 @@ footer .social li a {
 }
 
 footer .social li a:hover {
-  background-color: #fba70b;
-  border-color: #fba70b;
+  background-color: rgb(63, 126, 244);
+  border-color: rgb(63, 126, 244);
   color: #fff;
 }
 
