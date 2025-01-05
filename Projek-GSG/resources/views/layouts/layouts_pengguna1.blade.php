@@ -120,7 +120,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <h4>Syarat Dan Ketentuan</h4>
                             <p>Adapula syarat dan ketentuan dalam peminjaman Gedung Serba Guna.</p>
                             <a href="#testimonials" class="main-button">
-                                Read More
+                                Baca Syarat
                             </a>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <h4>Formulir Peminjaman</h4>
                             <p>Isi formulir untuk peminjaman GSG sesuai kebutuhan Anda.</p>
                             <a href="peminjamanForm" class="main-button">
-                                Form
+                                Pinjam Sekarang
                             </a>
                         </div>
                     </div>
@@ -145,10 +145,10 @@ https://templatemo.com/tm-540-lava-landing-page
                         <div class="features-icon">
                             <h2>03</h2>
                             <img src="templatemo_540_lava_landing_page/assets/images/features-icon-3.png" alt="">
-                            <h4>Email Design</h4>
-                            <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
+                            <h4>Pesan</h4>
+                            <p>Cek pesan atau notifikasi dari admin terkait status peminjaman GSG Anda.</p>
                             <a href="#testimonials" class="main-button">
-                                More Detail
+                                Cek Pesan
                             </a>
                         </div>
                     </div>
