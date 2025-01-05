@@ -5,6 +5,7 @@ use App\Http\Controllers\FormPeminjamanController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\KalenderController;
 use App\Http\Middleware\UserAccess;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'admin'], function () 
     Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
     Route::resources([
         'peminjaman' => PeminjamanController::class,
+        'kalender' => KalenderController::class,
         'notifikasi' => NotifikasiController::class,
     ]);
 });
