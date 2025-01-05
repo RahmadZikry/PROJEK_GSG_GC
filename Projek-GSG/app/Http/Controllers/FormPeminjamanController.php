@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\FormPeminjaman;
+use app\Models\Peminjaman;
+use App\Http\Requests\StorepeminjamanRequest;
+// use App\Models\FormPeminjaman;
 use App\Http\Requests\StoreFormPeminjamanRequest;
 use App\Http\Requests\UpdateFormPeminjamanRequest;
 
@@ -27,10 +28,10 @@ class FormPeminjamanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFormPeminjamanRequest $request)
+    public function store(StorepeminjamanRequest $request)
     {
-        $requestData = $request->validate([
-            'fasilitas_id' => 'required',
+        $requestData = $request->validate([ 
+            'peminjaman_id' => 'required',    
             'user_id' => 'required',
             'tanggal_peminjaman' => 'required|date',
             'tanggal_pengembalian' => 'required|date',
@@ -44,18 +45,18 @@ class FormPeminjamanController extends Controller
         ]);
 
 
-        $frompeminjaman = new FormPeminjaman(); // Membuat objek kosong untuk model Pembayaran
-        $frompeminjaman->fill($requestData); // Mengisi model dengan data yang sudah divalidasi
+        $peminjaman = new Peminjaman(); // Membuat objek kosong untuk model Pembayaran
+        $peminjaman->fill($requestData); // Mengisi model dengan data yang sudah divalidasi
 
         // Jika file image diunggah, simpan file dan tambahkan path-nya ke kolom image
         if ($request->hasFile('image')) {
-            $frompeminjaman->image = $request->file('image')->store('public/images');
+            $peminjaman->image = $request->file('image')->store('public/images');
         }
 
-        $frompeminjaman->save(); // Menyimpan data ke database
+        $peminjaman->save(); // Menyimpan data ke database
 
         if ($request->wantsJson()) {
-            return response()->json($frompeminjaman);
+            return response()->json($peminjaman);
         }
 
         return back()->with('pesan', 'Data berhasil disimpan');
@@ -64,32 +65,32 @@ class FormPeminjamanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FormPeminjaman $formPeminjaman)
-    {
-        //
-    }
+    // public function show(FormPeminjaman $formPeminjaman)
+    // {
+    //     //
+    // }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(FormPeminjaman $formPeminjaman)
-    {
-        //
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  */
+    // public function edit(FormPeminjaman $formPeminjaman)
+    // {
+    //     //
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateFormPeminjamanRequest $request, FormPeminjaman $formPeminjaman)
-    {
-        //
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  */
+    // public function update(UpdateFormPeminjamanRequest $request, FormPeminjaman $formPeminjaman)
+    // {
+    //     //
+    // }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(FormPeminjaman $formPeminjaman)
-    {
-        //
-    }
+    // /**
+    //  * Remove the specified resource from storage.
+    //  */
+    // public function destroy(FormPeminjaman $formPeminjaman)
+    // {
+    //     //
+    // }
 }

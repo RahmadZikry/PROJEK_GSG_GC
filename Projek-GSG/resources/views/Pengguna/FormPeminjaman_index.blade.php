@@ -109,6 +109,11 @@
 </head>
 
 <body>
+    @if(session('pesan'))
+    <div class="alert alert-success">
+        {{ session('pesan') }}
+    </div>
+@endif
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container d-flex justify-content-between">
@@ -130,40 +135,79 @@
         <div class="card">
             <div class="row">
                 <div class="col-md-8">
-                    <form>
-                        <div class="mb-3">
-                            <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="namaLengkap" placeholder="Nama yang bertanggung jawab atas peminjaman GSG">
+                    <form action="/peminjamanForm" method="POST" enctype="multipart/form-data">
+                        <!-- Tambahkan CSRF Token -->
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    
+                        {{-- <div class="mb-3">
+                            <label for="peminjamanId" class="form-label">ID Peminjaman</label>
+                            <input type="text" name="peminjaman_id" class="form-control" id="peminjamanId" placeholder="Masukkan ID peminjaman" required>
                         </div>
+    
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Detail pemesanan akan dikirimkan ke email ini">
-                        </div>
-                        <div class="mb-3">
-                            <label for="nomorHandphone" class="form-label">Nomor Handphone</label>
-                            <input type="tel" class="form-control" id="nomorHandphone" placeholder="Nomor yang dapat dihubungi">
-                        </div>
+                            <label for="userId" class="form-label">ID User</label>
+                            <input type="text" name="user_id" class="form-control" id="userId" placeholder="Masukkan ID user" required>
+                        </div> --}}
+    
                         <div class="mb-3">
                             <label for="tanggalPeminjaman" class="form-label">Tanggal Peminjaman</label>
-                            <input type="date" class="form-control" id="tanggalPeminjaman">
+                            <input type="date" name="tanggal_peminjaman" class="form-control" id="tanggalPeminjaman" required>
                         </div>
+    
                         <div class="mb-3">
-                            <label for="rentangWaktu" class="form-label">Rentang Waktu</label>
-                            <select class="form-select" id="rentangWaktu">
-                                <option selected>Pilih Opsi</option>
-                                <option value="1">1 hari</option>
-                                <option value="2">2 hari</option>
-                                <option value="3">3 hari</option>
+                            <label for="tanggalPengembalian" class="form-label">Tanggal Pengembalian</label>
+                            <input type="date" name="tanggal_pengembalian" class="form-control" id="tanggalPengembalian" required>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="metodePembayaran" class="form-label">Metode Pembayaran</label>
+                            <select name="metode_pembayaran" class="form-select" id="metodePembayaran" required>
+                                <option selected disabled>Pilih Metode Pembayaran</option>
+                                <option value="Tunai">Tunai</option>
+                                <option value="Non_Tunai">Non Tunai</option>
                             </select>
                         </div>
+    
+                        <div class="mb-3">
+                            <label for="buktiPembayaran" class="form-label">Bukti Pembayaran</label>
+                            <input type="file" name="bukti_pembayaran" class="form-control" id="buktiPembayaran" accept="image/jpeg,image/png,image/jpg" required>
+                        </div>
+    
+                        {{-- <div class="mb-3">
+                            <label for="statusPembayaran" class="form-label">Status Pembayaran</label>
+                            <select name="status_pembayaran" class="form-select" id="statusPembayaran" required>
+                                <option selected disabled>Pilih Status Pembayaran</option>
+                                <option value="Sukses">Sukses</option>
+                                <option value="Gagal">Gagal</option>
+                                <option value="Menunggu">Menunggu</option>
+                            </select>
+                        </div> --}}
+    
+                        {{-- <div class="mb-3">
+                            <label for="statusVerifikasi" class="form-label">Status Verifikasi</label>
+                            <select name="status_verifikasi" class="form-select" id="statusVerifikasi" required>
+                                <option selected disabled>Pilih Status Verifikasi</option>
+                                <option value="Tertunda">Tertunda</option>
+                                <option value="Disetujui">Disetujui</option>
+                                <option value="Ditolak">Ditolak</option>
+                            </select>
+                        </div> --}}
+    
                         <div class="mb-3">
                             <label for="tujuanPeminjaman" class="form-label">Tujuan Peminjaman</label>
-                            <input type="text" class="form-control" id="tujuanPeminjaman" placeholder="Tujuan meminjam GSG">
+                            <input type="text" name="tujuan_peminjaman" class="form-control" id="tujuanPeminjaman" placeholder="Tujuan meminjam GSG" required>
                         </div>
+    
+                        <div class="mb-3">
+                            <label for="nomorHp" class="form-label">Nomor HP</label>
+                            <input type="tel" name="nomor_hp" class="form-control" id="nomorHp" placeholder="Nomor yang dapat dihubungi" required>
+                        </div>
+    
                         <div class="mb-3">
                             <label for="pesan" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="pesan" rows="3" placeholder="Pesan yang ingin disampaikan"></textarea>
+                            <textarea name="pesan" class="form-control" id="pesan" rows="3" placeholder="Pesan yang ingin disampaikan" required></textarea>
                         </div>
+    
                         <button type="submit" class="btn btn-primary w-100">Kirim</button>
                     </form>
                 </div>
@@ -173,6 +217,7 @@
             </div>
         </div>
     </div>
+    
 
     <!-- Scripts -->
     <script src="templatemo_540_lava_landing_page/assets/js/jquery-2.1.0.min.js"></script>

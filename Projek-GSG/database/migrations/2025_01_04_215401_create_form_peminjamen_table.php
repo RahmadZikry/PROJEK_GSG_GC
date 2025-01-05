@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('form_peminjamen', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('peminjaman_id')->constrained('peminjamen');
+            $table->foreignId('user_id')->constrained('users');
+            $table->date('tanggal_peminjaman');
+            $table->date('tanggal_pengembalian');
+            $table->enum('metode_pembayaran', ['Tunai', 'Non_Tunai']);
+            $table->enum('status_pembayaran', ['Sukses', 'Gagal', 'Menunggu']);
+            $table->enum('status_verifikasi', ['Tertunda', 'Disetujui', 'Ditolak']);
+            $table->text('tujuan_peminjaman');
+            $table->string('nomor_hp');
+            $table->text('pesan');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
