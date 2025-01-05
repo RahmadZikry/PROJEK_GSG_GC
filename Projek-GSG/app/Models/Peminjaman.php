@@ -24,6 +24,11 @@ class Peminjaman extends Model
         return $this->hasMany(peminjaman::class, 'foreign_key', 'local_key');
     }
 
+    public function pembayaran(): BelongsTo
+    {
+        return $this->BelongsTo(Pembayaran::class, 'foreign_key', 'local_key');
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'foreign_key', 'other_key');

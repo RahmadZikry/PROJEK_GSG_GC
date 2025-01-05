@@ -58,10 +58,11 @@ class PeminjamanPembayaranSeeder extends Seeder
                 $pembayaranData = [
                     'peminjaman_id' => $peminjamanId,
                     'user_id' => $peminjaman['user_id'],
-                    'tanggal_pembayaran' => now()->toDateString(),
-                    'status_pembayaran' => 'Menunggu',
+                    'tanggal_peminjaman' => $peminjaman['tanggal_peminjaman'],
+                    'tanggal_pengembalian' => $peminjaman['tanggal_pengembalian'],
+                    'status_pembayaran' => $peminjaman['status_pembayaran'],
                     'metode_pembayaran' => $peminjaman['metode_pembayaran'],
-                    'bukti_pembayaran' => $peminjaman['bukti_pembayaran'], // Menggunakan bukti dari peminjaman
+                    'image' => $peminjaman['image'], // Correct key used here
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];

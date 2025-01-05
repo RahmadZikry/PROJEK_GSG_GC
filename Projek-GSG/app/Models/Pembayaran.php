@@ -29,9 +29,9 @@ class Pembayaran extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function peminjaman(): HasMany
+    public function peminjaman(): BelongsTo
     {
-        return $this->hasMany(peminjaman::class, 'foreign_key', 'local_key');
+        return $this->belongsTo(peminjaman::class, 'foreign_key', 'local_key');
     }
 
     /**
