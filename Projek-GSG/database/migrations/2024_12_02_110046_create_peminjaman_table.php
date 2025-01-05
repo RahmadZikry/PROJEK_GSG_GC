@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id'); // Foreign key untuk user
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
             $table->enum('metode_pembayaran', ['Tunai', 'Non_Tunai']);
-            $table->string('image')->nullable();
-            $table->enum('status_pembayaran', ['Sukses', 'Gagal', 'Menunggu']); // Status baru ditambahkan
-            $table->enum('status_verifikasi', ['Tertunda', 'Disetujui', 'Ditolak']);
-            $table->timestamps();
+            $table->string('image')->nullable(); // Untuk menyimpan bukti pembayaran
+            $table->enum('status_pembayaran', ['Sukses', 'Gagal', 'Menunggu']); // Status pembayaran
+            $table->enum('status_verifikasi', ['Tertunda', 'Disetujui', 'Ditolak']); // Status verifikasi
+            $table->string('nomor_hp'); // Nomor HP
+            $table->string('tujuan_peminjaman'); // Tujuan peminjaman
+            $table->text('pesan')->nullable(); // Pesan atau detail tambahan, optional
+            $table->timestamps(); // created_at dan updated_at
         });
+
     }
 
     /**

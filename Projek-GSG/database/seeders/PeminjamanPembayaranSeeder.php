@@ -15,13 +15,15 @@ class PeminjamanPembayaranSeeder extends Seeder
             // Seed data untuk tabel peminjaman
             $peminjamanData = [
                 [
-
                     'user_id' => 1,
                     'tanggal_peminjaman' => '2025-01-01',
                     'tanggal_pengembalian' => '2025-01-05',
                     'metode_pembayaran' => 'Tunai',
                     'status_pembayaran' => 'Sukses',
                     'status_verifikasi' => 'Tertunda',
+                    'nomor_hp' => '081234567890', // Tambahan nomor HP
+                    'tujuan_peminjaman' => 'Rapat Tim', // Tujuan peminjaman
+                    'pesan' => 'Mohon siapkan ruangan dengan proyektor.', // Pesan tambahan
                     'image' => 'public/images/bukti1.jpg', // Pastikan file ini ada di storage
                     'created_at' => now(),
                     'updated_at' => now(),
@@ -33,6 +35,9 @@ class PeminjamanPembayaranSeeder extends Seeder
                     'metode_pembayaran' => 'Non_Tunai',
                     'status_pembayaran' => 'Menunggu',
                     'status_verifikasi' => 'Ditolak',
+                    'nomor_hp' => '081298765432', // Tambahan nomor HP
+                    'tujuan_peminjaman' => 'Pelatihan Karyawan', // Tujuan peminjaman
+                    'pesan' => 'Butuh meja dan kursi tambahan.', // Pesan tambahan
                     'image' => 'public/images/bukti2.jpg',
                     'created_at' => now(),
                     'updated_at' => now(),
@@ -44,13 +49,15 @@ class PeminjamanPembayaranSeeder extends Seeder
                     'metode_pembayaran' => 'Tunai',
                     'status_pembayaran' => 'Gagal',
                     'status_verifikasi' => 'Disetujui',
+                    'nomor_hp' => '081356789012', // Tambahan nomor HP
+                    'tujuan_peminjaman' => 'Acara Sosial', // Tujuan peminjaman
+                    'pesan' => 'Mohon pastikan ruangan bersih sebelum digunakan.', // Pesan tambahan
                     'image' => 'public/images/bukti3.jpg',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
             ];
 
-            // Insert data ke tabel peminjaman
             foreach ($peminjamanData as $peminjaman) {
                 $peminjamanId = DB::table('peminjaman')->insertGetId($peminjaman);
 

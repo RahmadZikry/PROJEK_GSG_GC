@@ -10,14 +10,14 @@
 <div class="card">
     <h3 class="card-header">Peminjaman Fasilitas</h3>
     <div class="card-body">
-        <h5>Halaman Peminjaman Admin</h5>
-        <p>Halaman ini digunakan untuk menampilkan peminjaman fasilitas yang telah diajukan.</p>
-
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>User ID</th>
+                    <th>User</th>
+                    <th>Nomor HP</th>
+                    <th>Tujuan Peminjaman</th>
+                    <th>Pesan</th>
                     <th>Tanggal Peminjaman</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Metode Pembayaran</th>
@@ -31,7 +31,10 @@
                 @foreach ($peminjaman as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->user_id }}</td>
+                        <td>{{ $item->user->name ?? 'Tidak Diketahui' }}</td>
+                        <td>{{ $item->nomor_hp }}</td>
+                        <td>{{ $item->tujuan_peminjaman }}</td>
+                        <td>{{ $item->pesan ?? 'Tidak ada pesan' }}</td>
                         <td>{{ $item->tanggal_peminjaman }}</td>
                         <td>{{ $item->tanggal_pengembalian }}</td>
                         <td>{{ $item->metode_pembayaran }}</td>
