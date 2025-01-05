@@ -7,7 +7,8 @@ use App\Http\Requests\StorepeminjamanRequest;
 use App\Http\Requests\UpdatepeminjamanRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-use App\Models\Pembayaran;
+use Illuminate\Http\Request;
+
 
 class PeminjamanController extends Controller
 {
@@ -37,54 +38,54 @@ class PeminjamanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorepeminjamanRequest $request)
-    {
-        DB::beginTransaction(); // Memulai transaksi database
+    // public function store(StorepeminjamanRequest $request)
+    // {
+    //     DB::beginTransaction(); // Memulai transaksi database
 
-        try {
-            // Validasi data peminjaman
-            $peminjamanData = $request->validate([
-                'fasilitas_id' => 'required',
-                'user_id' => 'required',
-                'tanggal_peminjaman' => 'required|date',
-                'tanggal_pengembalian' => 'required|date',
-                'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
-                'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
-            ]);
+    //     try {
+    //         // Validasi data peminjaman
+    //         $peminjamanData = $request->validate([
+    //             'fasilitas_id' => 'required',
+    //             'user_id' => 'required',
+    //             'tanggal_peminjaman' => 'required|date',
+    //             'tanggal_pengembalian' => 'required|date',
+    //             'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
+    //             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+    //         ]);
 
-            // Set status_verifikasi langsung bernilai 'Tertunda'
-            $peminjamanData['status_verifikasi'] = 'Tertunda';
+    //         // Set status_verifikasi langsung bernilai 'Tertunda'
+    //         $peminjamanData['status_verifikasi'] = 'Tertunda';
 
-            // Simpan data peminjaman
-            $peminjaman = new Peminjaman();
-            $peminjaman->fill($peminjamanData);
-            $peminjaman->bukti_pembayaran = $request->file('bukti_pembayaran')->store('public/images');
-            $peminjaman->save();
+    //         // Simpan data peminjaman
+    //         $peminjaman = new Peminjaman();
+    //         $peminjaman->fill($peminjamanData);
+    //         $peminjaman->bukti_pembayaran = $request->file('bukti_pembayaran')->store('public/images');
+    //         $peminjaman->save();
 
-            // Siapkan data pembayaran
-            $pembayaranData = [
-                'peminjaman_id' => $peminjaman->id, // Ambil ID dari data peminjaman yang baru disimpan
-                'user_id' => $peminjaman->user_id,
-                'tanggal_pembayaran' => now(), // Misal pembayaran langsung dilakukan
-                'jumlah_pembayaran' => 100000, // Ganti sesuai logika jumlah pembayaran
-                'status_pembayaran' => 'Menunggu', // Default status pembayaran
-                'metode_pembayaran' => $peminjaman->metode_pembayaran,
-                'image' => $peminjaman->bukti_pembayaran, // Gunakan bukti pembayaran yang sama
-            ];
+    //         // Siapkan data pembayaran
+    //         $pembayaranData = [
+    //             'peminjaman_id' => $peminjaman->id, // Ambil ID dari data peminjaman yang baru disimpan
+    //             'user_id' => $peminjaman->user_id,
+    //             'tanggal_pembayaran' => now(), // Misal pembayaran langsung dilakukan
+    //             'jumlah_pembayaran' => 100000, // Ganti sesuai logika jumlah pembayaran
+    //             'status_pembayaran' => 'Menunggu', // Default status pembayaran
+    //             'metode_pembayaran' => $peminjaman->metode_pembayaran,
+    //             'image' => $peminjaman->bukti_pembayaran, // Gunakan bukti pembayaran yang sama
+    //         ];
 
-            // Simpan data pembayaran
-            $pembayaran = new Pembayaran();
-            $pembayaran->fill($pembayaranData);
-            $pembayaran->save();
+    //         // Simpan data pembayaran
+    //         $pembayaran = new Pembayaran();
+    //         $pembayaran->fill($pembayaranData);
+    //         $pembayaran->save();
 
-            DB::commit(); // Commit transaksi jika semua berhasil
+    //         DB::commit(); // Commit transaksi jika semua berhasil
 
-            return back()->with('pesan', 'Data peminjaman dan pembayaran berhasil disimpan.');
-        } catch (\Exception $e) {
-            DB::rollBack(); // Rollback transaksi jika terjadi kesalahan
-            return back()->withErrors('Terjadi kesalahan: ' . $e->getMessage());
-        }
-    }
+    //         return back()->with('pesan', 'Data peminjaman dan pembayaran berhasil disimpan.');
+    //     } catch (\Exception $e) {
+    //         DB::rollBack(); // Rollback transaksi jika terjadi kesalahan
+    //         return back()->withErrors('Terjadi kesalahan: ' . $e->getMessage());
+    //     }
+    // }
     /**
      * Display the specified resource.
      */
@@ -146,9 +147,19 @@ class PeminjamanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(peminjaman $peminjaman)
+    public function updateStatus(Request $request, $id)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'status' => 'required|in:Disetujui,Ditolak',
+        ]);
 
+        // Cari pembayaran berdasarkan ID
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->status_verifikasi = $validatedData['status'];
+        $peminjaman->save();
+
+        // Redirect kembali dengan pesan sukses (pesan hanya ditampilkan sekali)
+        return redirect()->back()->with('pesan', 'Status pembayaran berhasil diperbarui menjadi ' . $validatedData['status']);
     }
 }

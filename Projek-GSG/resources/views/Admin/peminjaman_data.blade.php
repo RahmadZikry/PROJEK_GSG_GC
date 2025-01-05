@@ -2,6 +2,9 @@
 
 @section('content')
 @if(session('pesan'))
+    <div class="alert alert-success">
+        {{ session('pesan') }}
+    </div>
 @endif
 
 <div class="card">
@@ -31,16 +34,7 @@
                         <td>{{ $item->status_pembayaran }}</td>
                         <td>{{ $item->status_verifikasi }}</td>
                         <td>
-                            <form action="{{ route('peminjaman.updateStatus', $item->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                <input type="hidden" name="status" value="Disetujui">
-                                <button class="btn btn-warning btn-sm" onclick="return confirm('Yakin ingin mengubah status menjadi Disetujui?')">Disetujui</button>
-                            </form>
-                            <form action="{{ route('peminjaman.updateStatus', $item->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                <input type="hidden" name="status" value="Ditolak">
-                                <button class="ml-2 btn btn-danger btn-sm" onclick="return confirm('Yakin ingin mengubah status menjadi Disetujui?')">Ditolak</button>
-                            </form>
+                            <a href="peminjaman/{{ $item->id }}" class="btn btn-primary btn-sm">Detail</a>
                         </td>
                     </tr>
                 @endforeach
