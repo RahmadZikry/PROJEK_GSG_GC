@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Peminjaman GSG') }}</title>
-    <link rel="icon" type="image/png" href="templatemo_569_edu_meeting/assets/images/logo-1.png">
+    <link rel="icon" type="image/png" href="templatemo_540_lava_landing_page/assets/images/logosss.png">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">

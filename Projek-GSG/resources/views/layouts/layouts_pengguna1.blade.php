@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <title>Pengguna</title>
-    <link rel="icon" type="image/png" href="templatemo_569_edu_meeting/assets/images/logo-1.png">
+    <link rel="icon" type="image/png" href="templatemo_540_lava_landing_page/assets/images/logosss.png">
 <!--
 
 Lava Landing Page

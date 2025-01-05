@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Keuangan</title>
-    <link rel="icon" type="image/png" href="templatemo_569_edu_meeting/assets/images/logo-1.png">
+    <link rel="icon" type="image/png" href="templatemo_540_lava_landing_page/assets/images/logosss.png">
     <link rel="stylesheet" href="layout/src/assets/css/styles.min.css" />
     <style>
         /* Custom CSS */
