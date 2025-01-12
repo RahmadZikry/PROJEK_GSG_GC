@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('form_peminjamen', function (Blueprint $table) {
+        Schema::create('form_peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('peminjaman_id')->constrained('peminjamen');
+            $table->foreignId('peminjaman_id')->constrained('peminjaman');
             $table->foreignId('user_id')->constrained('users');
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('form_peminjamen');
+        Schema::dropIfExists('form_peminjaman');
     }
 };

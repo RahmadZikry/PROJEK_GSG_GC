@@ -13,25 +13,26 @@ class PeminjamanPembayaranSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seed data untuk tabel peminjaman
-        $faker = Faker::create();
+    // Seed data untuk tabel peminjaman
+    $faker = Faker::create('id_ID');
 
-        foreach (range(1, 50) as $index) {
-            Peminjaman::create([
-                'user_id' => $faker->numberBetween(1, 10),
-                'tanggal_peminjaman' => $faker->dateTimeBetween('-1 months', 'now'),
-                'tanggal_pengembalian' => $faker->dateTimeBetween('now', '+1 months'),
-                'metode_pembayaran' => $faker->randomElement(['Tunai', 'Non_Tunai']),
-                'image' => 'public/images/bukti' . $faker->numberBetween(1, 5) . '.jpg',
-                'status_pembayaran' => $faker->randomElement(['Sukses', 'Gagal', 'Menunggu']),
-                'status_verifikasi' => $faker->randomElement(['Disetujui', 'Ditolak', 'Tertunda']),
-                'nomor_hp' => $faker->numerify('08##########'),
-                'tujuan_peminjaman' => $faker->sentence(3), // Tujuan singkat
-                'pesan' => $faker->sentence(6), // Pesan tambahan
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+    foreach (range(1, 50) as $index) {
+        Peminjaman::create([
+            'user_id' => $faker->numberBetween(1, 10),
+            'tanggal_peminjaman' => $faker->dateTimeBetween('-1 months', 'now'),
+            'tanggal_pengembalian' => $faker->dateTimeBetween('now', '+1 months'),
+            'metode_pembayaran' => $faker->randomElement(['Tunai', 'Non Tunai']),
+            'image' => 'public/images/bukti' . $faker->numberBetween(1, 5) . '.jpg',
+            'status_pembayaran' => $faker->randomElement(['Berhasil', 'Gagal', 'Menunggu']),
+            'status_verifikasi' => $faker->randomElement(['Disetujui', 'Ditolak', 'Tertunda']),
+            'nomor_hp' => $faker->numerify('08##########'),
+            'tujuan_peminjaman' => $faker->sentence(3, true), // Tujuan singkat dalam bahasa Indonesia
+            'pesan' => $faker->sentence(6, true), // Pesan tambahan dalam bahasa Indonesia
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
         // $peminjamanData = [
         //     [
         //         'user_id' => 1,
