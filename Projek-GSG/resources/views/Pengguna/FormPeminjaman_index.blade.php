@@ -131,7 +131,7 @@
         </p>
 
         <!-- Pesan Session Success -->
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -145,41 +145,32 @@
                         @csrf
                         <div class="mb-3">
                             <label for="tanggalPeminjaman" class="form-label">Tanggal Peminjaman</label>
-                            <input type="date" name="tanggal_peminjaman" class="form-control" id="tanggal_peminjaman" required>
+                            <input type="date" name="tanggal_peminjaman" class="form-control" id="tanggal_peminjaman"
+                                required>
                         </div>
 
                         <div class="mb-3">
                             <label for="tanggalPengembalian" class="form-label">Tanggal Pengembalian</label>
-                            <input type="date" name="tanggal_pengembalian" class="form-control" id="tanggal_pengembalian" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="metodePembayaran" class="form-label">Metode Pembayaran</label>
-                            <select name="metode_pembayaran" class="form-select" id="metode_pembayaran" required>
-                                <option selected disabled>Pilih Metode Pembayaran</option>
-                                <option value="Tunai">Tunai</option>
-                                <option value="Non_Tunai">Non Tunai</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="buktiPembayaran" class="form-label">Bukti Pembayaran</label>
-                            <input type="file" name="image" class="form-control" id="image" accept="image/jpeg,image/png,image/jpg" required>
+                            <input type="date" name="tanggal_pengembalian" class="form-control"
+                                id="tanggal_pengembalian" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="tujuanPeminjaman" class="form-label">Tujuan Peminjaman</label>
-                            <input type="text" name="tujuan_peminjaman" class="form-control" id="tujuan_peminjaman" placeholder="Tujuan meminjam GSG" required>
+                            <input type="text" name="tujuan_peminjaman" class="form-control" id="tujuan_peminjaman"
+                                placeholder="Tujuan meminjam GSG" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="nomorHp" class="form-label">Nomor HP</label>
-                            <input type="tel" name="nomor_hp" class="form-control" id="nomorHp" placeholder="Nomor yang dapat dihubungi" required>
+                            <input type="tel" name="nomor_hp" class="form-control" id="nomorHp"
+                                placeholder="Nomor yang dapat dihubungi" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="pesan" class="form-label">Pesan</label>
-                            <textarea name="pesan" class="form-control" id="pesan" rows="3" placeholder="Pesan yang ingin disampaikan" required></textarea>
+                            <textarea name="pesan" class="form-control" id="pesan" rows="3" placeholder="Pesan yang ingin disampaikan"
+                                required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">Kirim</button>

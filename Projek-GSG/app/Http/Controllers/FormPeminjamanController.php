@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Peminjaman;
-use Illuminate\Http\Request;
-use App\Http\Requests\StorepeminjamanRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StorepeminjamanRequest;
 // use App\Models\FormPeminjaman;
 
 class FormPeminjamanController extends Controller
@@ -35,8 +34,6 @@ class FormPeminjamanController extends Controller
         $validatedData = $request->validate([
             'tanggal_peminjaman' => 'required|date',
             'tanggal_pengembalian' => 'required|date|after:tanggal_peminjaman',
-            'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'tujuan_peminjaman' => 'required|string|max:255',
             'nomor_hp' => 'required|string|min:10|max:13',
             'pesan' => 'nullable|string|max:500',
@@ -45,20 +42,24 @@ class FormPeminjamanController extends Controller
         // Upload gambar
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/bukti_pembayaran');
-            $validatedData['image'] = str_replace('public/', '', $path);
+            $validatedData['image'] = Storage::url($path); // Menggunakan Storage::url untuk mendapatkan URL gambar
+        } else {
+            $validatedData['image'] = null; // Set null jika tidak ada gambar
         }
 
         // Tambahkan data tambahan
         $validatedData['user_id'] = Auth::id();
         $validatedData['status_verifikasi'] = 'Tertunda';
-        $validatedData['status_pembayaran'] = 'Menunggu';
+        $validatedData['status_pembayaran'] = 'Menunggu'; // Pilih salah satu status pembayaran
+        $validatedData['harga'] = $validatedData['harga'] ?? 0; // Set null jika tidak ada harga yang ditentukan
 
         // Simpan ke database
-        Peminjaman::create($validatedData);
+        $peminjaman = Peminjaman::create($validatedData);
 
         // Kembalikan respons
         return redirect()->back()->with('success', 'Peminjaman berhasil diajukan!');
     }
+
     /**
      * Display the specified resource.
      */

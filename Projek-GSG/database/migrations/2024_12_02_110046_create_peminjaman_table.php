@@ -23,10 +23,11 @@ return new class extends Migration
             $table->string('nomor_hp'); // Nomor HP
             $table->string('tujuan_peminjaman'); // Tujuan peminjaman
             $table->text('pesan')->nullable(); // Pesan atau detail tambahan, optional
+            $table->decimal('harga', 10, 2)->nullable()->change(); // Kolom harga, dengan 2 angka desimal
             $table->timestamps(); // created_at dan updated_at
         });
-
     }
+
 
     /**
      * Reverse the migrations.
