@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\peminjaman;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorepeminjamanRequest;
 use App\Http\Requests\UpdatepeminjamanRequest;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 
 
 class PeminjamanController extends Controller
@@ -125,52 +126,63 @@ class PeminjamanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit(peminjaman $peminjaman)
-    // {
-    //     return view('admin.peminjaman_edit', [
-    //         'layout' => 'layouts.layouts_admin',
-    //         'peminjaman' => $peminjaman
-    //     ]);
-    // }
+    public function edit($id)
+    {
+        // Mencari peminjaman berdasarkan ID
+        $peminjaman = Peminjaman::findOrFail($id);
+
+        // Menampilkan form edit dengan data peminjaman
+        return view('admin.peminjaman_edit', compact('peminjaman'));
+    }
+
 
     // /**
     //  * Update the specified resource in storage.
     //  */
-    // public function update(UpdatepeminjamanRequest $request, peminjaman $peminjaman)
-    // {
-    //     $requestData = $request->validate([
-    //         'fasilitas_id' => 'required',
-    //         'user_id' => 'required',
-    //         'tanggal_peminjaman' => 'required',
-    //         'tanggal_pengembalian' => 'required',
-    //         'metode_perbayaran' => 'required|in:Tunai,Non_Tunai',
-    //         'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
-    //     ]);
+    public function update(UpdatePeminjamanRequest $request, $id)
+    {
+        // Mencari peminjaman berdasarkan ID
+        $peminjaman = Peminjaman::findOrFail($id);
 
-    //     // Temukan data peminjaman berdasarkan ID
-    //     $peminjaman = Peminjaman::findOrFail($peminjaman);
+        // Validasi input
+        $validatedData = $request->validate([
+            'tanggal_peminjaman' => 'required|date',
+            'tanggal_pengembalian' => 'required|date|after:tanggal_peminjaman',
+            'tujuan_peminjaman' => 'required|string|max:255',
+            'nomor_hp' => 'required|string|min:10|max:13',
+            'pesan' => 'nullable|string|max:500',
+        ]);
 
-    //     // Set status_verifikasi tetap bernilai 'Tertunda' jika tidak diubah
-    //     $requestData['status_verifikasi'] = $peminjaman->status_verifikasi ?? 'Tertunda';
+        // Upload gambar (jika ada gambar baru yang diunggah)
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($peminjaman->image) {
+                Storage::delete('public/' . $peminjaman->image);
+            }
 
-    //     // Jika ada file bukti_pembayaran baru, ganti file lama
-    //     if ($request->hasFile('image')) {
-    //         // Hapus file lama jika ada
-    //         if ($peminjaman->bukti_pembayaran) {
-    //             Storage::delete($peminjaman->bukti_pembayaran);
-    //         }
-    //         $requestData['image'] = $request->file('image')->store('public');
-    //     }
+            // Upload gambar baru
+            $path = $request->file('image')->store('public/bukti_pembayaran');
+            $validatedData['image'] = Storage::url($path); // Mendapatkan URL gambar
+        }
 
-    //     // Update data peminjaman dengan requestData
-    //     $peminjaman->update($requestData);
+        // Jika tidak ada gambar yang diunggah, set null
+        if (!$request->hasFile('image')) {
+            $validatedData['image'] = $peminjaman->image; // Menggunakan gambar lama jika tidak ada gambar baru
+        }
 
-    //     if ($request->wantsJson()) {
-    //         return response()->json($peminjaman);
-    //     }
+        // Update data lainnya
+        $validatedData['user_id'] = Auth::id();
+        $validatedData['status_verifikasi'] = $validatedData['status_verifikasi'] ?? $peminjaman->status_verifikasi; // Mempertahankan status verifikasi jika tidak diubah
+        $validatedData['status_pembayaran'] = $validatedData['status_pembayaran'] ?? $peminjaman->status_pembayaran; // Mempertahankan status pembayaran jika tidak diubah
+        $validatedData['harga'] = $validatedData['harga'] ?? $peminjaman->harga; // Mempertahankan harga jika tidak diubah
 
-    //     return back()->with('pesan', 'Data berhasil diperbarui');
-    // }
+        // Perbarui data peminjaman
+        $peminjaman->update($validatedData);
+
+        // Kembalikan respons
+        return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil diperbarui!');
+    }
+
 
     /**
      * Remove the specified resource from storage.
