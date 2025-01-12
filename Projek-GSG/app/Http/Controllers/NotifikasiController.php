@@ -14,8 +14,8 @@ class NotifikasiController extends Controller
      */
     public function index()
     {
-        $notifikasi['notifikasi'] = Notifikasi::latest()->paginate(10);
-        return view('Admin.notifikasi_index', $notifikasi);
+        $notifikasi = Notifikasi::paginate(10); // Adjust the pagination as needed
+        return view('admin.notifikasi_index', compact('notifikasi'));
     }
 
     /**
@@ -24,7 +24,7 @@ class NotifikasiController extends Controller
     public function create()
     {
         // $data['ListUser'] = User::orderBy('nama', 'asc')->get();
-        return view ('Admin.notifikasi_create');
+        return view('Admin.notifikasi_create');
     }
 
     /**
@@ -36,7 +36,7 @@ class NotifikasiController extends Controller
             'notifikasi_id' => 'required',
             'user_id' => 'required',
             'judul_notifikasi' => 'required',
-            'isi_notifikasi'=> 'required',
+            'isi_notifikasi' => 'required',
             'tanggal_kirim' => 'required',
             'status_baca' => 'required|in:Dibaca,Belum Dibaca',
         ]);
@@ -44,7 +44,7 @@ class NotifikasiController extends Controller
         $notifikasi->fill($requestData); //mengisi var model dengan data yang sudah divalidasi requestData
         $notifikasi->save(); //menyimpan data ke database
         return back()->with('pesan', 'Data berhasil disimpan');
-        if (request()->wantsJson()){
+        if (request()->wantsJson()) {
             return response()->json($notifikasi);
         }
     }

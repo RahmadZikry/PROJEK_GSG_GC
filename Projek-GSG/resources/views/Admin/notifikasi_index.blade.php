@@ -53,7 +53,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center">
-                {{ $peminjaman->links('pagination::bootstrap-4') }}
+                {{ $notifikasi->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

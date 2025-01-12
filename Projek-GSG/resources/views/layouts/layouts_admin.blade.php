@@ -60,14 +60,6 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link success-hover-bg" href="kalender" aria-expanded="false">
-                                <span class="p-2 aside-icon bg-light-success rounded-pill">
-                                    <i class="ti ti-calendar fs-7 text-success"></i>
-                                </span>
-                                <span class="hide-menu ms-2 ps-1">Tanggal Peminjaman</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
                             <a class="sidebar-link indigo-hover-bg" href="notifikasi" aria-expanded="false">
                                 <span class="p-2 aside-icon bg-light-indigo rounded-0">
                                     <i class="ti ti-bell fs-7 text-indigo"></i>
