@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
 
     <title>Pengguna</title>
     <link rel="icon" type="image/png" href="templatemo_540_lava_landing_page/assets/images/logosss.png">
-<!--
+    <!--
 
 Lava Landing Page
 
@@ -51,12 +52,12 @@ https://templatemo.com/tm-540-lava-landing-page
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <p class="logo">
-                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png"
-                            class="logo-img" width="70" height="70">
+                            <img src="templatemo_540_lava_landing_page/assets/images/logosss.png" class="logo-img"
+                                width="70" height="70">
                             GSG
                         </p>
 
-                        @if(session('success'))
+                        @if (session('success'))
                             <div class="mt-3 alert alert-success">
                                 {{ session('success') }}
                             </div>
@@ -103,7 +104,8 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>Reservasi Gedung Serba Guna <em>GSG</em></h1>
-                        <p>Gedung serbaguna Politeknik Calteks Riau merupakan fasilitas yang bagus dan dapat terbilang mewah.
+                        <p>Gedung serbaguna Politeknik Calteks Riau merupakan fasilitas yang bagus dan dapat terbilang
+                            mewah.
                             Untuk harga penyewaannya juga termasuk murah dan peminjamannya juga sangatlah gampang.</p>
                         <a href="#about" class="main-button-slider">KNOW US BETTER</a>
                     </div>
@@ -123,7 +125,8 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>01</h2>
-                            <img src="templatemo_540_lava_landing_page/assets/images/features-icon-1.png" alt="">
+                            <img src="templatemo_540_lava_landing_page/assets/images/features-icon-1.png"
+                                alt="">
                             <h4>Syarat Dan Ketentuan</h4>
                             <p>Adapula syarat dan ketentuan dalam peminjaman Gedung Serba Guna.</p>
                             <a href="/syarat" class="main-button">
@@ -137,7 +140,8 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>02</h2>
-                            <img src="templatemo_540_lava_landing_page/assets/images/features-icon-2.png" alt="">
+                            <img src="templatemo_540_lava_landing_page/assets/images/features-icon-2.png"
+                                alt="">
                             <h4>Formulir Peminjaman</h4>
                             <p>Isi formulir untuk peminjaman GSG sesuai kebutuhan Anda.</p>
                             <a href="peminjamanForm" class="main-button">
@@ -151,7 +155,8 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>03</h2>
-                            <img src="templatemo_540_lava_landing_page/assets/images/features-icon-3.png" alt="">
+                            <img src="templatemo_540_lava_landing_page/assets/images/features-icon-3.png"
+                                alt="">
                             <h4>Pesan</h4>
                             <p>Cek pesan atau notifikasi dari admin terkait status peminjaman GSG Anda.</p>
                             <a href="/pesan" class="main-button">
@@ -173,7 +178,8 @@ https://templatemo.com/tm-540-lava-landing-page
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="templatemo_540_lava_landing_page/assets/images/GSG2.png" class="mx-auto rounded img-fluid d-block" alt="App">
+                    <img src="templatemo_540_lava_landing_page/assets/images/GSG2.png"
+                        class="mx-auto rounded img-fluid d-block" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
@@ -181,12 +187,15 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="templatemo_540_lava_landing_page/assets/images/about-icon-01.png" alt="">
                             <div class="text">
                                 <h4>Deskripsi Umum Gedung Serba Guna</h4>
-                                <p>GSG terletak di sebelah barat Kampus Utama Politeknik Caltex Riau dan berkapasitas 1500–2000 orang.
-                                    Gedung ini mulai beroperasi pada 2012 dan digunakan pertama kali untuk acara wisuda.</p>
+                                <p>GSG terletak di sebelah barat Kampus Utama Politeknik Caltex Riau dan berkapasitas
+                                    1500–2000 orang.
+                                    Gedung ini mulai beroperasi pada 2012 dan digunakan pertama kali untuk acara wisuda.
+                                </p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
-                            <img src="templatemo_540_lava_landing_page/assets/images/about-icon-02.png" alt="">
+                            <img src="templatemo_540_lava_landing_page/assets/images/about-icon-02.png"
+                                alt="">
                             <div class="text">
                                 <h4>Fasilitas yang Tersedia di GSG</h4>
                                 <p>GSG dilengkapi dengan dua layar proyektor, panggung, sistem AC dan soundsystem,
@@ -194,7 +203,8 @@ https://templatemo.com/tm-540-lava-landing-page
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="templatemo_540_lava_landing_page/assets/images/about-icon-03.png" alt="">
+                            <img src="templatemo_540_lava_landing_page/assets/images/about-icon-03.png"
+                                alt="">
                             <div class="text">
                                 <h4>Pemanfaatan dan Pengelolaan GSG</h4>
                                 <p>GSG digunakan untuk acara kampus seperti wisuda dan disewa untuk kegiatan eksternal,
@@ -213,7 +223,7 @@ https://templatemo.com/tm-540-lava-landing-page
     <!-- ***** TANGGALL Starts ***** -->
     <section class="section" id="testimonials">
         {{-- <div class="container"> --}}
-            {{-- <div class="row">
+        {{-- <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="center-heading">
                         <h2>Taggal Peminjaman GSG <em>Kalender</em></h2>
@@ -225,43 +235,70 @@ https://templatemo.com/tm-540-lava-landing-page
                     </div>
                 </div>
             </div> --}}
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-            <style>
-                .calendar {
-                    display: grid;
-                    grid-template-columns: repeat(7, 1fr);
-                    gap: 5px;
-                    margin-top: 20px;
-                }
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+        <style>
+            .calendar {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+                margin-top: 20px;
+            }
 
-                .day {
-                    border: 1px solid #ddd;
-                    text-align: center;
-                    padding: 10px;
-                    border-radius: 4px;
-                    cursor: pointer;
-                }
+            .day {
+                border: 1px solid #ddd;
+                text-align: center;
+                padding: 10px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
 
-                .day.empty {
-                    background-color: #f5f5f5;
-                    cursor: default;
-                }
+            .day.empty {
+                background-color: #f5f5f5;
+                cursor: default;
+            }
 
-                .day.green {
-                    background-color: green;
-                    color: white;
-                }
+            .day.green {
+                background-color: green;
+                color: white;
+            }
 
-                .day.orange {
-                    background-color: orange;
-                    color: white;
-                }
+            .day.orange {
+                background-color: orange;
+                color: white;
+            }
 
-                .day.blue {
-                    background-color: blue;
-                    color: white;
-                }
-            </style>
+            .day.blue {
+                background-color: blue;
+                color: white;
+            }
+
+            .calendar-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 15px;
+                font-size: 1.2em;
+            }
+
+            .calendar-controls .btn {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                margin: 0 5px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .calendar-controls .btn:hover {
+                background-color: #0056b3;
+            }
+
+            .current-month {
+                font-weight: bold;
+                margin: 0 10px;
+            }
+        </style>
         </head>
 
         <body class="bg-light text-dark">
@@ -269,22 +306,42 @@ https://templatemo.com/tm-540-lava-landing-page
                 <div class="center-heading">
                     <h2>Taggal Peminjaman GSG <br><em>Kalender</em></h2>
                     <p>
-                        ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan DP (sudah fix)<br>
-                        ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa berubah)<br>
+                        ● <span style="color: green;">Blok tanggal warna hijau</span> = Tanggal sudah di-booking dengan
+                        DP (sudah fix)<br>
+                        ● <span style="color: orange;">Blok tanggal warna orange</span> = Booking tanpa DP (bisa
+                        berubah)<br>
                         ● <span style="color: blue;">Blok tanggal warna biru</span> = Acara/Event PCR, misal: Wisuda
                     </p>
                 </div>
-                <div id="calendar" class="calendar"></div>
+
+                <!-- Kontrol Navigasi -->
+                <div class="calendar-controls">
+                    <button id="prev-month" class="btn btn-primary">⟨</button>
+                    <span id="current-month" class="current-month">Januari 2025</span>
+                    <button id="next-month" class="btn btn-primary">⟩</button>
+                </div>
+
+                <div id="calendar" class="calendar"
+                    style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; padding: 10px;"></div>
             </div>
 
             <script>
-                // Fungsi untuk membuat kalender
+                const bookings = @json($peminjaman);
+                const monthNames = [
+                    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+                ];
+
+                let currentYear = new Date().getFullYear();
+                let currentMonth = new Date().getMonth();
+
                 function createCalendar(year, month) {
+                    const bookingMap = {}; // Reset setiap kali bulan diganti
                     const calendar = document.getElementById("calendar");
                     calendar.innerHTML = ""; // Reset kalender
                     const date = new Date(year, month);
-                    const firstDay = date.getDay(); // Hari pertama dalam bulan
-                    const daysInMonth = new Date(year, month + 1, 0).getDate(); // Jumlah hari dalam bulan
+                    const firstDay = date.getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
                     // Tambahkan tanggal kosong sebelum hari pertama
                     for (let i = 0; i < firstDay; i++) {
@@ -293,34 +350,76 @@ https://templatemo.com/tm-540-lava-landing-page
                         calendar.appendChild(emptyCell);
                     }
 
-                    // Tambahkan tanggal dengan warna tertentu
-                    const bookings = {
-                        5: "green", // Tanggal 5 di-booking dengan DP
-                        12: "orange", // Tanggal 12 di-booking tanpa DP
-                        18: "blue" // Tanggal 18 adalah acara PCR
-                    };
+                    // Konversi data booking ke bookingMap
+                    bookings.forEach((booking) => {
+                        const date = new Date(booking.tanggal_peminjaman);
+                        if (isNaN(date)) {
+                            console.log("Invalid date:", booking.tanggal_peminjaman);
+                            return; // Skip invalid dates
+                        }
+                        if (date.getMonth() === month && date.getFullYear() === year) {
+                            const day = date.getDate();
 
+                            // Logika pewarnaan
+                            if (booking.status_pembayaran === "sukses" && booking.status_verifikasi === "disetujui") {
+                                bookingMap[day] = "green"; // Booking sukses dan diverifikasi
+                            } else if (booking.status_verifikasi === "disetujui") {
+                                bookingMap[day] = "orange"; // Booking diverifikasi tanpa pembayaran sukses
+                            } else if (booking.status_pembayaran === "event" && booking.status_verifikasi === "event") {
+                                bookingMap[day] = "blue";
+                            }
+                        }
+                    });
+
+                    // Tambahkan tanggal dengan warna tertentu
                     for (let day = 1; day <= daysInMonth; day++) {
                         const dayCell = document.createElement("div");
                         dayCell.classList.add("day");
                         dayCell.innerText = day;
 
-                        // Tambahkan warna jika ada dalam objek bookings
-                        if (bookings[day]) {
-                            dayCell.classList.add(bookings[day]);
+                        if (bookingMap[day]) {
+                            dayCell.classList.add(bookingMap[day]);
                         }
 
                         calendar.appendChild(dayCell);
                     }
+
+                    // Perbarui tampilan bulan dan tahun
+                    document.getElementById("current-month").innerText = `${monthNames[month]} ${year}`;
                 }
 
-                // Inisialisasi kalender untuk bulan dan tahun saat ini
-                const today = new Date();
-                createCalendar(today.getFullYear(), today.getMonth());
+                function setupCalendar() {
+                    // Event listener untuk tombol navigasi
+                    document.getElementById("prev-month").addEventListener("click", () => {
+                        currentMonth--;
+                        if (currentMonth < 0) {
+                            currentMonth = 11;
+                            currentYear--;
+                        }
+                        createCalendar(currentYear, currentMonth);
+                    });
+
+                    document.getElementById("next-month").addEventListener("click", () => {
+                        currentMonth++;
+                        if (currentMonth > 11) {
+                            currentMonth = 0;
+                            currentYear++;
+                        }
+                        createCalendar(currentYear, currentMonth);
+                    });
+
+                    // Inisialisasi kalender untuk bulan dan tahun saat ini
+                    createCalendar(currentYear, currentMonth);
+                }
+
+                // Jalankan setup saat halaman dimuat
+                document.addEventListener("DOMContentLoaded", setupCalendar);
             </script>
         </body>
+
     </section>
-                {{-- <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
+
+    {{-- <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="owl-carousel owl-theme">
                         <div class="item service-item">
@@ -486,4 +585,5 @@ https://templatemo.com/tm-540-lava-landing-page
     <script src="templatemo_540_lava_landing_page/assets/js/custom.js"></script>
 
 </body>
+
 </html>

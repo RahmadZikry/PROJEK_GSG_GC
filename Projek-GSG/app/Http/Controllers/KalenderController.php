@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kalender;
+use App\Models\Peminjaman;
 use App\Http\Requests\StorekalenderRequest;
 use App\Http\Requests\UpdatekalenderRequest;
 
@@ -13,7 +14,12 @@ class KalenderController extends Controller
      */
     public function index()
     {
-        return view('admin.kalender_index');
+        $peminjaman = Peminjaman::select('tanggal_peminjaman', 'status_pembayaran', 'status_verifikasi')->get();
+        if (request()->wantsJson()) {
+            return response()->json($peminjaman);
+        }
+        $data['peminjaman'] = $peminjaman;
+        return view('pengguna', compact('peminjaman'));
     }
 
     /**
