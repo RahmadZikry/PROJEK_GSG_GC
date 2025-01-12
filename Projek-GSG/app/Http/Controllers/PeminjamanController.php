@@ -67,61 +67,6 @@ class PeminjamanController extends Controller
         $peminjaman = Peminjaman::findOrFail($id); // Cari data berdasarkan ID
         return view('admin.peminjaman_show', compact('peminjaman')); // Kirim data ke view
     }
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(StorepeminjamanRequest $request)
-    // {
-    //     DB::beginTransaction(); // Memulai transaksi database
-
-    //     try {
-    //         // Validasi data peminjaman
-    //         $peminjamanData = $request->validate([
-    //             'fasilitas_id' => 'required',
-    //             'user_id' => 'required',
-    //             'tanggal_peminjaman' => 'required|date',
-    //             'tanggal_pengembalian' => 'required|date',
-    //             'metode_pembayaran' => 'required|in:Tunai,Non_Tunai',
-    //             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:5000',
-    //         ]);
-
-    //         // Set status_verifikasi langsung bernilai 'Tertunda'
-    //         $peminjamanData['status_verifikasi'] = 'Tertunda';
-
-    //         // Simpan data peminjaman
-    //         $peminjaman = new Peminjaman();
-    //         $peminjaman->fill($peminjamanData);
-    //         $peminjaman->bukti_pembayaran = $request->file('bukti_pembayaran')->store('public/images');
-    //         $peminjaman->save();
-
-    //         // Siapkan data pembayaran
-    //         $pembayaranData = [
-    //             'peminjaman_id' => $peminjaman->id, // Ambil ID dari data peminjaman yang baru disimpan
-    //             'user_id' => $peminjaman->user_id,
-    //             'tanggal_pembayaran' => now(), // Misal pembayaran langsung dilakukan
-    //             'jumlah_pembayaran' => 100000, // Ganti sesuai logika jumlah pembayaran
-    //             'status_pembayaran' => 'Menunggu', // Default status pembayaran
-    //             'metode_pembayaran' => $peminjaman->metode_pembayaran,
-    //             'image' => $peminjaman->bukti_pembayaran, // Gunakan bukti pembayaran yang sama
-    //         ];
-
-    //         // Simpan data pembayaran
-    //         $pembayaran = new Pembayaran();
-    //         $pembayaran->fill($pembayaranData);
-    //         $pembayaran->save();
-
-    //         DB::commit(); // Commit transaksi jika semua berhasil
-
-    //         return back()->with('pesan', 'Data peminjaman dan pembayaran berhasil disimpan.');
-    //     } catch (\Exception $e) {
-    //         DB::rollBack(); // Rollback transaksi jika terjadi kesalahan
-    //         return back()->withErrors('Terjadi kesalahan: ' . $e->getMessage());
-    //     }
-    // }
-    /**
-     * Display the specified resource.
-     */
-
 
     /**
      * Show the form for editing the specified resource.
@@ -134,11 +79,7 @@ class PeminjamanController extends Controller
         // Menampilkan form edit dengan data peminjaman
         return view('admin.peminjaman_edit', compact('peminjaman'));
     }
-
-
-    // /**
-    //  * Update the specified resource in storage.
-    //  */
+    
     public function update(UpdatePeminjamanRequest $request, $id)
     {
         // Mencari peminjaman berdasarkan ID
