@@ -32,6 +32,7 @@
                         <td>{{ $item->status_verifikasi }}</td>
                         <td>
                             <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-warning btn-sm">Detail</a>
+                            <a href="{{ route('peminjaman.edit', $item->id) }}" class="ml-2 btn btn-danger btn-sm">Edit</a>
                         </td>
                     </tr>
                 @endforeach
