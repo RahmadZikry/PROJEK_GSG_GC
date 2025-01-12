@@ -68,8 +68,21 @@ https://templatemo.com/tm-540-lava-landing-page
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
                             <li class="scroll-to-section"><a href="#about" class="menu-item">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Tanggal</a>
+                            <li class="scroll-to-section" style="margin-right: 300px;"><a href="#testimonials" class="menu-item">Tanggal</a>
                             <li class="scroll-to-section"><a href="/logout" class="hide-menu ms-2 ps-1">--Logout--</a>
+                            </li>
+                            <li class="submenu"><a href="javascript:;">
+                                @if (Auth::check())
+                                    {{ Auth::user()->name }} <!-- Menampilkan nama pengguna yang login -->
+                                @else
+                                    Login
+                                @endif
+                                <img style="margin-left: 10px;" src="https://i.pinimg.com/736x/ea/56/af/ea56af3c45db2a9bea14bf9cec3a01ff.jpg" 
+                                alt="" width="45" height="45" class="rounded-circle">
+                            </a><ul>
+                                <li><a href="/profil" class="hide-menu ms-2 ps-1">My Profile</a></li>
+                            </ul></li>
+                            <li class="scroll-to-section">
                             </li>
                             {{-- <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
@@ -80,7 +93,7 @@ https://templatemo.com/tm-540-lava-landing-page
                                     <li><a href="" class="menu-item">Blog</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li> --}}
+                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li> --}} 
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

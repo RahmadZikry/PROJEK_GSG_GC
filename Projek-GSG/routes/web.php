@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PesanController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SyaratController;
 use App\Http\Controllers\KalenderController;
 use App\Http\Controllers\NotifikasiController;
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth', UserAccess::class . 'pengguna'], function 
         'peminjamanForm' => FormPeminjamanController::class,
         'syarat' => SyaratController::class,
         'pesan' => PesanController::class,
+        'profil' => ProfilController::class,
     ]);
 });
 
